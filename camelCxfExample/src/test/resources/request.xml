@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:tns="http://ws.maxcheung.com/product-service" xmlns:typens="http://ws.maxcheung.com/product-service/types">
+	<soapenv:Header />
+	<soapenv:Body>
+		<typens:productRequest>
+			<id>P02</id>
+		</typens:productRequest>
+	</soapenv:Body>
+</soapenv:Envelope>

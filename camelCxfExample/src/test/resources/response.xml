@@ -1,0 +1,9 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Body>
+		<ns2:productResponse xmlns:ns2="http://ws.maxcheung.com/product-service/types">
+			<id>P02</id>
+			<description>Mobile</description>
+			<price>14000</price>
+		</ns2:productResponse>
+	</soap:Body>
+</soap:Envelope>
