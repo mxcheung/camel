@@ -31,8 +31,10 @@ public class RestApi extends RouteBuilder {
 		context = new DefaultCamelContext();
 
 		// http://localhost:8080/camel/api-doc
-		restConfiguration().contextPath(contextPath) //
-				.port(serverPort).enableCORS(true)
+		restConfiguration()
+				.contextPath(contextPath) //
+				.port(serverPort)
+				.enableCORS(true)
 				.apiContextPath("/api-doc")
 				.apiProperty("api.title", "Test REST API")
 				.apiProperty("api.version", "v1")
