@@ -36,7 +36,10 @@ public class RouteBuilderController {
 		return routeBuilderService.getRoutes();
 	}
 	
-	@RequestMapping(value = "/getRouteDefinition", method = RequestMethod.GET
+	@RequestMapping(value = "/getRouteDefinition", method = RequestMethod.GET,
+			consumes = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE, MediaType.TEXT_PLAIN_VALUE },
+			produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE, MediaType.TEXT_PLAIN_VALUE }
+
 			)
 	public @ResponseBody RouteDefinition getRouteDefinition() {
 		LOG.info(" getRouteDefinition");

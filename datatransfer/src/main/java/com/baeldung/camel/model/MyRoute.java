@@ -22,15 +22,19 @@ public class MyRoute {
     @Column(name = "destination")
     private String destination;
 
+    @Column(name = "options")
+    private String options;
+
 	public MyRoute() {
 		super();
 	}
 
-	public MyRoute(String routeId, String source, String destination) {
+	public MyRoute(String routeId, String source, String destination, String options) {
 		super();
 		this.routeId = routeId;
 		this.source = source;
 		this.destination = destination;
+		this.options = options;
 	}
 
 	public long getId() {
@@ -63,6 +67,14 @@ public class MyRoute {
 
 	public void setDestination(String destination) {
 		this.destination = destination;
+	}
+
+	public String getOptions() {
+		return options;
+	}
+
+	public void setOptions(String options) {
+		this.options = options;
 	}
     
 }
