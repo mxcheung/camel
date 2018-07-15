@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<configuration>
+
+	<property name="LOG_DIR" value="c:/logs" />
+	<property name="PROJECT" value="data-transfer-service" />
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder 
+			by default -->
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="FILE_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_DIR}/${PROJECT}.log</file>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- rollover daily, zipping previous days -->
+			<fileNamePattern>${LOG_DIR}/${PROJECT}.%d{dd-MM-yyyy}.log.zip</fileNamePattern>
+			<maxHistory>14</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{dd-MM-yyyy HH:mm:ss} [%thread] %-5level %logger{36} -
+				%msg%n</pattern>
+		</encoder>
+	</appender>
+
+
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE_LOG"/>
+	</root>
+
+</configuration>

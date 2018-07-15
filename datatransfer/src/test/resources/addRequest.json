@@ -1,0 +1,5 @@
+{
+  "routeId": "in-out-file4-route",
+  "from": "file://C:/in4/?fileName=MyFile3.txt&charset=utf-8",
+  "to": "rabbitmq://localhost:5672/exchange1?username=guest&password=guest&queue=q1&autoDelete=false"
+}
