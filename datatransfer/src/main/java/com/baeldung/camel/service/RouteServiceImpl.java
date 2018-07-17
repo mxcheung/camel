@@ -48,6 +48,9 @@ public class RouteServiceImpl implements RouteService {
 //				"file://C:/in5/?charset=utf-8",
 //				"ftp://anonymous@speedtest.tele2.net/upload?password=anonymous&ftpClient.dataTimeout=30000"));
 
+		
+
+		
 		routes.add(new MyRoute("in5-ftp-route",
 				"file://C:/in5/?charset=utf-8",
 				"ftp://dlpuser@dlptest.com@ftp.dlptest.com/upload?password=3D6XZV9MKdhM5fF&ftpClient.dataTimeout=30000",
