@@ -13,11 +13,13 @@ camel:
 
 # Binding health checks to a different port
 management:
-  port: 8081
+  port: 8080
+  security:
+   enabled: false
 
 # disable all management enpoints except health
 endpoints:
-  enabled: false
+  enabled: true
   health:
     enabled: true
 

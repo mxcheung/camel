@@ -1,11 +1,14 @@
 package com.baeldung.camel.route;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.http.common.HttpOperationFailedException;
+import org.apache.camel.model.RoutesDefinition;
+import org.apache.camel.model.rest.RestsDefinition;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -49,6 +52,7 @@ public class MyCustomHttpRoute extends RouteBuilder {
     	  .to("http4://localhost:8081/sales/postSalesX")
     	  .routeId("http4-in-out-file-route")
 		   .log(">>> ${body}");
+    	
     	
     }
 }

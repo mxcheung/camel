@@ -25,6 +25,8 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import static springfox.documentation.builders.PathSelectors.any;
+
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {   
@@ -36,7 +38,7 @@ public class SwaggerConfig {
           .forCodeGeneration(true)
           .select()                                  
           .apis(RequestHandlerSelectors.any())              
-          .paths(getPaths())
+          .paths(any())
           .build();                                           
     }
     
