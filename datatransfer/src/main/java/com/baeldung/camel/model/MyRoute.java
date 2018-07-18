@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 public class MyRoute {
@@ -22,6 +23,7 @@ public class MyRoute {
     @Column(name = "destination")
     private String destination;
 
+    @Lob
     @Column(name = "options")
     private String options;
 
@@ -29,12 +31,12 @@ public class MyRoute {
 		super();
 	}
 
-	public MyRoute(String routeId, String source, String destination, String options) {
+	public MyRoute(RouteDef routeDef, String json) {
 		super();
-		this.routeId = routeId;
-		this.source = source;
-		this.destination = destination;
-		this.options = options;
+		this.routeId = routeDef.getRouteId();
+		this.source = routeDef.getFrom();
+		this.destination = routeDef.getDestination();
+		this.options = json;
 	}
 
 	public long getId() {

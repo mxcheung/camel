@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.baeldung.camel.model.MyRoute;
-import com.baeldung.camel.model.RouteOptions;
+import com.baeldung.camel.model.RouteDef;
 import com.baeldung.camel.service.RouteService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -62,8 +62,8 @@ public class RouteBuilderServiceImpl implements RouteBuilderService {
 
 	@Override
 	public void addRoute(MyRoute myRoute) throws Exception {
-		RouteOptions routeOptions = mapper.readValue(myRoute.getOptions(), RouteOptions.class);
-		MyRouteBuilder myRouteBuilder = new MyRouteBuilder(camelContext, myRoute, routeOptions);
+		RouteDef routeOptions = mapper.readValue(myRoute.getOptions(), RouteDef.class);
+		MyRouteBuilder myRouteBuilder = new MyRouteBuilder(camelContext,  routeOptions);
 		getCamelContext().addRoutes(myRouteBuilder);
 
 	}

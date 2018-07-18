@@ -1,0 +1,7 @@
+{
+  "routeId": "in4-rabbit-q2-route",
+  "from": "file://C:/in4/?fileName=MyFile.txt&charset=utf-8",
+  "destination": "rabbitmq://localhost:5672/exchange1?username=guest&password=guest&queue=q2&autoDelete=false",
+  "log": ">>> ${body}",
+  "tracing": "true"
+}
