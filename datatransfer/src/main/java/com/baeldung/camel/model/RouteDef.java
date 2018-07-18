@@ -4,19 +4,27 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({ "routeId", "from", "destination", "log", "tracing" })
+@JsonPropertyOrder({ "routeId", "routeType", "from", "destination", "log", "tracing" })
 public class RouteDef {
 
 	private String routeId;
+	private String routeType;
 	private String from;
 	private String destination;
 	private String log;
 	private String tracing;
+	
 	public String getRouteId() {
 		return routeId;
 	}
 	public void setRouteId(String routeId) {
 		this.routeId = routeId;
+	}
+	public String getRouteType() {
+		return routeType;
+	}
+	public void setRouteType(String routeType) {
+		this.routeType = routeType;
 	}
 	public String getFrom() {
 		return from;
@@ -43,5 +51,6 @@ public class RouteDef {
 		this.tracing = tracing;
 	}
 
+	
 
 }

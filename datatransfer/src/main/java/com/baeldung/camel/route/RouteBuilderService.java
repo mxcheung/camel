@@ -1,7 +1,6 @@
 package com.baeldung.camel.route;
 
 import java.util.List;
-import java.util.Map;
 
 import org.apache.camel.model.RouteDefinition;
 

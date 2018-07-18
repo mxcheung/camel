@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.camel.CamelContext;
+import org.apache.camel.RoutesBuilder;
 import org.apache.camel.model.FromDefinition;
 import org.apache.camel.model.RouteDefinition;
 import org.slf4j.Logger;
@@ -62,10 +63,20 @@ public class RouteBuilderServiceImpl implements RouteBuilderService {
 
 	@Override
 	public void addRoute(MyRoute myRoute) throws Exception {
-		RouteDef routeOptions = mapper.readValue(myRoute.getOptions(), RouteDef.class);
-		MyRouteBuilder myRouteBuilder = new MyRouteBuilder(camelContext,  routeOptions);
-		getCamelContext().addRoutes(myRouteBuilder);
+		RouteDef routeDef = mapper.readValue(myRoute.getOptions(), RouteDef.class);
+		getCamelContext().addRoutes(getRouteBuilder(routeDef));
 
+	}
+
+
+	private RoutesBuilder getRouteBuilder(RouteDef routeOptions) {
+		RoutesBuilder routesBuilder;
+		if ("WIRETAP".equalsIgnoreCase(routeOptions.getRouteType())) {
+			routesBuilder = new WireTapRouteBuilder(camelContext,  routeOptions);
+		} else {
+			 routesBuilder = new DefaultRouteBuilder(camelContext,  routeOptions);
+		}
+		return  routesBuilder;
 	}
 
 	@Override

@@ -16,6 +16,9 @@ public class MyRoute {
     @Column(name = "routeId")
     private String routeId;
 
+    @Column(name = "routeType")
+    private String routeType;
+
     @Column(name = "source")
     private String source;
     
@@ -34,6 +37,7 @@ public class MyRoute {
 	public MyRoute(RouteDef routeDef, String json) {
 		super();
 		this.routeId = routeDef.getRouteId();
+		this.routeType = routeDef.getRouteType();
 		this.source = routeDef.getFrom();
 		this.destination = routeDef.getDestination();
 		this.options = json;

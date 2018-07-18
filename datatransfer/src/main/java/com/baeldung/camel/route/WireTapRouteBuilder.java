@@ -6,7 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.baeldung.camel.model.RouteDef;
 
-public class MyRouteBuilder extends RouteBuilder {
+public class WireTapRouteBuilder extends RouteBuilder {
 
 	private static final String DEFAULT_TRACING = "true";
 	private static final String DEFAULT_BODY = ">>> ${body}";
@@ -17,7 +17,7 @@ public class MyRouteBuilder extends RouteBuilder {
 	private final String log;
     private final String tracing;
 
-	public MyRouteBuilder(CamelContext camelContext, RouteDef routeDef) {
+	public WireTapRouteBuilder(CamelContext camelContext, RouteDef routeDef) {
 		super(camelContext);
 		this.routeId = routeDef.getRouteId();
 		this.from = routeDef.getFrom();
@@ -30,9 +30,10 @@ public class MyRouteBuilder extends RouteBuilder {
 	public void configure() throws Exception {
 		from(from)
 			.routeId(routeId)
-			.to(destination)
 			.tracing(tracing)
-			.log(log);
+			.wireTap(destination)
+			.log(log)
+			.to(destination);
 	}
 
 }

@@ -40,13 +40,13 @@ public class RouteDefTest {
     @Test
     public void shouldSerializeFileToFile() throws JsonProcessingException {
     	RouteDef routeOptions = new RouteDef();
+    	routeOptions.setRouteType("DEFAULT");
     	routeOptions.setRouteId("in3-in2-route");
     	routeOptions.setFrom("file://C:/in3/?fileName=MyFile.txt&charset=utf-8");
     	routeOptions.setDestination("file://C:/in2/?fileName=MyFile.txt&charset=utf-8");
     	routeOptions.setLog(">>> ${body}");
     	routeOptions.setTracing("true");
         String json = this.mapper.writeValueAsString(routeOptions);
-     
     }
   
     @Test
