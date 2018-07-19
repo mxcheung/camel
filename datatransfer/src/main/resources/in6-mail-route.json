@@ -1,7 +1,7 @@
 {
   "routeId": "in6-mail-route",
   "from": "file://C:/in6/?charset=utf-8",
-  "destination": "smtp://mycompany.mailserver:30?password=tiger&username=scott",
+  "toUris": ["smtp://mycompany.mailserver:30?password=tiger&username=scott"],
   "log": ">>> ${body}",
   "tracing": "true"
 }

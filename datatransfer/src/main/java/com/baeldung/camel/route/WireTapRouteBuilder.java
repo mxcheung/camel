@@ -13,7 +13,7 @@ public class WireTapRouteBuilder extends RouteBuilder {
 	
 	private final String routeId;
 	private final String from;
-	private final String destination;
+	private final String[] toUris;
 	private final String log;
     private final String tracing;
 
@@ -21,7 +21,7 @@ public class WireTapRouteBuilder extends RouteBuilder {
 		super(camelContext);
 		this.routeId = routeDef.getRouteId();
 		this.from = routeDef.getFrom();
-		this.destination = routeDef.getDestination();
+		this.toUris = routeDef.getToUris();
 		this.log = StringUtils.defaultIfEmpty(routeDef.getLog(), DEFAULT_BODY);
 		this.tracing = StringUtils.defaultIfEmpty(routeDef.getTracing(),DEFAULT_TRACING);
 	}
@@ -31,9 +31,9 @@ public class WireTapRouteBuilder extends RouteBuilder {
 		from(from)
 			.routeId(routeId)
 			.tracing(tracing)
-			.wireTap(destination)
+			.wireTap(toUris[0])
 			.log(log)
-			.to(destination);
+			.to(toUris);
 	}
 
 }

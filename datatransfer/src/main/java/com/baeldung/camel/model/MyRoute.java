@@ -1,5 +1,8 @@
 package com.baeldung.camel.model;
+import java.util.Arrays;
+
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,7 +27,7 @@ public class MyRoute {
     
     
     @Column(name = "destination")
-    private String destination;
+    private String toUris;
 
     @Lob
     @Column(name = "options")
@@ -39,7 +42,7 @@ public class MyRoute {
 		this.routeId = routeDef.getRouteId();
 		this.routeType = routeDef.getRouteType();
 		this.source = routeDef.getFrom();
-		this.destination = routeDef.getDestination();
+		this.toUris = Arrays.toString(routeDef.getToUris());
 		this.options = json;
 	}
 
@@ -59,6 +62,14 @@ public class MyRoute {
 		this.routeId = routeId;
 	}
 
+	public String getRouteType() {
+		return routeType;
+	}
+
+	public void setRouteType(String routeType) {
+		this.routeType = routeType;
+	}
+
 	public String getSource() {
 		return source;
 	}
@@ -67,12 +78,13 @@ public class MyRoute {
 		this.source = source;
 	}
 
-	public String getDestination() {
-		return destination;
+
+	public String getToUris() {
+		return toUris;
 	}
 
-	public void setDestination(String destination) {
-		this.destination = destination;
+	public void setToUris(String toUris) {
+		this.toUris = toUris;
 	}
 
 	public String getOptions() {
@@ -82,5 +94,8 @@ public class MyRoute {
 	public void setOptions(String options) {
 		this.options = options;
 	}
+
+
+	
     
 }
