@@ -25,17 +25,18 @@ public class RouteController {
 	@Autowired
 	private RouteService routeService;
 
-	@RequestMapping(value = "/getRoutes", method = RequestMethod.GET)
+	@RequestMapping(value = "/getRouteDefs", method = RequestMethod.GET)
 	public @ResponseBody List<RouteDef> getRoutes() {
 		LOG.info(" getRoutes");
-		return routeService.getRoutes();
+		return routeService.getRouteDefs();
 	}
+	
+	@RequestMapping(value = "/getCamelRoutes", method = RequestMethod.GET)
+	public @ResponseBody List<String> getCamelRoutes() {
+		LOG.info(" getRoutes");
+		return routeService.getCamelRoutes();
+	}
+	
+		
 
-/*	
-	@RequestMapping(value = "/loadRoutes", method = RequestMethod.GET)
-	public @ResponseBody void loadRoutes()  {
-		LOG.info(" loadRoutes");
-		routeService.loadRoutes();
-	}
-*/
 }

@@ -28,8 +28,6 @@ public class SwaggerConfig {
           .paths(any())
           .build();                                           
     }
-    
-    
 
     @SuppressWarnings("unchecked")
     private Predicate<String> getPaths() {

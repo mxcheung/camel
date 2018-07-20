@@ -7,6 +7,8 @@ import com.maxcheung.camelsimple.model.RouteDef;
 
 public interface RouteService {
 
-	List<RouteDef> getRoutes();
+	List<RouteDef> getRouteDefs();
+
+	List<String> getCamelRoutes();
 	
 }
