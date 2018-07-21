@@ -4,7 +4,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({ "routeId", "routeType", "from", "toUris", "log", "tracing" })
+@JsonPropertyOrder({ "routeId", "routeType", "from", "toUris", "log", "tracing", "backOffMultiplier",
+		"maximumRedeliveries" })
 public class RouteDef {
 
 	private String routeId;
@@ -13,6 +14,8 @@ public class RouteDef {
 	private String[] toUris;
 	private String log;
 	private String tracing;
+	private double backOffMultiplier;
+	private int maximumRedeliveries;
 
 	public String getRouteId() {
 		return routeId;
@@ -38,6 +41,14 @@ public class RouteDef {
 		this.from = from;
 	}
 
+	public String[] getToUris() {
+		return toUris;
+	}
+
+	public void setToUris(String[] toUris) {
+		this.toUris = toUris;
+	}
+
 	public String getLog() {
 		return log;
 	}
@@ -54,12 +65,20 @@ public class RouteDef {
 		this.tracing = tracing;
 	}
 
-	public String[] getToUris() {
-		return toUris;
+	public double getBackOffMultiplier() {
+		return backOffMultiplier;
 	}
 
-	public void setToUris(String[] toUris) {
-		this.toUris = toUris;
+	public void setBackOffMultiplier(double backOffMultiplier) {
+		this.backOffMultiplier = backOffMultiplier;
+	}
+
+	public int getMaximumRedeliveries() {
+		return maximumRedeliveries;
+	}
+
+	public void setMaximumRedeliveries(int maximumRedeliveries) {
+		this.maximumRedeliveries = maximumRedeliveries;
 	}
 
 }

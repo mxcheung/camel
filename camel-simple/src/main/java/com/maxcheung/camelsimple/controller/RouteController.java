@@ -26,7 +26,7 @@ public class RouteController {
 	private RouteService routeService;
 
 	@RequestMapping(value = "/getRouteDefs", method = RequestMethod.GET)
-	public @ResponseBody List<RouteDef> getRoutes() {
+	public @ResponseBody List<RouteDef> getRouteDefs() {
 		LOG.info(" getRoutes");
 		return routeService.getRouteDefs();
 	}

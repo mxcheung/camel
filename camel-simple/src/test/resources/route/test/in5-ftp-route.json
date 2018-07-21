@@ -1,0 +1,8 @@
+{
+  "routeId": "in5-ftp-route",
+  "routeType": "WIRETAP",
+  "from": "file://C:/in5/?charset=utf-8",
+  "toUris": ["ftp://dlpuser@dlptest.com@ftp.dlptest.com/upload?password=3D6XZV9MKdhM5fF&ftpClient.dataTimeout=30000"],
+  "log": ">>> ${body}",
+  "tracing": "true"
+}
