@@ -4,7 +4,7 @@ camelsimple:
   api:
     path: /camel
   route:
-    path: route\cameltest\
+    path: route\mocktest\
 camel:
   springboot:
     name: CamelSimple
@@ -28,3 +28,7 @@ spring:
   h2:
     console:
       enabled: true
+      
+animalSource: direct:animalSource
+dogEndpoint: mock:dogEndpoint
+catEndpoint: mock:catEndpoint      
