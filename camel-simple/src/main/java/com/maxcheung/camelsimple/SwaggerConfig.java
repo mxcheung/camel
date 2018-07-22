@@ -1,7 +1,6 @@
 package com.maxcheung.camelsimple;
 
 import static com.google.common.base.Predicates.or;
-import static springfox.documentation.builders.PathSelectors.any;
 import static springfox.documentation.builders.PathSelectors.regex;
 
 import org.springframework.context.annotation.Bean;
@@ -25,7 +24,7 @@ public class SwaggerConfig {
           .forCodeGeneration(true)
           .select()                                  
           .apis(RequestHandlerSelectors.any())              
-          .paths(any())
+          .paths(getPaths() )
           .build();                                           
     }
 
