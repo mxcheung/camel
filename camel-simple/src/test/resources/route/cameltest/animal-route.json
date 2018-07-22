@@ -1,0 +1,8 @@
+{
+  "routeId": "animal-route",
+  "routeType": "DEFAULT",
+  "from": "{{animalSource}}",
+  "toUris": ["{{dogEndpoint}}"],
+  "log": "found a dog!",
+  "tracing": "true"
+}

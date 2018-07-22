@@ -12,7 +12,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		
+
 		<!-- Default Profile and Test Execution Properties. Dev profile executing 
 			only unit tests. -->
 		<build.profile.id>dev</build.profile.id>
@@ -57,7 +57,7 @@
 		<jackson-dataformat-csv.version>2.9.4</jackson-dataformat-csv.version>
 		<dozer.version>5.5.1</dozer.version>
 		<janino.version>3.0.8</janino.version>
-		
+
 		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
 		<camel.version>2.21.1</camel.version>
 		<spring-boot-starter.version>1.5.4.RELEASE</spring-boot-starter.version>
@@ -133,10 +133,21 @@
 			<version>${camel.version}</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.apache.camel/camel-test-spring -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-test-spring</artifactId>
+			<version>${camel.version}</version>
+			<scope>test</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
 		</dependency>
+
+
+
 		<!-- Test Dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -156,7 +167,7 @@
 			<version>2.4</version>
 		</dependency>
 	</dependencies>
-<build>
+	<build>
 		<plugins>
 
 			<!-- Checkstyle plugin -->
@@ -378,9 +389,9 @@
 						<goals>
 							<goal>repackage</goal>
 						</goals>
- 					<configuration>
-                        <finalName>fileingestor</finalName>
-                    </configuration>						
+						<configuration>
+							<finalName>fileingestor</finalName>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
@@ -413,5 +424,5 @@
 
 		</plugins>
 
-	</reporting>	
+	</reporting>
 </project>

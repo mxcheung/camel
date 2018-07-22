@@ -1,0 +1,30 @@
+server:
+  port: 8088
+camelsimple:
+  api:
+    path: /camel
+  route:
+    path: route\cameltest\
+camel:
+  springboot:
+    name: CamelSimple
+management:
+  port: 8088
+  security:
+    enabled: false
+endpoints:
+  enabled: true
+  health:
+    enabled: true
+quickstart:
+  generateOrderPeriod: 10s
+  processOrderPeriod: 30s
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:bootapp;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: null
+  h2:
+    console:
+      enabled: true

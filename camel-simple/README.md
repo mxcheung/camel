@@ -1,6 +1,10 @@
 # camel
 
 https://access.redhat.com/documentation/en-us/red_hat_jboss_fuse/6.3/html/fuse_integration_services_2.0_for_openshift/camel-spring-boot
+https://www.slideshare.net/mraible/developing-testing-and-scaling-with-apache-camel-uberconf-2015
+https://github.com/davsclaus/camel-riders-in-the-cloud
+http://camel.apache.org/articles.html
+https://tech.willhaben.at/testing-apache-camel-applications-with-spring-boot-da536568d9f7
 
 ```
 ├── src/
