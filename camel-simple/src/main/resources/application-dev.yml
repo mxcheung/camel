@@ -4,7 +4,7 @@ camelsimple:
   api:
     path: /camel
   route:
-    path: C:\route\
+    path: /route/dev/
 camel:
   springboot:
     name: CamelSimple
@@ -28,3 +28,15 @@ spring:
   h2:
     console:
       enabled: true
+in3in2route:
+  from: file://C:/in3/?charset=utf-8
+  toUri1: file://C:/in2A1/
+  toUri2: file://C:/in2B/
+in5ftproute:
+  from: file://C:/in5/?charset=utf-8
+  toUri1: ftp://dlpuser@dlptest.com@ftp.dlptest.com/upload?password=3D6XZV9MKdhM5fF&ftpClient.dataTimeout=30000
+  
+resources:
+  extract:
+    dir: /route/dev/  
+      

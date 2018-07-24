@@ -5,6 +5,7 @@ https://www.slideshare.net/mraible/developing-testing-and-scaling-with-apache-ca
 https://github.com/davsclaus/camel-riders-in-the-cloud
 http://camel.apache.org/articles.html
 https://tech.willhaben.at/testing-apache-camel-applications-with-spring-boot-da536568d9f7
+https://stackoverflow.com/questions/25869428/classpath-resource-not-found-when-running-as-jar
 
 java -jar -Dspring.profiles.active=dev camelsimple.jar
 
