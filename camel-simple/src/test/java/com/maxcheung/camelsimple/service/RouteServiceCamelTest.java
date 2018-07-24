@@ -17,6 +17,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.core.env.Environment;
+import org.springframework.core.io.DefaultResourceLoader;
+import org.springframework.core.io.ResourceLoader;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -34,15 +36,18 @@ public class RouteServiceCamelTest {
 	@Mock
 	private Environment env;
 
+	private ResourceLoader resourceLoader;
+	
 	private CamelContext camelContext;
 
 
 	@Before
 	public void setup() throws Exception {
 		camelContext = new DefaultCamelContext();
+		resourceLoader = new DefaultResourceLoader();
 		when(env.getProperty(CAMELSIMPLE_ROUTE_PATH)).thenReturn("route\\test\\");
 		mapper = new ObjectMapper();
-		routeService = new RouteServiceImpl(env, camelContext);
+		routeService = new RouteServiceImpl(env, camelContext, resourceLoader);
 	}
 
 	@Test

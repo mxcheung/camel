@@ -31,17 +31,14 @@ public class AnimalRouteTest{
     @Test 
     @DirtiesContext 
     public void testDog() throws Exception {
-
         animalSource.sendBodyAndHeader("test",CAMEL_FILE_NAME,NICE_DOG);
-
         dogEndpoint.expectedMessageCount(1);
         dogEndpoint.message(0).predicate(m -> {
             String header = m.getIn().getHeader(CAMEL_FILE_NAME).toString();
             return NICE_DOG.equals(header);
         });
         dogEndpoint.assertIsSatisfied();
-
-        catEndpoint.expectedMessageCount(0);
+         catEndpoint.expectedMessageCount(0);
         catEndpoint.assertIsSatisfied();
     }
 }

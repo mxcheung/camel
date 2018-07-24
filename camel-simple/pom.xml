@@ -390,7 +390,7 @@
 							<goal>repackage</goal>
 						</goals>
 						<configuration>
-							<finalName>fileingestor</finalName>
+							<finalName>camelsimple</finalName>
 						</configuration>
 					</execution>
 				</executions>

@@ -16,6 +16,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.core.env.Environment;
+import org.springframework.core.io.DefaultResourceLoader;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -38,14 +39,17 @@ public class RouteServiceTest {
 	private CamelContext camelContext;
 
 	private List<RouteDefinition> routeDefinitions;
+	
+	private DefaultResourceLoader resourceLoader;
 
 	@Before
 	public void setup() throws Exception {
+		resourceLoader = new DefaultResourceLoader();
 		this.routeDefinitions = getRouteDefinitions();
-		when(env.getProperty(CAMELSIMPLE_ROUTE_PATH)).thenReturn("route\\dev\\");
+		when(env.getProperty(CAMELSIMPLE_ROUTE_PATH)).thenReturn("\\route\\dev\\");
 		when(camelContext.getRouteDefinitions()).thenReturn(routeDefinitions);
 		mapper = new ObjectMapper();
-		routeService = new RouteServiceImpl(env, camelContext);
+		routeService = new RouteServiceImpl(env, camelContext, resourceLoader);
 	}
 
 	@Test

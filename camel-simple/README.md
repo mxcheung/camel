@@ -6,6 +6,8 @@ https://github.com/davsclaus/camel-riders-in-the-cloud
 http://camel.apache.org/articles.html
 https://tech.willhaben.at/testing-apache-camel-applications-with-spring-boot-da536568d9f7
 
+java -jar -Dspring.profiles.active=dev camelsimple.jar
+
 ```
 ├── src/
 │   └── Application.java/
