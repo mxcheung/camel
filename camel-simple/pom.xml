@@ -133,6 +133,12 @@
 			<version>${camel.version}</version>
 		</dependency>
 
+ 		<dependency>
+ 			<groupId>org.apache.camel</groupId>
+ 			<artifactId>camel-elasticsearch</artifactId>
+ 			<version>${camel.version}</version>
+		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/org.apache.camel/camel-test-spring -->
 		<dependency>
 			<groupId>org.apache.camel</groupId>

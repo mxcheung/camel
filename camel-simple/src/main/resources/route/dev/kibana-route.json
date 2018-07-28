@@ -1,0 +1,8 @@
+{
+  "routeId": "kibana-route",
+  "routeType": "KIBANA",
+  "from": "direct:index",
+  "toUris": ["elasticsearch://elasticsearch?ip=localhost&port=9300&operation=INDEX&indexName=twitter&indexType=tweet"],
+  "log": ">>> Kibana {{server.port}}  ${body}",
+  "tracing": "true"
+}
