@@ -9,6 +9,12 @@ https://stackoverflow.com/questions/25869428/classpath-resource-not-found-when-r
 
 java -jar -Dspring.profiles.active=dev camelsimple.jar
 
+http://www.baeldung.com/java-application-logs-to-elastic-stack
+elasticsearch-2.4.4
+kibana-4.6.0-windows-x86
+logstash-2.4.0
+
+
 ```
 ├── src/
 │   └── Application.java/

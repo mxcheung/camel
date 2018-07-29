@@ -2,56 +2,71 @@
 <configuration>
 
 	<property name="PROJECT" value="camel-simple" />
+
+	<property name="LOG_DIR" value="./logs" />
+
+	<appender name="LOSEC_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_DIR}/${PROJECT}.log</file>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- rollover daily, zipping previous days -->
+			<fileNamePattern>${LOG_DIR}/${PROJECT}.%d{dd-MM-yyyy}.log.zip
+			</fileNamePattern>
+			<maxHistory>14</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{dd-MM-yyyy HH:mm:ss} [%thread] %-5level %logger{36} -
+				%msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="STASH"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>logback/redditApp.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+ 		    <fileNamePattern>logback/redditApp.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>7</maxHistory>
+		</rollingPolicy>
+		<encoder class="net.logstash.logback.encoder.LogstashEncoder" />
+	</appender>
 	
-    <property name="LOG_DIR" value="./logs" />
-
-    <appender name="LOSEC_LOG"
-              class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_DIR}/${PROJECT}.log</file>
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>DEBUG</level>
-        </filter>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- rollover daily, zipping previous days -->
-            <fileNamePattern>${LOG_DIR}/${PROJECT}.%d{dd-MM-yyyy}.log.zip</fileNamePattern>
-            <maxHistory>14</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <pattern>%d{dd-MM-yyyy HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
-        </encoder>
-    </appender>
-
-    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <charset>UTF-8</charset>
-            <Pattern>%d{dd-MM-yyyy HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</Pattern>
-        </encoder>
-    </appender>
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<charset>UTF-8</charset>
+			<Pattern>%d{dd-MM-yyyy HH:mm:ss} [%thread] %-5level %logger{36} -
+				%msg%n</Pattern>
+		</encoder>
+	</appender>
 
 	<springProfile name="prod">
-    	<root level="INFO">
-        	<appender-ref ref="LOSEC_LOG"/>
-    	</root>
+		<root level="INFO">
+			<appender-ref ref="LOSEC_LOG" />
+		</root>
 	</springProfile>
-	
+
 	<springProfile name="uat">
-    	<root level="INFO">
-        	<appender-ref ref="LOSEC_LOG"/>
-    	</root>
+		<root level="INFO">
+			<appender-ref ref="LOSEC_LOG" />
+		</root>
 	</springProfile>
-	
+
 	<springProfile name="dev">
-    	<root level="INFO">
-        	<appender-ref ref="LOSEC_LOG"/>
-        	<appender-ref ref="CONSOLE"/>
-    	</root>
+		<root level="INFO">
+			<appender-ref ref="LOSEC_LOG" />
+			<appender-ref ref="CONSOLE" />
+ 			<appender-ref ref="STASH" />   			
+		</root>
 	</springProfile>
-	
+
 	<springProfile name="local">
-    	<root level="INFO">
-        	<appender-ref ref="LOSEC_LOG"/>
-        	<appender-ref ref="CONSOLE"/>
-    	</root>
+		<root level="INFO">
+			<appender-ref ref="LOSEC_LOG" />
+			<appender-ref ref="CONSOLE" />
+ 			<appender-ref ref="STASH" />   			
+		</root>
 	</springProfile>
 
 </configuration>

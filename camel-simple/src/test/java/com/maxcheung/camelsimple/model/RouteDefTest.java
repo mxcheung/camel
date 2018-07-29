@@ -3,6 +3,8 @@ package com.maxcheung.camelsimple.model;
 import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -47,5 +49,17 @@ public class RouteDefTest {
 		assertEquals("file://C:/in3/?fileName=MyFile.txt&charset=utf-8", routeDef.getFrom());
 		assertEquals(2, routeDef.getToUris().length);
 	}
+
+	@Test
+	public void shouldDeserializex() throws JsonParseException, JsonMappingException, IOException {
+		ZonedDateTime now = ZonedDateTime.now();
+//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+	//	DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+		DateTimeFormatter formatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
+		String formatDateTime = now.format(formatter);
+	}
+	
+
+
 
 }
