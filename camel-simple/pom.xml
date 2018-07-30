@@ -59,8 +59,7 @@
 		<janino.version>3.0.8</janino.version>
 
 		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
-		<camel.version>2.21.1</camel.version>
-		<spring-boot-starter.version>1.5.4.RELEASE</spring-boot-starter.version>
+		<camel.version>2.21.0</camel.version>
 		<swagger2.version>2.8.0</swagger2.version>
 	</properties>
 	<dependencies>
@@ -186,6 +185,14 @@
 			<artifactId>logstash-logback-encoder</artifactId>
 			<version>4.11</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20180130</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>
