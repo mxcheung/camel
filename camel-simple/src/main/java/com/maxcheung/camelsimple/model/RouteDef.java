@@ -2,19 +2,38 @@ package com.maxcheung.camelsimple.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "routeId", "routeType", "from", "toUris", "log", "tracing", "backOffMultiplier",
 		"maximumRedeliveries" })
+@Entity
 public class RouteDef {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+
+    @Column
 	private String routeId;
+    @Column
 	private String routeType;
+    @Column(name="fromUri")
 	private String from;
-	private String[] toUris;
+
+    @Column(name="toUris")
+    private String[] toUris;
+    
+    @Column
 	private String log;
+    @Column
 	private String tracing;
+    @Column
 	private double backOffMultiplier;
+    @Column
 	private int maximumRedeliveries;
 
 	public String getRouteId() {

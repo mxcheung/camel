@@ -34,6 +34,7 @@ public class MyProcessor implements Processor {
 		ZonedDateTime now = ZonedDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
 		String formatDateTime = now.format(formatter);
+/*		
 		Document doc;
 		try {
 		 doc = xmlToJsonHelper.xmltoDoc(body);
@@ -50,6 +51,7 @@ public class MyProcessor implements Processor {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+*/		
 		map.put("post_date", formatDateTime);
 		map.put("routeId", exchange.getFromRouteId());
 		map.put("exchangeId", exchange.getExchangeId());

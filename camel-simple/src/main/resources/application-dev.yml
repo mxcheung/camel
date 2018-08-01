@@ -28,6 +28,15 @@ spring:
   h2:
     console:
       enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true            
 in3in2route:
   from: file://C:/in3/?charset=utf-8
   toUri1: file://C:/in2A1/

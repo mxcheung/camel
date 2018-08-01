@@ -21,6 +21,7 @@ import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.ResourceLoader;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.maxcheung.camelsimple.repo.RouteDefRepository;
 
 @RunWith(MockitoJUnitRunner.class)
 public class RouteServiceCamelTest {
@@ -37,9 +38,11 @@ public class RouteServiceCamelTest {
 	private Environment env;
 
 	private ResourceLoader resourceLoader;
-	
+
 	private CamelContext camelContext;
 
+	@Mock
+	private RouteDefRepository routeDefRepository;
 
 	@Before
 	public void setup() throws Exception {
@@ -47,15 +50,15 @@ public class RouteServiceCamelTest {
 		resourceLoader = new DefaultResourceLoader();
 		when(env.getProperty(CAMELSIMPLE_ROUTE_PATH)).thenReturn("route\\test\\");
 		mapper = new ObjectMapper();
-		routeService = new RouteServiceImpl(env, camelContext, resourceLoader);
+		routeService = new RouteServiceImpl(env, camelContext, routeDefRepository, resourceLoader);
 	}
 
 	@Test
 	public void shouldGetCamelRoutes() throws Exception {
 		List<String> camelRoutes = routeService.getCamelRoutes();
 		assertEquals(2, camelRoutes.size());
-//		camelContext.start();
-//		Thread.sleep(DURATION_MILIS);
+		// camelContext.start();
+		// Thread.sleep(DURATION_MILIS);
 		camelContext.stop();
 	}
 

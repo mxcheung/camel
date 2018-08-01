@@ -27,6 +27,7 @@ import org.springframework.util.FileCopyUtils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.maxcheung.camelsimple.model.RouteDef;
+import com.maxcheung.camelsimple.repo.RouteDefRepository;
 import com.maxcheung.camelsimple.route.DefaultRouteBuilder;
 import com.maxcheung.camelsimple.route.KibanaRouteBuilder;
 import com.maxcheung.camelsimple.route.WireTapRouteBuilder;
@@ -44,10 +45,13 @@ public class RouteServiceImpl implements RouteService {
 	private List<RouteDef> routeDefs;
 	private ObjectMapper mapper = new ObjectMapper();
 
+	private RouteDefRepository routeDefRepository;
+	
 	@Autowired
-	public RouteServiceImpl(Environment env, CamelContext camelContext, ResourceLoader resourceLoader) {
+	public RouteServiceImpl(Environment env, CamelContext camelContext, RouteDefRepository routeDefRepository, ResourceLoader resourceLoader) {
 		this.env = env;
 		this.camelContext = camelContext;
+		this.routeDefRepository = routeDefRepository;
 		this.resourceLoader = resourceLoader;
 		loadRoutes();
 	}
@@ -55,6 +59,7 @@ public class RouteServiceImpl implements RouteService {
 	public void loadRoutes() {
 		try {
 			this.routeDefs = initRoute();
+			routeDefRepository.save(routeDefs);
 		} catch (Exception e) {
 			LOG.error("Exception ocurred loading routes {}", e);
 		}

@@ -2,7 +2,7 @@
   "routeId": "kibana-route",
   "routeType": "KIBANA",
   "from": "direct:index",
-  "toUris": ["elasticsearch://elasticsearch?ip=localhost&port=9300&operation=INDEX&indexName=airforce&indexType=tweet"],
+  "toUris": ["elasticsearch://elasticsearch?ip=localhost&port=9300&operation=INDEX&indexName=airforce1&indexType=tweet"],
   "log": ">>> Kibana {{server.port}}  ${body}",
   "tracing": "true"
 }
