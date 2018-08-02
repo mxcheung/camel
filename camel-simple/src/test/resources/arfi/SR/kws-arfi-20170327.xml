@@ -1,0 +1,3160 @@
+<?xml version='1.0'?>
+<!DOCTYPE rfi SYSTEM "http://rfi.superratings.com.au/_dtd/rfi.dtd" [
+<!ENTITY period_end SYSTEM "period_end">
+<!ENTITY period_end2 SYSTEM "period_end2">
+<!ENTITY year SYSTEM "year">
+<!ENTITY year2 SYSTEM "year2">
+]>
+<rfi>
+	
+	<description>Annual Questionnaire</description>
+
+	<modules>
+		<module id="genral">General Scheme Overview</module>
+		<module id="member">Scheme Membership and Asset Statistics</module>
+		<module id="invest" score-ratio="10/48.5">Investment</module>
+		<module id="admin" score-ratio="12.5/78.75">Administration</module>
+		<module id="advice" score-ratio="15/54">Member Servicing</module>
+		<module id="fndgov" score-ratio="5/19">Scheme Governance</module>
+	</modules>
+
+	<option-lists>
+		<option-list id="Yes/No">
+			<option value="Yes">Yes</option>
+			<option value="No">No</option>
+		</option-list>
+		<option-list id="Y/N/Na">
+			<option value="Yes">Yes</option>
+			<option value="No">No</option>
+			<option value="na">Not applicable</option>
+		</option-list>
+		<option-list id="Y/N/Cash">
+			<option value="Yes">Yes</option>
+			<option value="No">No</option>
+			<option value="Cash">Cash Payment Only</option>
+		</option-list>
+		<option-list id="Y/N/Cash/Na">
+			<option value="Yes">Yes</option>
+			<option value="No">No</option>
+			<option value="Cash">Cash Payment Only</option>
+			<option value="na">Not applicable</option>
+		</option-list>
+		<option-list id="options_3months">
+			<option value="1wk">One week</option>
+			<option value="2wk">Two weeks</option>
+			<option value="1mn">One month</option>
+			<option value="2mn">Two months</option>
+			<option value="3mn">Three months</option>
+		</option-list>
+		<option-list id="Actual/Interim">
+			<option value="Actual">Actual</option>
+			<option value="Interim">Interim</option>
+		</option-list>
+		<option-list id="Fixed Term/Unspecified">
+			<option value="Fixed Term">Fixed Term</option>
+			<option value="Unspecified">Unspecified</option>
+		</option-list>
+		<option-list id="Fixed Term/Unspecified/Na">
+			<option value="Fixed Term">Fixed Term</option>
+			<option value="Unspecified">Unspecified</option>
+			<option value="na">Not applicable</option>
+		</option-list>
+		<option-list id="time frequency">
+			<option value="monthly">Monthly</option>
+			<option value="quarterly">Quarterly</option>
+			<option value="half_yearly">Half yearly</option>
+			<option value="annual">Annual</option>
+		</option-list>
+		<option-list id="time frequency/na">
+			<option value="monthly">Monthly</option>
+			<option value="quarterly">Quarterly</option>
+			<option value="half_yearly">Half yearly</option>
+			<option value="annual">Annual</option>
+			<option value="na">Not applicable</option>
+		</option-list>
+		<option-list id="full time frequency">
+			<option value="weekly">Weekly</option>
+			<option value="fortnightly">Fortnightly</option>
+			<option value="monthly">Monthly</option>
+			<option value="quarterly">Quarterly</option>
+			<option value="half_yearly">Half yearly</option>
+			<option value="annual">Annually</option>
+<!-- 			<option value="na">Not applicable</option> -->
+		</option-list>
+		<option-list id="complete time frequency">
+			<option value="daily">Daily</option>
+			<option value="weekly">Weekly</option>
+			<option value="fortnightly">Fortnightly</option>
+			<option value="monthly">Monthly</option>
+			<option value="quarterly">Quarterly</option>
+			<option value="half_yearly">Half yearly</option>
+			<option value="annual">Annually</option>
+<!-- 			<option value="na">Not applicable</option> -->
+		</option-list>
+		<option-list id="complete time frequency/other">
+			<option value="daily">Daily</option>
+			<option value="weekly">Weekly</option>
+			<option value="fortnightly">Fortnightly</option>
+			<option value="monthly">Monthly</option>
+			<option value="quarterly">Quarterly</option>
+			<option value="half_yearly">Half yearly</option>
+			<option value="annual">Annually</option>
+			<option value="other">Other</option>
+			<option value="na">Not applicable</option>
+		</option-list>
+		<option-list id="file-availability">
+			<option value="website">Available on Website</option>
+			<option value="softcopy">Softcopy</option>
+			<option value="hardcopy">Hardcopy only</option>
+			<option value="na">Not applicable</option>
+		</option-list>
+		
+		<option-list id="powers of inv comm">
+			<option value="Review only">Review only</option>
+			<option value="Recommend only">Recommend only</option>
+			<option value="Implement but ratified">Implement but ratified</option>
+			<option value="by the Board">by the Board</option>
+			<option value="Autonomous">Autonomous</option>
+		</option-list>
+		<option-list id="decision of inv comm">
+			<option value="Simple majority">Simple majority</option>
+			<option value="Two thirds majority">Two thirds majority</option>
+			<option value="Ratified by full Board">Ratified by full Board</option>
+			<option value="Re-examined by full">Re-examined by full</option>
+			<option value="Board">Board</option>
+		</option-list>
+		<option-list id="hours-12/36">
+			<option value="0-12 hours">0-12 hours</option>
+			<option value="13-24 hours">13-24 hours</option>
+			<option value="25-36 hours">25-36 hours</option>
+			<option value="More than 36 hours">More than 36 hours</option>
+		</option-list>
+		<option-list id="hours-12/60">
+			<option value="0-12 hours">0-12 hours</option>
+			<option value="13-24 hours">13-24 hours</option>
+			<option value="25-36 hours">25-36 hours</option>
+			<option value="37-48 hours">37-48 hours</option>
+			<option value="48-60 hours">48-60 hours</option>
+			<option value="More than 60 hours">More than 60 hours</option>
+		</option-list>
+		<option-list id="SAA rebalance">
+			<option value="Daily">daily</option>
+			<option value="Weekly">weekly</option>
+			<option value="Monthly">monthly</option>
+			<option value="Quarterly">quarterly</option>
+			<option value="Half_Yearly">half yearly</option>
+			<option value="Annual">annual</option>
+			<option value="Automatic rebalance">Automatic rebalance</option>
+		</option-list>
+		<option-list id="audit frequency">
+			<option value="Half_Yearly">Half Yearly</option>
+			<option value="Annual">Annual</option>
+			<option value="Every 2 years">Every 2 years</option>
+			<option value="Every 3 years">Every 3 years</option>
+			<option value="Every 4 years">Every 4 years</option>	
+			<option value="Every 5 years">Every 5 years</option>
+			<option value="More than 5 years">More than 5 years</option>
+		</option-list>
+		<option-list id="related party asset">
+			<option value="0-10%">0-10%</option>
+			<option value="10-20%">10-20%</option>
+			<option value="20-30%">20-30%</option>
+			<option value="&gt;30%">&gt;30%</option>
+		</option-list>
+		<option-list id="0-4">
+			<option value="None">None</option>
+			<option value="1">One</option>
+			<option value="2">Two</option>
+			<option value="3">Three</option>
+			<option value="4">Four</option>
+		</option-list>
+		<option-list id="call response">
+			<option value="Menu selection before proceeding">Menu selection before proceeding</option>
+			<option value="Answered by Service Officer">Answered by Service Officer</option>
+			<option value="Receptionist who redirects">Receptionist who redirects</option>
+		</option-list>
+		<option-list id="call directed">
+			<option value="Call centre staffed by service officers">Call centre staffed by service officers</option>
+			<option value="Various departments depending call type">Various departments depending on call type</option>
+			<option value="Client administrators">Client administrators</option>
+		</option-list>
+		<option-list id="call menu">
+			<option value="None">None</option>
+			<option value="1">One</option>
+			<option value="2">Two</option>
+			<option value="3">Three</option>
+			<option value="4">Four</option>
+			<option value="5">Five</option>
+			<option value="&gt;5">greater than 5</option>
+		</option-list>
+		<option-list id="min call time">
+			<option value="0">None</option>
+			<option value="1-10">One to Ten</option>
+			<option value="11-20">Eleven to Twenty</option>
+			<option value="20-30">Twenty One to Thirty</option>
+			<option value="&gt;30">Greater than thirty</option>
+		</option-list>
+		<option-list id="auto/manual">
+			<option value="Auto">Automatic</option>
+			<option value="Manual">Manual</option>
+		</option-list>
+		<option-list id="payment">
+			<option value="cash">Cash</option>
+			<option value="cheque">Cheque</option>
+			<option value="BPay">BPAY</option>
+			<option value="PostBill Pay">PostBill Pay</option>
+			<option value="Credit card">Credit card</option>
+			<option value="EFTPOS">EFTPOS</option>
+			<option value="Direct debit">Direct debit</option>
+			<option value="EFT">Direct Credit/EFT</option>
+			<option value="Other">Other</option>
+			<option value="none">None of the above</option>
+		</option-list>
+		<option-list id="contri return">
+			<option value="Paper">paper</option>
+			<option value="Payroll extract">payroll extract</option>
+			<option value="Web Based remittance">Web-based remittance portal</option>
+			<option value="Email via excel">Email via excel</option>
+			<option value="Other">other</option>
+			<option value="none">None of the above</option>
+		</option-list>
+		<option-list id="reconcile frequency">
+			<option value="Daily">Daily</option>
+			<option value="Weekly">Weekly</option>
+			<option value="Fortnightly">Fortnightly</option>
+			<option value="Monthly">Monthly</option>
+			<option value="Quarterly">Quarterly</option>
+			<option value="Half yearly">Half yearly</option>
+			<option value="Annual">Annual</option>
+			<option value="Do not reconcile">Do not reconcile</option>
+		</option-list>
+		<option-list id="Accept/Reject">
+			<option value="accept">Accept</option>
+			<option value="reject">Reject</option>
+		</option-list>
+		<option-list id="unallocated contri">
+			<option value="Refunded">refunded</option>
+			<option value="Offset against future contributions">Offset against future contributions</option>
+			<option value="Suspense account">suspense account</option>
+		</option-list>
+		<option-list id="non-receipt SG">
+			<option value="1 week">1 week</option>
+			<option value="2 weeks">2 weeks</option>
+			<option value="1 month">1 month</option>
+			<option value="2 months">2 months</option>
+			<option value="3 months">3 months</option>
+		</option-list>
+		<option-list id="member/admin">
+			<option value="Fund members">Scheme members</option>
+			<option value="Administrator">Administrator</option>
+			<option value="Fund Promoter">Scheme Promoter</option>
+		</option-list>
+		<option-list id="audit account">
+			<option value="Within 30 days">Within 30 days</option>
+			<option value="Within 60 days">Within 60 days</option>
+			<option value="Within 90 days">Within 90 days</option>
+			<option value="Within 120 days">Within 120 days</option>
+			<option value="More than 120 days">More than 120 days</option>
+		</option-list>
+		<option-list id="1-14/more">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+			<option value="13">13</option>
+			<option value="14">14</option>
+			<option value="more">more than 14</option>
+		</option-list>
+		<option-list id="1-30/more">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+			<option value="13">13</option>
+			<option value="14">14</option>
+			<option value="15">15 – 21</option>
+			<option value="22">22 – 30</option>
+			<option value="more">more than 30</option>
+		</option-list>
+		<option-list id="inhouse/3party">
+			<option value="inhouse">In house</option>
+			<option value="3party">3rd Party</option>
+		</option-list>
+		<option-list id="inhouse/Ext">
+			<option value="inhouse">In house</option>
+			<option value="ext">External</option>
+		</option-list>
+		<option-list id="Admin web">
+			<option value="Not Web Intergrated">Not Web Integrated</option>
+			<option value="Web Integrated">Web Integrated</option>
+			<option value="Additional web browser">Additional web browser</option>
+		</option-list>
+		<option-list id="Auto/Manual/Both">
+			<option value="Auto">Auto</option>
+			<option value="Manual">Manual</option>
+			<option value="Both">Both</option>
+		</option-list>
+		<option-list id="Auto/Manual/Both/Na">
+			<option value="Auto">Auto</option>
+			<option value="Manual">Manual</option>
+			<option value="Both">Both</option>
+			<option value="na">N/A</option>
+		</option-list>
+		<option-list id="Ledger update">
+			<option value="Immediate">Immediate</option>
+			<option value="Daily">Daily</option>
+			<option value="Weekly">Weekly</option>
+			<option value="Fortnightly">Fortnightly</option>
+			<option value="Monthly">Monthly</option>
+			<option value="Quarterly">Quarterly</option>
+			<option value="Half yearly">Half yearly</option>
+			<option value="Annual">Annual</option>
+			<option value="Benefit estimated only shown">Benefit estimated only shown</option>
+		</option-list>
+		<option-list id="periodic payment">
+			<option value="Weekly">Weekly</option>
+			<option value="Fortnightly">Fortnightly</option>
+			<option value="Monthly">Monthly</option>
+			<option value="Bi-Monthly">Bi-Monthly</option>
+			<option value="Quarterly">Quarterly</option>
+			<option value="Half Yearly">Half Yearly</option>
+			<option value="Annual">Annual</option>
+			<option value="Other">Other</option>
+		</option-list>
+		<option-list id="1-5">
+			<option value="None">None</option>
+			<option value="1">One</option>
+			<option value="2">Two</option>
+			<option value="3">Three</option>
+			<option value="4">Four</option>
+			<option value="5">Five</option>
+			<option value="&gt;5">greater than 5</option>
+		</option-list>
+		<option-list id="1-6">
+			<option value="None">None</option>
+			<option value="1">One</option>
+			<option value="2">Two</option>
+			<option value="3">Three</option>
+			<option value="4">Four</option>
+			<option value="5">Five</option>
+			<option value="6">Six</option>
+			<option value="&gt;6">greater than 6</option>
+		</option-list>
+		<option-list id="Planning centre">
+			<option value="Cost centre">Cost</option>
+			<option value="Profit centre">Profit</option>
+			<option value="Nil impact to cost revenue base">Nil</option>
+		</option-list>
+		<option-list id="months-12/36">
+			<option value="0-12 months">0-12 months ago</option>
+			<option value="13-24 months">13-24 months ago</option>
+			<option value="25-36 months">25-36 months ago</option>
+			<option value="more than 36 months">more than 36 months ago</option>
+		</option-list>
+		<option-list id="Training commitment">
+			<option value="0-10 hours">0-10 hours</option>
+			<option value="10-24 hours">10-24 hours</option>
+			<option value="25-36 hours">25-36 hours</option>
+			<option value="&gt;36 hours">&gt;36 hours</option>
+		</option-list>
+		<option-list id="Trustee Structure">
+			<option value="Independent professional trustee company">Independent</option>	
+			<option value="Ccorporate trustee with equal representation">Corporate</option>
+			<option value="Corporate trustee with equal representation, but with independent Directors">Corprorate Independent</option>
+			<option value="Approved trustee associated with Scheme promoter">Scheme promoter</option>
+			<option value="Approved trustee associated iwth Scheme promoter but with independent Directors">Scheme promoter Independent</option>
+		</option-list>
+		<option-list id="Board notify">
+			<option value="Immediately">Immediately</option>
+			<option value="At each board meeting">At each board meeting</option>
+			<option value="Not required">Not required</option>
+		</option-list>
+		<option-list id="Admin contract">
+			<option value="Less than 12 months">Less than 12 months</option>
+			<option value="13-24 months">13-24 months</option>
+			<option value="25-36 months">25-36 months</option>
+			<option value=">36 months">36 months</option>
+		</option-list>
+		<option-list id="Board meeting days">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8-14">8-14</option>
+			<option value="&gt;15">more than 15</option>
+		</option-list>
+		<option-list id="1-12-more-na">
+			<option value="na">Not applicable</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+			<option value="more">&gt; 12</option>
+		</option-list>
+		<option-list id="years-1/5">
+			<option value="Annually">Annually</option>
+			<option value="Every 2 years">Every 2 years</option>
+			<option value="Every 3 years">Every 3 years</option>
+			<option value="Every 4 years">Every 4 years</option>
+			<option value="Every 5 years">Every 5 years</option>
+			<option value="&gt;5 years">Greater than 5 years</option>
+		</option-list>
+		<option-list id="waiting period">
+			<option value="none">No waiting period</option>
+			<option value="1 month">One month</option>
+			<option value="2 months">Two months</option>
+			<option value="3 months">Three months</option>
+			<option value="6 months">Six months</option>
+			<option value="9 months">Nine months</option>
+			<option value="12 months">Twelve months</option>
+			<option value="&gt;12 months">Greater than twelve months</option>
+			<option value="na">Not applicable</option>
+		</option-list>
+		<option-list id="cover period">
+			<option value="Less than 3 months">Less than 3 months</option>
+			<option value="3-6 months">3-6 months</option>
+			<option value="6-9 months">6-9 months</option>
+			<option value="9-12 months">9-12 months</option>
+			<option value="&gt;12 months">&gt;12 months</option>
+		</option-list>
+		<option-list id="days cover">
+			<option value="Less than 30 days">Less than 30 days</option>
+			<option value="30-60 days">30-60 days</option>
+			<option value="60-90 days">60-90 days</option>
+			<option value="&gt;90 days">greater than 90 days</option>
+		</option-list>
+		<option-list id="days cover/other">
+			<option value="Less than 30 days">Less than 30 days</option>
+			<option value="30-60 days">30-60 days</option>
+			<option value="60-90 days">60-90 days</option>
+			<option value="&gt;90 days">greater than 90 days</option>
+			<option value="other">Other</option>
+		</option-list>
+		<option-list id="days cover/na">
+			<option value="Less than 30 days">Less than 30 days</option>
+			<option value="30-60 days">30-60 days</option>
+			<option value="60-90 days">60-90 days</option>
+			<option value="&gt;90 days">greater than 90 days</option>
+			<option value="na">Not applicable</option>
+		</option-list>
+		<option-list id="IP waiting">
+			<option value="21">21 days</option>
+			<option value="30">30 days</option>
+			<option value="45">45 days</option>
+			<option value="60">60 days</option>
+			<option value="90">90 days</option>
+			<option value="180">180 days</option>
+			<option value="other">Other (please provide in additional comments)</option>
+		</option-list>
+		<option-list id="IP payment">
+			<option value="1 year">1 year</option>
+			<option value="2 years">2 years</option>
+			<option value="5 years">5 years</option>
+			<option value="Age 60">Age 60</option>
+			<option value="Age 65">Age 65</option>
+			<option value="Age 67">Age 67</option>
+			<option value="other">Other</option>
+		</option-list>
+		<option-list id="70-100%/more">
+			<option value="70%">70%</option>
+			<option value="75%">75%</option>
+			<option value="80%">80%</option>
+			<option value="85%">85%</option>
+			<option value="90%">90%</option>
+			<option value="95%">95%</option>
+			<option value="100% or greater">100% or greater</option>
+		</option-list>
+		<option-list id="every10%with0and100">
+			<option value="0%">0%</option>
+			<option value="1-10%">1-10%</option>
+			<option value="11-20%">11-20%</option>
+			<option value="21-30%">21-30%</option>
+			<option value="31-40%">31-40%</option>
+			<option value="41-50%">41-50%</option>
+			<option value="51-60%">51-60%</option>
+			<option value="61-70%">61-70%</option>
+			<option value="71-80%">71-80%</option>
+			<option value="81-90%">81-90%</option>
+			<option value="91-99%">91-99%</option>
+			<option value="100%">100%</option>
+		</option-list>
+		<option-list id="Salary Claim">
+			<option value="Salary at date of claim">Salary at date of claim</option>
+			<option value="Salary at last review">Salary at last review</option>
+			<option value="Average salary over past year">Average salary over past year</option>
+		</option-list>
+		<option-list id="insurance cover">
+			<option value="death">Death only</option>
+			<option value="tpd">TPD only</option>
+			<option value="dthtpd">Death &amp; TPD</option>
+			<option value="na">Not applicable</option>
+		</option-list>
+		<option-list id="opt-4-10-na">
+			<option value="na">Not applicable</option>
+			<option value="less">Up to 4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="more">More than 10</option>
+		</option-list>
+		<option-list id="opt-4-10-na-none">
+			<option value="na">Not applicable</option>
+			<option value="none">None</option>
+			<option value="less">1 - 4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="more">More than 10</option>
+		</option-list>
+		<option-list id="1-10%/less/more">
+			<option value="less">Less than 1%</option>
+			<option value="1">1%</option>
+			<option value="2">2%</option>
+			<option value="3">3%</option>
+			<option value="4">4%</option>
+			<option value="5">5%</option>
+			<option value="6">6%</option>
+			<option value="7">7%</option>
+			<option value="8">8%</option>
+			<option value="9">9%</option>
+			<option value="10">10%</option>
+			<option value="more">&gt;10%</option>
+		</option-list>
+		<option-list id="every25%">
+			<option value="0%">0%</option>
+			<option value="1-25%">1-25%</option>
+			<option value="26-50%">26-50%</option>
+			<option value="51-75%">51-75%</option>
+			<option value="76-100%">76-100%</option>
+		</option-list>
+		<option-list id="7-60/more-mth/qtr">
+			<option value="7">Within 7 days of mth/qtr end</option>
+			<option value="14">Within 14 days of mth/qtr end</option>
+			<option value="21">Within 21 days of mth/qtr end</option>
+			<option value="30">Within 30 days of mth/qtr end</option>
+			<option value="60">Within 60 days of mth/qtr end</option>
+			<option value="more">More than 60 days of mth/qtr end</option>
+		</option-list>
+		<option-list id="unit/credit">
+			<option value="unit">Unit Prices</option>
+			<option value="credit">Crediting Rates</option>
+		</option-list>
+		<option-list id="freq-low">
+			<option value="request">On request</option>
+			<option value="week">Once a week</option>
+			<option value="month">Once a month</option>
+			<option value="quart">Once a quarter</option>
+			<option value="6month">Once every six months</option>
+			<option value="annual">Annually</option>
+			<option value="other">Other</option>
+		</option-list>
+		<option-list id="non-operation">
+			<option value="msg">Ability to leave a recorded message</option>
+			<option value="msg-hours">Recorded message advising call of hours of operation</option>
+			<option value="ring-out">Ring out (no answer)</option>
+		</option-list>
+		<option-list id="hours-of-operation">
+			<option value="none">Not open</option>
+			<option value="m">Midnight</option>
+			<option value="0030">12:30am</option>
+			<option value="0100">1:00am</option>
+			<option value="0130">1:30am</option>
+			<option value="0200">2:00am</option>
+			<option value="0230">2:30am</option>
+			<option value="0300">3:00am</option>
+			<option value="0330">3:30am</option>
+			<option value="0400">4:00am</option>
+			<option value="0430">4:30am</option>
+			<option value="0500">5:00am</option>
+			<option value="0530">5:30am</option>
+			<option value="0600">6:00am</option>
+			<option value="0630">5:30am</option>
+			<option value="0700">7:00am</option>
+			<option value="0730">7:30am</option>
+			<option value="0800">8:00am</option>
+			<option value="0830">8:30am</option>
+			<option value="0900">9:00am</option>
+			<option value="0930">9:30am</option>
+			<option value="1000">10:00am</option>
+			<option value="1030">10:30am</option>
+			<option value="1100">11:00am</option>
+			<option value="1130">11:30am</option>
+			<option value="1200">Midday</option>
+			<option value="1230">12:30pm</option>
+			<option value="1300">1:00pm</option>
+			<option value="1330">1:30pm</option>
+			<option value="1400">2:00pm</option>
+			<option value="1430">2:30pm</option>
+			<option value="1500">3:00pm</option>
+			<option value="1530">3:30pm</option>
+			<option value="1600">4:00pm</option>
+			<option value="1630">4:30pm</option>
+			<option value="1700">5:00pm</option>
+			<option value="1730">5:30pm</option>
+			<option value="1800">6:00pm</option>
+			<option value="1830">6:30pm</option>
+			<option value="1900">7:00pm</option>
+			<option value="1930">7:30pm</option>
+			<option value="2000">8:00pm</option>
+			<option value="2030">8:30pm</option>
+			<option value="2100">9:00pm</option>
+			<option value="2130">9:30pm</option>
+			<option value="2200">10:00pm</option>
+			<option value="2230">10:30pm</option>
+			<option value="2300">11:00pm</option>
+			<option value="2330">11:30pm</option>
+		</option-list>
+		<option-list id="fndgov-board-type">
+			<option value="exec">Executive Director</option>
+			<option value="nonexec">Non Executive Director</option>
+			<option value="chairman">Chairman</option>
+			<option value="indy">Independent</option>
+		</option-list>
+		<option-list id="fndgov-board-repr">
+			<option value="member">Member</option>
+			<option value="employer">Employer</option>
+		</option-list>
+		<option-list id="cover option">
+			<option value="fixed">Fixed</option>
+			<option value="unitised">Unitised</option>
+			<option value="other">Other</option>
+		</option-list>
+
+	</option-lists>
+
+	<questions>
+		<group id="fund-service-providers" module="genral" type="text" suggest="Not applicable">
+			<question id="service_scheme" prev="service_scheme">
+				Name of Scheme
+			</question>
+			<question id="service_admin" prev="service_admin">
+				Name of Administrator
+			</question>
+			<question id="service_trustee" prev="service_trustee">
+				Name of Supervisor
+			</question>
+			<question id="service_asset" prev="service_asset">
+				Name of Primary Asset Consulting firm
+			</question>
+			<question id="service_audit" prev="service_audit">
+				Name of External Auditing firm
+			</question>
+			<question id="service_audit_internal" prev="service_audit_internal">
+				Name of Internal Auditing firm
+			</question>
+		</group>
+
+		<group module="member">
+			<group id="scheme-membership" type="number">
+				<group-question>Scheme Membership Statistics</group-question>
+				<question id="member_contributing_members_pre">Total contributing members</question>
+				<question id="member_contributing_members">Total contributing members</question>
+				<question id="member_non_contributing_members_pre">Total non-contributing members (not on contribution holiday)</question>
+				<question id="member_non_contributing_members">Total non-contributing members (not on contribution holiday)</question>
+				<question id="member_contrib_holiday_pre">Total members on a contribution holiday</question>
+				<question id="member_contrib_holiday">Total members on a contribution holiday</question>
+
+				<question id="member_new_members_pre">Total new members</question>
+				<question id="member_new_members">Total new members</question>
+				<question id="member_new_default_members_pre" label-class="indent">New default members</question>
+				<question id="member_new_default_members">New default members</question>
+				<question id="member_new_transfer_in_pre" label-class="indent">Transfers-in from other KiwiSaver schemes</question>
+				<question id="member_new_transfer_in">Transfers-in from other KiwiSaver schemes</question>
+				<question id="member_new_other_pre" label-class="indent">Other new members</question>
+				<question id="member_new_other">Other new members</question>
+
+				<question id="member_exited_members_pre">Total exited members</question>
+				<question id="member_exited_members">Total exited members</question>
+				<question id="member_exits_transfer_out_pre" label-class="indent">Transfer-out to other Schemes</question>
+				<question id="member_exits_transfer_out">Transfer-out to other Schemes</question>
+				<question id="member_exits_retirement_pre" label-class="indent">Retirement/Financial Hardship/Illness claims</question>
+				<question id="member_exits_retirement">Retirement/Financial Hardship/Illness claims</question>
+
+				<question id="member_total_membership_pre">Total membership</question>
+				<question id="member_total_membership">Total membership</question>
+			</group>
+
+			<group id="scheme-asset" type="money">
+				<group-question>Scheme Asset Statistics</group-question>
+				<question id="asset_total_contributions_pre">Total contributions</question>
+				<question id="asset_total_contributions">Total contributions</question>
+				<question id="asset_employer_contributions_pre">Employer contributions</question>
+				<question id="asset_employer_contributions">Employer contributions</question>
+				<question id="asset_member_contributions_pre">Member contributions</question>
+				<question id="asset_member_contributions">Member contributions</question>
+				<question id="asset_crown_contributions_pre">Crown contributions</question>
+				<question id="asset_crown_contributions">Crown contributions</question>
+				<question id="asset_transfer_in_contributions_pre">Transfer-in contributions</question>
+				<question id="asset_transfer_in_contributions">Transfer-in contributions</question>
+
+				<question id="asset_total_withdrawals_pre">Total Withdrawals</question>
+				<question id="asset_total_withdrawals">Total Withdrawals</question>
+				<question id="asset_withdraw_first_home_purch_pre" label-class="indent">Purchase of a First home</question>
+				<question id="asset_withdraw_first_home_purch">Purchase of a First home</question>
+				<question id="asset_withdraw_retirement_withdrawals_pre" label-class="indent">Retirement withdrawals</question>
+				<question id="asset_withdraw_retirement_withdrawals">Retirement withdrawals</question>
+				<question id="asset_withdraw_transfer_out_pre" label-class="indent">Transfer-out</question>
+				<question id="asset_withdraw_transfer_out">Transfer-out</question>
+				<question id="asset_withdraw_other_withdrawals_pre" label-class="indent">Other Withdrawals (Death, Serious Illness, etc)</question>
+				<question id="asset_withdraw_other_withdrawals">Other Withdrawals (Death, Serious Illness, etc)</question>
+
+				<question id="asset_total_net_assets_pre">Total Net Assets</question>
+				<question id="asset_total_net_assets">Total Net Assets</question>
+			</group>
+
+			<group id="scheme-cost" type="money">
+				<group-question>Scheme Cost Statistics</group-question>
+				<question id="cost_total_operating_pre">Total Operating Costs</question>
+				<question id="cost_total_operating">Total Operating Costs</question>
+				<question id="cost_admin_pre" label-class="indent">Administration costs</question>
+				<question id="cost_admin">Administration costs</question>
+				<question id="cost_marketing_pre" label-class="indent">Marketing costs</question>
+				<question id="cost_marketing">Marketing costs</question>
+				<question id="cost_trustee_pre" label-class="indent">Trustee costs</question>
+				<question id="cost_trustee">Trustee costs</question>
+				<question id="cost_investment_pre" label-class="indent">Investment costs</question>
+				<question id="cost_investment">Investment costs</question>
+				<question id="cost_other_pre" label-class="indent">Other costs</question>
+				<question id="cost_other">Other costs</question>
+			</group>
+		</group>
+			
+		<group module="invest">
+			<group id="invest-returns-pre-tax" array="invest-returns-pre-tax" min-rows="6">
+				<group-question>Investment Returns at 0 PIE Tax Rate</group-question>
+				<question id="invest_option_name" type="text" mandatory="not-mandatory"></question>
+				<question id="invest_growth_asset_ratio" type="text" mandatory="not-mandatory"></question>
+				<question id="invest_1_year" type="text" mandatory="not-mandatory"></question>
+				<question id="invest_3_year" type="text" mandatory="not-mandatory"></question>
+				<question id="invest_5_year" type="text" mandatory="not-mandatory"></question>
+				<question id="invest_7_year" type="text" mandatory="not-mandatory"></question>
+				<question id="invest_10_year" type="text" mandatory="not-mandatory"></question>
+			</group>
+			<group id="invest-returns-pre-top-tax" array="invest-returns-pre-top-tax" min-rows="6">
+				<group-question>Investment Returns at Top PIE Tax Rate</group-question>
+				<question id="top_invest_option_name" type="text" mandatory="not-mandatory"></question>
+				<question id="top_growth_asset_ratio" type="text" mandatory="not-mandatory"></question>
+				<question id="top_invest_1_year" type="text" mandatory="not-mandatory"></question>
+				<question id="top_invest_3_year" type="text" mandatory="not-mandatory"></question>
+				<question id="top_invest_5_year" type="text" mandatory="not-mandatory"></question>
+				<question id="top_invest_7_year" type="text" mandatory="not-mandatory"></question>
+				<question id="top_invest_10_year" type="text" mandatory="not-mandatory"></question>
+
+			</group>
+
+			<group id="invest-inter-capabilities" type="option" option-list="Yes/No">
+				<question id="invest_inter_capability_chief_officer" prev="invest_inter_capability_chief_officer">
+					Does the Scheme have a dedicated Chief Investment Officer or equivalent?
+					<score value="Yes">2</score>
+				</question>
+				<group>
+					<rule>invest_inter_capability_chief_officer=='Yes'</rule>
+					<question id="invest_inter_capability_chief_officer_responsibilities" prev="invest_inter_capability_chief_officer_responsibilities" type="multiline">
+						What are their key responsibilities?
+					</question>
+				</group>
+				<question id="invest_inter_consultant_n_specialist" type="option" prev="invest_inter_consultant_n_specialist">
+					How many investment specialists do you employ internally?
+					<option value="30+">More than 30</option>
+					<option value="20-30">20 to 30</option>
+					<option value="15-19">15 to 19</option>
+					<option value="10-14">10 to 14</option>
+					<option value="5-9">5 to 9</option>
+					<option value="2-4">2 to 4</option>
+					<option value="1">1</option>
+					<option value="none">None</option>
+
+					<score value="30+">1</score>
+					<score value="20-30">1</score>
+					<score value="15-19">1</score>
+					<score value="10-14">1</score>
+					<score value="5-9">1</score>
+					<score value="2-4">1</score>
+					<score value="1">1</score>
+				</question>
+				<group>
+					<rule>invest_inter_consultant_n_specialist!='none'</rule>
+					<question id="invest_specialist_core" type="multioption" prev="invest_specialist_core">
+						What are their core responsibilities?
+						<option value="macro_research">Macroeconomic Research</option>
+						<option value="sector_research">Sector Research</option>
+						<option value="strategic">Strategic Asset Allocation</option>
+						<option value="tactical">Tactical/Dynamic Asset Allocation</option>
+						<option value="manager_research">Manager Research</option>						
+						<option value="manager_selection">Manager Selection</option>
+						<option value="invest_mgr_perf">Investment manager performance monitoring</option>
+						<option value="implementation">Implementation</option>
+						<option value="invest_policy_dev">Investment Policy Development</option>
+						<option value="currency_liquidity">Currency &amp; liquidity monitoring</option>
+						<option value="passive_port">Passive Portfolio Management</option>
+						<option value="active_port">Active Portfolio Management</option>
+						<option value="analysis">Fundamental Stock Analysis / Stock Selection</option>
+						<option value="other">Other (please specify in additional comments)</option>
+
+						<score value="macro_research">0.1428571429</score>
+						<score value="sector_research">0.1428571429</score>
+						<score value="strategic">0.1428571429</score>
+						<score value="tactical">0.1428571429</score>
+						<score value="manager_research">0.1428571429</score>
+						<score value="manager_selection">0.1428571429</score>
+						<score value="invest_mgr_perf">0.1428571429</score>
+						<score value="implementation">0.1428571429</score>
+						<score value="invest_policy_dev">0.1428571429</score>
+						<score value="currency_liquidity">0.1428571429</score>
+						<score value="passive_port">0.1428571429</score>
+						<score value="active_port">0.1428571429</score>
+						<score value="analysis">0.1428571429</score>
+						<score value="other">0.1428571429</score>
+					</question>
+					<group>
+						<rule>invest_specialist_core~~'other'</rule>
+						<question id="invest_specialist_core_comments" prev="invest_specialist_core_comments" type="multiline">
+							Additional Comments
+						</question>
+					</group>
+					<question id="invest_ave_year_in_team" type="text" prev="invest_ave_year_in_team">
+						What is the average year(s) of investment experience within your internal investment team?
+					</question>
+					<question id="invest_manage_assets_in_house" type="option" prev="invest_manage_assets_in_house">
+						Does your investment team manage assets in-house?
+					</question>
+				</group>
+				<group>
+					<rule>invest_manage_assets_in_house=='Yes'</rule>
+					<group>
+						<rule>invest_inter_consultant_n_specialist!='none'</rule>
+						<question id="invest_assets_classes_in_house" type="multioption" prev="invest_manage_assets_in_house">
+							If so, what asset classes are managed in-house?
+							<option value="nz_equities">New Zealand Equities</option>
+							<option value="aus_equities">Australian Equities</option>
+							<option value="int_equities">International Equities</option>
+							<option value="property">Property</option>
+							<option value="fixed_domestic">Fixed Interest - Domestic</option>
+							<option value="fixed_global">Fixed Interest - Global</option>
+							<option value="cash">Cash</option>
+							<option value="private">Private Equity</option>
+							<option value="infrastructure">Infrastructure</option>
+							<option value="alternatives">Alternatives</option>
+						</question>
+						<question id="invest_assets_proportion_in_house" type="percentage" prev="invest_assets_proportion_in_house">
+							Approximately what proportion of assets are internally managed?
+						</question>
+						<question id="risk_controls_internal_assets" type="multiline" prev="risk_controls_internal_assets">
+							What are the risk controls and oversight functions performed on the internally managed assets?
+						</question>
+						<question id="invest_monitor_internal_team_perform" type="multiline" prev="invest_monitor_internal_team_perform">
+							Do you monitor the performance of your internal investment team? If so, what benchmarks are used?
+						</question>
+					</group>
+				</group>
+				<group>
+					<question id="scheme_esg_risk" type="option" prev="scheme_esg_risk">
+						Does the Scheme have an Environmental &amp; Social Governance (ESG) Risk Management Policy in place?
+						<score value="Yes">1</score>
+					</question>
+					<group>
+						<rule>scheme_esg_risk=='Yes'</rule>
+						<question id="scheme_approach" type="multioption" prev="scheme_approach">
+							If yes, what approach does the scheme use?
+							<option value="negative_screening">Negative/exclusionary screening</option>
+							<option value="positive_selection">Positive selection/best-in-class</option>
+							<option value="active_ownership">Active ownership</option>
+							<option value="thematic_investing">Thematic investing</option>
+							<option value="impact_investing">Impact investing</option>
+							<option value="esg_integration">ESG Integration</option>
+							<option value="other">Other</option>
+							<rule>scheme_esg_risk=='Yes'</rule>
+
+							<score value="negative_screening">0.166666667</score>
+							<score value="positive_selection">0.166666667</score>
+							<score value="active_ownership">0.166666667</score>
+							<score value="thematic_investing">0.166666667</score>
+							<score value="impact_investing">0.166666667</score>
+							<score value="esg_integration">0.166666667</score>
+						</question>
+						<question id="scheme_approach_other" type="text" prev="scheme_approach_other">
+							If other, please specify
+							<rule>scheme_approach=='other'</rule>
+						</question>
+						<question id="scheme_esg_risk_available" type="option" prev="scheme_esg_risk_available">
+							Does the Scheme make the ESG Risk Management Policy publicly available?
+							<score value="Yes">0.5</score>
+						</question>
+					</group>
+					<question id="scheme_ethical_fund" type="option" prev="scheme_ethical_fund">
+						Does the Scheme provide members with a standalone ethical fund?
+						<score value="Yes">0.5</score>
+					</question>
+				</group>
+			</group>
+			
+			<group id="invest-ext-consultants" type="option" option-list="Yes/No">
+				<question id="invest_ext_consultant" prev="invest_ext_consultant">
+					Do you retain an external Investment Consultant on a permanent basis (either periodically or continuously)?
+					<score value="Yes">2</score>
+				</question>
+				<group>
+					<rule>invest_ext_consultant=='Yes'</rule>
+					<question id="invest_ext_consultant_term" prev="invest_ext_consultant_term" option-list="Fixed Term/Unspecified">
+						Is the appointment of an external Investment Consultant fixed term or unspecified?
+						<score value="Fixed Term">1</score>
+						<score value="Unspecified">0</score>
+					</question>
+					<question id="last_review_undertaken" type="text" prev="last_review_undertaken">
+						If unspecified, when was the last Investment Consultant review undertaken?
+						<rule>invest_ext_consultant_term=='Unspecified'</rule>
+					</question>
+					<question id="invest_ext_consultant_services" type="multioption" prev="invest_ext_consultant_services">
+						What services do you engage your Investment Consultant to provide?
+						<option value="manager_research">Manager research</option>
+						<option value="manager_selection">Manager selection</option>
+						<option value="invest_mgr_perf">Investment manager performance monitoring</option>
+						<option value="implementation">Implementation</option>
+						<option value="trans_management">Transition management</option>						
+						<option value="strategic_aa">Strategic Asset Allocation</option>
+						<option value="tactical_aa">Tactical/Dynamic Asset Allocation</option>
+						<option value="thematic_research">Thematic Research</option>
+						<option value="currency_advice">Currency Advice</option>
+						<option value="competitor_analysis">Competitor Analysis</option>
+						<option value="implemented_consulting">Implemented Consulting</option>
+						<option value="other">Other</option>
+
+						<score value="manager_research">0.0833333333</score>
+						<score value="manager_selection">0.0833333333</score>
+						<score value="invest_mgr_perf">0.0833333333</score>
+						<score value="implementation">0.0833333333</score>
+						<score value="trans_management">0.0833333333</score>						
+						<score value="strategic_aa">0.0833333333</score>
+						<score value="tactical_aa">0.0833333333</score>
+						<score value="thematic_research">0.0833333333</score>
+						<score value="currency_advice">0.0833333333</score>
+						<score value="competitor_analysis">0.0833333333</score>
+						<score value="implemented_consulting">0.0833333333</score>
+						<score value="other">0.0833333333</score>
+					</question>
+					<group>
+						<rule>invest_ext_consultant_services~~'other'</rule>
+						<question id="invest_ext_consultant_services_other" prev="invest_ext_consultant_services_other" type="multiline">If other, please specify</question>
+					</group>
+
+					<question id="invest_ext_consultant_benchmark" prev="invest_ext_consultant_benchmark" type="multiline">
+						What benchmarks are set for external Investment Consultants?
+					</question>
+
+					<question id="invest_ext_consultant_benchmark_assessed" prev="invest_ext_consultant_benchmark_assessed" type="multiline">
+						How are these benchmarks assessed?
+					</question>
+
+					<question id="invest_ext_consultant_report" prev="invest_ext_consultant_report" option-list="time frequency">
+						How often does the external Investment Consultant report?
+						<score value="monthly">1</score>
+						<score value="quarterly">0.75</score>
+						<score value="half_yearly">0.5</score>
+						<score value="annual">0.25</score>
+					</question>
+				</group>
+				<question id="invest_ext_consultant_asset" prev="invest_ext_consultant_asset">
+					Do you appoint specialist asset consulting firms for specialist advice?
+					<score value="Yes">1</score>
+					<score value="No">0</score>
+				</question>
+			</group>
+
+			<group id="invest-committee" type="option" option-list="Yes/No">
+				<question id="invest_committee" prev="invest_committee">
+					Do you have an Investment Committee?
+					<score value="Yes">2</score>
+					<score value="No">0</score>
+				</question>
+				<group>
+					<rule>invest_committee=='Yes'</rule>
+					<question id="invest_committee_frequency" prev="invest_committee_frequency" type="multioption" option-list="full time frequency">
+						How often per annum does the Investment Committee meet?
+						<score value="weekly">2</score>
+						<score value="fortnightly">2</score>
+						<score value="monthly">2</score>
+						<score value="quarterly">1.5</score>
+						<score value="half_yearly">1</score>
+						<score value="annual">0.5</score>
+					</question>
+					<question id="external_investment_specialist" prev="external_investment_specialist" type="option">
+						Do you have an external investment specialist on your Investment Committee?
+					</question>
+					<question id="invest_committee_who" prev="invest_committee_who" type="multiline">
+						Who sits on your Investment Committee?
+					</question>
+					<question id="invest_committee_board" prev="invest_committee_board" type="number">
+						How many Board members sit on your Investment Committee?
+					</question>
+					<question id="invest_committee_qualified" prev="invest_committee_qualified">
+						Do all members of your Investment Committee hold formal investment qualifications?
+						<score value="Yes">1</score>
+						<score value="No">0</score>
+					</question>
+					<question id="invest_committee_fixed_term" prev="invest_committee_fixed_term">
+						Is a fixed term set for members of the Investment Committee?
+						<score value="Yes">1</score>
+					</question>
+					<question id="invest_committee_powers" prev="invest_committee_powers">
+						What are the powers of the internal Investment Committee?
+						<option value="review">Review only</option>
+						<option value="recommend">Recommend only</option>
+						<option value="implement">Implement but ratified by 3rd party</option>
+						<option value="autonomous">Autonomous</option>
+
+						<score value="recommend">0</score>
+						<score value="autonomous">2</score>
+						<score value="implement">1</score>
+						<score value="review">1</score>
+					</question>
+					<question id="invest_committee_decision" prev="invest_committee_decision">
+						How does the Committee reach a decision on investment matters?
+						<option value="majority">Simple majority</option>
+						<option value="twothird">Two thirds majority</option>
+						<option value="ratified">Ratified by 3rd party</option>
+						<option value="reexamine">Re-examined by 3rd party</option>
+
+						<score value="majority">1</score>
+						<score value="twothird">1</score>
+					</question>
+					<question id="supervisor_authority" prev="supervisor_authority" type="multioption">
+						Does the CIO/internal team have delegated authority from the Supervisor for the following?
+						<option value="asset_allocation_changes">Asset Allocation changes</option>
+						<option value="manager_selection">Manager selection</option>
+						<option value="manager_removal">Manager removal</option>
+						<option value="currency_hedging">Currency hedging</option>
+						<option value="none">None of the above</option>
+
+						<score value="asset_allocation_changes">0.5</score>
+						<score value="manager_selection">0.5</score>
+						<score value="manager_removal">0.5</score>
+						<score value="currency_hedging">0.5</score>
+					</question>
+					<question id="invest_committe_hours" prev="invest_committe_hours">
+						On average, how many hours per annum (meetings x length) does the Committee meet?
+						<option value="12">0 – 12 hours</option>
+						<option value="24">13 – 24 hours</option>
+						<option value="36">25 – 36 hours</option>
+						<option value="48">37 – 48 hours</option>
+						<option value="60">48 – 60 hours</option>
+						<option value="more">More than 60 hours</option>
+
+						<score value="36">0.5</score>
+						<score value="48">0.5</score>
+						<score value="60">1</score>
+						<score value="more">1</score>
+					</question>
+					<question id="invest_committee_training" prev="invest_committee_training">
+						Do you have a formal investment training programme for new Investment Committee members?
+						<score value="Yes">1</score>
+					</question>
+					<group>
+						<rule>invest_committee_training=='Yes'</rule>
+						<question id="invest_committee_training_structure" prev="invest_committee_training_structure" type="multiline">
+							Please provide a brief overview of the structure/content of this programme:
+						</question>
+					</group>
+				</group>
+			</group>
+			<group id="invest-asset" type="option">
+				<question id="invest_asset_option" prev="invest_asset_option">
+					Does the Scheme set option benchmarks and/or ranges?
+					<option value="benchmark">Benchmark</option>
+					<option value="range">Range</option>
+					<option value="both">Both</option>
+					<option value="other">Other (please specify in additional comments)</option>
+				</question>
+				<group>
+					<rule>invest_asset_option=='other'</rule>
+					<question id="invest_asset_option_comments" prev="invest_asset_option_comments" type="multiline">
+						Additional Comments
+					</question>
+				</group>
+				<question id="invest_asset_rebalance" prev="invest_asset_rebalance">
+					How often does the Scheme rebalance back to the strategic allocation benchmark?
+					<option value="auto">Automatically</option>
+					<option value="daily">Daily</option>
+					<option value="weekly">Weekly</option>
+					<option value="monthly">Monthly</option>
+					<option value="quarterly">Quarterly</option>
+					<option value="annually">Annually</option>
+					<option value="other">Other (please specify in comments)</option>
+
+					<score value="monthly">1</score>
+					<score value="quarterly">1</score>
+				</question>
+				<group>
+					<rule>invest_asset_rebalance=='other'</rule>
+					<question id="invest_asset_rebalance_comments" prev="invest_asset_rebalance_comments" type="multiline">
+						Comments
+					</question>
+				</group>
+				<question id="invest_default_option_passive" prev="invest_default_option_passive" option-list="every10%with0and100">
+					For your default option, what proportion of total assets are passively managed?
+				</question>
+				<question id="invest_def_opt_domestic_Eq_passive" prev="invest_def_opt_domestic_Eq_passive" option-list="every10%with0and100">
+					For your default option, what proportion of your Domestic Equity Exposure is passively invested?
+				</question>
+				<question id="invest_def_opt_Int_Eq_passive" prev="invest_def_opt_Int_Eq_passive" option-list="every10%with0and100">
+					For your default option, what proportion of your International Equity Exposure is passively invested?
+				</question>
+				<question id="invest_def_opt_fixed_interest_passive" prev="invest_def_opt_fixed_interest_passive" option-list="every10%with0and100">
+					For your default option, what proportion of your Fixed Interest Exposure is passively invested?
+				</question>
+				<question id="asset_class_passive_mgr_exposure" prev="asset_class_passive_mgr_exposure" type="multiline">
+					Please outline for which asset classes' passive manager exposure has been increased or reduced, including key reasons for the change over the past 12 months?
+				</question>
+				<question id="invest_def_opt_annual_port_turnover" prev="invest_def_opt_annual_port_turnover" option-list="every10%with0and100">
+					What is the typical rate of annual portfolio turnover for your default investment option?
+				</question>
+				<question id="invest_def_opt_derivative_overlays" prev="invest_def_opt_derivative_overlays" option-list="Yes/No">
+					For your main default option, do you use derivative overlays?
+					<score value="Yes">1</score>
+				</question>
+				<question id="approach_to_protection" prev="approach_to_protection" type="text">
+					What is the Scheme’s approach to building downside protection into portfolios?
+				</question>
+				<question id="invest_allocation_tilts" prev="invest_allocation_tilts" option-list="Yes/No">
+					Does the Scheme use dynamic or tactical asset allocation tilts within its investment portfolios?
+					<score value="Yes">1</score>
+				</question>
+				<question id="invest_asset_review" prev="invest_asset_review" type="text">
+					How often do you formally review your benchmarks/ranges?
+				</question>
+				<question id="invest_monitor_pie_rates" prev="invest_monitor_pie_rates" option-list="Yes/No">
+					Do you monitor tax outcomes for different PIE tax rates?
+					<score value="Yes">2</score>
+				</question>
+			</group>
+			
+			<group id="invest-unlisted" type="option" option-list="Yes/No">
+				<question id="invest_unlisted_unlist" prev="invest_unlisted_unlist">
+					Does your Scheme invest in unlisted assets?
+				</question>
+				<group>
+					<rule>invest_unlisted_unlist=='Yes'</rule>
+					<question id="invest_unlisted_committee" prev="invest_unlisted_committee">
+						Do you have a nominated Valuation Committee or similar to oversee the valuation process?
+						<score value="Yes">1</score>
+						<score value="No">0</score>
+					</question>
+				</group>
+				<question id="invest_infrastructure_frequency" prev="invest_infrastructure_frequency">
+					How frequently is a valuation of infrastructure assets undertaken?
+					<option value="monthly">Monthly</option>
+					<option value="quarterly">Quarterly</option>
+					<option value="half_yearly">Six monthly</option>
+					<option value="annually">Annually</option>
+					<option value="other">Other (please specify in comments)</option>
+					<option value="na">Not applicable</option>
+
+					<score value="monthly">1</score>
+					<score value="quarterly">1</score>
+					<score value="half_yearly">1</score>
+					<score value="annually">0.5</score>
+					<score value="other">0.5</score>
+				</question>
+				<question id="invest_infrastructure_frequency_comment" prev="invest_infrastructure_frequency_comment" type="multiline" mandatory="not-mandatory">
+					Comments (Enter answer in months)
+				</question>
+				<question id="invest_unlisted_prop_frequency" prev="invest_unlisted_prop_frequency">
+					How frequently is a valuation of unlisted property assets undertaken?
+					<option value="monthly">Monthly</option>
+					<option value="quarterly">Quarterly</option>
+					<option value="half_yearly">Six monthly</option>
+					<option value="annually">Annually</option>
+					<option value="other">Other (please specify in comments)</option>
+					<option value="na">Not applicable</option>
+
+					<score value="monthly">1</score>
+					<score value="quarterly">1</score>
+					<score value="half_yearly">1</score>
+					<score value="annually">0.5</score>
+					<score value="other">0.5</score>
+				</question>
+				<question id="invest_unlisted_prop_frequency_comment" prev="invest_unlisted_prop_frequency_comment" type="multiline" mandatory="not-mandatory">
+					Comments (Enter answer in months)
+				</question>
+				<question id="invest_private_eq_frequency" prev="invest_private_eq_frequency">
+					How frequently is a valuation of private equity assets undertaken?
+					<option value="monthly">Monthly</option>
+					<option value="quarterly">Quarterly</option>
+					<option value="half_yearly">Six monthly</option>
+					<option value="annually">Annually</option>
+					<option value="other">Other (please specify in comments)</option>
+					<option value="na">Not applicable</option>
+
+					<score value="monthly">1</score>
+					<score value="quarterly">1</score>
+					<score value="half_yearly">1</score>
+					<score value="annually">0.5</score>
+					<score value="other">0.5</score>
+				</question>
+				<question id="invest_private_eq_frequency_comment" prev="invest_private_eq_frequency_comment" type="multiline" mandatory="not-mandatory">
+					Comments (Enter answer in months)
+				</question>
+				<question id="invest_unlisted_illiquids" prev="invest_risk_illiquids" type="option">
+					Do you have a written Valuation Policy on illiquids?
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>
+					<option value="Not applicable">Not applicable</option>
+
+					<score value="Yes">1</score>
+				</question>
+			</group>
+			
+			<group id="invest-currency" type="option">
+				<question id="invest_currency_exposures" prev="invest_currency_exposures" option-list="Yes/No">
+					Do you hedge your currency exposures?
+					<score value="Yes">2</score>
+				</question>
+				<group>
+					<rule>invest_currency_exposures=='Yes'</rule>
+					<question id="invest_currency_exposures_level" prev="invest_currency_exposures_level">
+						Do you hedge currency exposures at the Scheme or asset class level?
+						<option value="scheme">Scheme</option>
+						<option value="asset">Asset Class</option>
+						<option value="other">Other</option>
+					</question>
+					<group>
+						<rule>invest_currency_exposures_level=='other'</rule>
+						<question id="invest_currency_exposures_level_other" prev="invest_currency_exposures_level_other" type="text">If other, please specify</question>
+					</group>
+
+					<question id="invest_currency_equities" prev="invest_currency_equities" option-list="every25%">
+						What is the hedge benchmark for International Equities?
+					</question>
+					<question id="invest_currency_equities_actual" prev="invest_currency_equities_actual" type="percentage">
+						What was the actual % level of hedging for International Equities as at 31/3/&year;?
+					</question>
+
+					<question id="invest_currency_bonds" prev="invest_currency_bonds" option-list="every25%">
+						What is the hedge benchmark for International Bonds?
+					</question>
+					<question id="invest_currency_bonds_actual" prev="invest_currency_bonds_actual" type="percentage">
+						What was the actual % level of hedging for International Bonds as at 31/3/&year;?
+					</question>
+
+					<question id="invest_currency_illiquid" prev="invest_currency_illiquid" option-list="every25%">
+						What is the hedge benchmark for International Illiquid and Alternative Assets?
+					</question>
+					<question id="invest_currency_illiquid_actual" prev="invest_currency_illiquid_actual" type="percentage">
+						What was the actual % level of hedging for International Illiquid and Alternative Assets as at 31/3/&year;?
+					</question>
+
+					<question id="invest_currency_exposure_scheme" prev="invest_currency_exposure_scheme" type="percentage">
+						What was the % currency exposure at the scheme level as 31/3/&year;?
+					</question>
+
+					<question id="invest_currency_decide" prev="invest_currency_decide">
+						Who decides the hedge benchmark?
+						<option value="committee">Investment Committee</option>
+						<option value="consultants">Consultants</option>
+						<option value="trustees">Supervisor</option>
+						<option value="other">Other (please specify in additional comments)</option>
+
+						<score value="committee">1</score>
+						<score value="consultants">1</score>
+						<score value="trustees">0.5</score>
+						<score value="other">0</score>
+					</question>
+					<group>
+						<rule>invest_currency_decide=='other'</rule>
+						<question id="invest_currency_decide_comments" type="multiline">Additional Comments</question>
+					</group>
+					
+					<question id="invest_currency_implement" prev="invest_currency_implement">
+						Who implements the hedge program?
+						<option value="invcom">Investment Committee</option>
+						<option value="consultants">Consultants</option>
+						<option value="trustee">Supervisor</option>
+						<option value="manager">Overlay Manager</option>
+						<option value="scheme">Scheme</option>
+						<option value="custodian">Custodian</option>
+						<option value="invman">Investment Manager</option>
+						<option value="other">Other (please specify in additional comments)</option>
+					</question>
+					<group>
+						<rule>invest_currency_implement=='other'</rule>
+						<question id="invest_currency_implement_comments" type="multiline">Additional Comments</question>
+					</group>
+					<question id="invest_currency_review_hedging" prev="invest_currency_review_hedging" type="option" option-list="Yes/No">
+						Has the Scheme reviewed its hedging policy in the past 12 months?
+						<score value="Yes">1</score>
+						<score value="No">0</score>
+					</question>
+				</group>
+			</group>
+			
+			<group id="invest-risk" type="option" option-list="Yes/No">
+				<question id="invest_risk_related" prev="invest_risk_related">
+					Does the Scheme invest in related party investment structures?
+					<score value="Yes">0</score>
+					<score value="No">1</score>
+				</question>
+				<question id="invest_risk_primary_related" prev="invest_risk_primary_related">
+					Is your Primary Investment Consultant part of a related entity?
+					<score value="Yes">0</score>
+					<score value="No">1</score>
+				</question>
+				<question id="invest_committee_visits" prev="invest_committee_visits" type="option" option-list="Yes/No">
+					Do Scheme representatives visit external Investment Managers?
+					<score value="Yes">1</score>
+				</question>	
+				<question id="due_dilligence_resp" type="multioption">
+					Who is responsible for conducting manager due diligence?
+					<option value="trustee">Supervisor</option>
+					<option value="invest_committee">Investment Committee</option>
+					<option value="internal_invest">Internal Investment Team</option>
+					<option value="asset_consult">Asset Consultant</option>
+					<option value="auditor">Auditor</option>
+
+					<score value="trustee">0</score>
+					<score value="invest_committee">0.5</score>
+					<score value="internal_invest">1</score>
+					<score value="asset_consult">1</score>
+					<score value="auditor">0</score>
+				</question>
+				<question id="invest_risk_related_proportion" prev="invest_risk_related_proportion" option-list="related party asset">
+					In respect of your standard default investment option (or comparable option), what proportion of assets are invested through related parties?
+					<option value="0%">0%</option>
+					<option value="0-10%">0.1-10%</option>
+					<option value="10-20%">10-20%</option>
+					<option value="20-30%">20-30%</option>
+					<option value="30+%">&gt;30%</option>
+
+					<score value="0%">2</score>
+					<score value="0-10%">1</score>
+					<score value="10-20%">1</score>
+				</question>
+				<question id="invest_risk_reserve" prev="invest_risk_reserve">
+					Does your Scheme maintain reserves?
+					<score value="Yes">0.5</score>
+				</question>
+				<group>
+					<rule>invest_risk_reserve=='Yes'</rule>
+					<question id="invest_risk_reserve_type" type="multioption">
+						What type of reserve does your Fund operate?
+						<option value="operational_risk">Operational Risk Reserve</option>
+						<option value="fluctuation">Investment fluctuation reserve</option>
+						<option value="other">Other (please specify in additional comments)</option>
+					</question>
+					<group>
+						<rule>invest_risk_reserve_type~~'other'</rule>
+						<question id="invest_risk_reserve_type_other" prev="invest_risk_reserve_type_other" type="multiline">
+							If any other type, please specify
+						</question>
+					</group>
+					<question id="invest_risk_reserve_op_risk_actual" prev="invest_risk_reserve_op_risk_actual" type="percentage">As a % of assets, what was the total size of the Scheme’s reserves at &period_end;?</question>
+					<question id="invest_risk_reserve_policy" option-list="Yes/No">
+						Is there a formal policy in place defining the purpose appropriate size and structure of the reserve?
+						<score value="Yes">0.5</score>
+					</question>
+				</group>
+				<question id="invest_risk_stress_test" prev="invest_risk_stress_test" option-list="Yes/No">
+					Is Stress Testing currently conducted on an annual basis?
+					<score value="Yes">1</score>
+				</question>
+				<group>
+					<rule>invest_risk_stress_test=='Yes'</rule>
+					<question id="invest_risk_stress_test_process" prev="invest_risk_stress_test_process" option-list="Yes/No">
+						Do you have a formal written process for outlining your stress testing process?
+						<score value="Yes">1</score>
+					</question>
+					<question id="invest_risk_stress_test_who" prev="invest_risk_stress_test_who">
+						Who conducts the stress testing?
+						<option value="internal">Internal Team</option>
+						<option value="external">External provider</option>
+						<score value="external">1</score>
+					</question>
+				</group>
+				<question id="invest_risk_liquidity_test" prev="invest_risk_liquidity_test" option-list="Yes/No">
+					Do you have a liquidity testing process currently in place?
+					<score value="Yes">1</score>
+				</question>
+				<question id="invest_risk_invest_change" prev="invest_risk_invest_change">
+					In the event of a catastrophic event, how quickly can an investment decision or manager change be implemented?
+					<option value="1">1 day</option>
+					<option value="2-5">2-5 days</option>
+					<option value="5-10">5-10 days</option>
+					<option value="10-15">10-15 days</option>
+					<option value="15-30">15-30 days</option>
+					<option value="other">Other</option>
+				</question>
+			</group>
+			
+			<group id="invest-menu">
+				<question id="invest_pure_index_options" type="option" option-list="Yes/No">
+					Does the Scheme offer pure index options in its investment menu?
+				</question>
+				<group>
+					<rule>invest_pure_index_options=='No'</rule>
+					<question id="invest_pure_index_options_future" type="option" option-list="Yes/No">
+						Is the Scheme considering offering index options in the future?
+					</question>
+				</group>
+				<question id="invest_tax_options" type="option" option-list="Yes/No">
+					Are you considering offering tax specific investment options to provide for different PIE rates?
+				</question>
+				<question id="invest_tax_options_comments" type="multiline" mandatory="not-mandatory">
+					Additional comments
+				</question>
+				<question id="implementing_annuity_product" type="option" option-list="Yes/No">
+					Is the Scheme considering implementing a pension/annuity product?
+				</question>
+			</group>
+		</group>
+		
+		<group module="admin">
+			<group id="admin-net-service">
+				<question id="admin_dedicated_kws_website" prev="admin_dedicated_kws_website" type="option" option-list="Yes/No">
+					Do you have a dedicated KiwiSaver website?
+					<score value="Yes">1</score>
+				</question>
+				<question id="admin_fund_website_redev" prev="admin_fund_website_redev" type="option" option-list="Yes/No">
+					Has your Scheme website undergone any formal redevelopment in the last twelve months?
+				</question>
+				<group>
+					<rule>admin_fund_website_redev=='Yes'</rule>
+					<question id="admin_fund_website_redev_spec" prev="admin_fund_website_redev_spec" type="multiline">
+						What specific upgrades have been made?
+					</question>
+				</group>
+				<question id="mobile_web_traffic" prev="mobile_web_traffic" type="number">
+					What percentage of your web traffic is via mobile?
+				</question>
+				<question id="tablet_web_traffic" prev="tablet_web_traffic" type="number">
+					What percentage of your web traffic is via tablet?
+				</question>
+				<question id="desktop_web_traffic" prev="desktop_web_traffic" type="number">
+					What percentage of your web traffic is via desktop?
+				</question>
+				
+				<question id="admin_fund_website_hits" type="number">
+					How many hits did your website receive in the 12 months to 31 March &year;?
+				</question>
+				<question id="admin_fund_website_visits" type="number">
+					How many unique visitors did your website record in the year to 31 March &year;?
+				</question>
+				<question id="admin_statistics_top3_member_usage" prev="admin_statistics_top3_member_usage" type="multiline">
+						What were the top 3 member usage areas/pages for the year to 31 March &year;?
+					</question>
+				<question id="admin_net_links" prev="admin_net_links" type="multioption">
+					Does the General information section include, or have icons or hyperlinks for any of the following items?
+					<option value="returns">Investment returns and unit price information</option>
+					<option value="economic_outlook">Economic conditions and outlook</option>
+					<option value="legislative_updates">Legislative updates and reminders</option>
+					<option value="industry_devel">Industry developments</option>
+					<option value="faq">Frequently asked questions</option>
+					<option value="privacy">Provider’s privacy statement</option>
+					<option value="enquiries">Enquiries procedure</option>
+					<option value="general_info">General information on KiwiSaver Scheme Choice</option>
+					<option value="death_benefit">Binding Death Benefit Nominations</option>
+					<option value="family_law">Family Law</option>
+					<option value="sustainable_practices">Sustainable practices</option>
+					<option value="none">None of the above</option>
+				
+					<score value="returns">0.2727272727</score>
+					<score value="economic_outlook">0.2727272727</score>
+					<score value="legislative_updates">0.2727272727</score>
+					<score value="industry_devel">0.2727272727</score>
+					<score value="faq">0.2727272727</score>
+					<score value="privacy">0.2727272727</score>
+					<score value="enquiries">0.2727272727</score>
+					<score value="general_info">0.2727272727</score>
+					<score value="death_benefit">0.2727272727</score>
+					<score value="family_law">0.2727272727</score>
+					<score value="sustainable_practices">0.2727272727</score>
+					<score value="none">0</score>
+				</question>
+		
+				<question id="admin_returns_updated" prev="admin_returns_updated" type="option" option-list="complete time frequency">
+					How often are the investment returns and unit price information updated?
+					<score value="daily">2</score>
+					<score value="weekly">1.5</score>
+					<score value="fortnightly">1</score>
+					<score value="monthly">0.5</score>
+				</question>
+			
+				<question id="admin_form_download" prev="admin_form_download" type="multioption">
+					Are any of the following documents or forms available to download from the website?
+					<option value="member_application">Member application form</option>
+					<option value="contribution">Contribution remittance form</option>
+					<option value="benefit">Benefit payment request form</option>
+					<option value="inv_statement">Investment Statement</option>
+					<option value="inv_option">Investment option switch form</option>
+					<option value="annual_reports">Annual reports – current</option>
+					<option value="annual_reports_hist">Annual reports – historical</option>
+					<option value="consolidation_form">Consolidation/rollover forms</option>
+					<option value="financial_statements_current">Financial Statements – current</option>
+					<option value="financial_statements_historical">Financial Statements – historical</option>
+					<option value="newsletter">Newsletters – current</option>
+					<option value="newsletter_hist">Newsletters – historical</option>
+					<option value="none">None of the above</option>
+				
+					<score value="member_application">0.1666666667</score>
+					<score value="contribution">0.1666666667</score>
+					<score value="benefit">0.1666666667</score>
+					<score value="inv_statement">0.1666666667</score>
+					<score value="inv_option">0.1666666667</score>
+					<score value="annual_reports">0.1666666667</score>
+					<score value="annual_reports_hist">0.1666666667</score>
+					<score value="consolidation_form">0.1666666667</score>
+					<score value="financial_statements_current">0.1666666667</score>
+					<score value="financial_statements_historical">0.1666666667</score>
+					<score value="newsletter">0.1666666667</score>
+					<score value="newsletter_hist">0.1666666667</score>
+				</question>
+				<question id="admin_form_calc" prev="admin_form_calc" type="multioption">Do you have any of the following calculators or comparators available on your website?
+					<option value="ret">Retirement Calc</option>
+					<option value="fee">Fee Calc/ Comp</option>
+					<option value="budgeting">Budgeting</option>
+					<option value="life_expect">Life expectancy</option>
+					<option value="lifestyle">Lifestyle Planning</option>
+					<option value="none">None of the above</option>
+
+					<score value="ret">0.6</score>
+					<score value="fee">0.6</score>
+					<score value="budgeting">0.6</score>
+					<score value="life_expect">0.6</score>
+					<score value="lifestyle">0.6</score>
+					<score value="none">0</score>
+				</question>
+				<question id="calculators_member_data" prev="calculators_member_data" type="option" option-list="Y/N/Na">
+					Do these calculators prepopulate with member data?
+					<score value="Yes">2</score>
+				</question>
+				<question id="join_scheme_online" prev="join_scheme_online" type="option" option-list="Yes/No">
+					Can members join the Scheme online?
+					<score value="Yes">1</score>
+				</question>
+				<group>
+					<rule>join_scheme_online=='Yes'</rule>
+					<question id="average_time_join" prev="average_time_join" type="option">What is the average time it takes a member to join the Scheme online?
+						<option value="less_2">Less than 2 minutes</option>
+						<option value="less_5">Less than 5 minutes</option>
+						<option value="less_10">Less than 10 minutes</option>
+						<option value="less_15">Less than 15 minutes</option>
+						<option value="less_20">Less than 20 minutes</option>
+						<option value="less_30">Less than 30 minutes</option>
+						<option value="more_30">More than 30 minutes</option>
+
+						<score value="less_2">1</score>
+						<score value="less_5">0.75</score>
+						<score value="less_10">0.5</score>
+						<score value="less_15">0.25</score>
+						<score value="less_20"></score>
+						<score value="less_30"></score>
+						<score value="more_30"></score>
+					</question>
+					<question id="electronic_id_verification" prev="electronic_id_verification" type="option" option-list="Yes/No">
+						Do you use Electronic ID verification for members who join online?
+						<score value="Yes">1</score>
+					</question>
+				</group>
+				<question id="admin_member_consolidated_view" prev="admin_member_consolidated_view" type="option" option-list="Yes/No">
+					When members log into your secure area, do they see a consolidated view of all their accounts including KiwiSaver, other accounts, investment or insurances?
+					<score value="Yes">2</score>
+				</question>
+				<question id="admin_statistics_tailored_messaging" prev="admin_statistics_tailored_messaging" type="option" option-list="Yes/No">
+					Does your website allow for tailored messaging to be displayed when a member is within the secure member online environment?
+					<score value="Yes">2</score>
+				</question>
+				<question id="admin_statistics_mobile_app" prev="admin_statistics_mobile_app" type="option" option-list="Yes/No">
+					Do you offer a mobile app?
+					<score value="Yes">2</score>
+				</question>
+				<group>
+					<question id="admin_statistics_mobile_app_key_func" prev="admin_statistics_mobile_app_key_func" type="multiline">
+						Please outline the key functionality of the app
+					</question>
+					<rule>admin_statistics_mobile_app=='Yes'</rule>
+				</group>
+				<question id="admin_data" prev="admin_data" type="multioption">
+					Do members have secure access to personal data listed below?
+					<option value="personal">Personal details</option>
+					<option value="rollover">History of rollover transactions</option>
+					<option value="switching">Investment switching history</option>
+					<option value="fees">Details of fee deductions and payments from accounts</option>
+					<option value="benefit">Benefit details at specific points in time</option>
+					<option value="statement">Most recent Member Statement</option>
+					<option value="correspondance">Copies of correspondence through imaging</option>
+					<option value="none">None of the above</option>
+				
+					<score value="personal">0.1428571429</score>
+					<score value="rollover">0.1428571429</score>
+					<score value="switching">0.1428571429</score>
+					<score value="fees">0.1428571429</score>
+					<score value="benefit">0.1428571429</score>
+					<score value="statement">0.1428571429</score>
+					<score value="correspondance">0.1428571429</score>
+				</question>
+				
+				<question id="admin_mem_trans" prev="admin_mem_trans" type="multioption">
+					If members can perform account transactions using the Scheme website, what are the transactions?
+					<option value="inv_switch">Switches between investment options</option>
+					<option value="select_contrib">Change investment option selections for regular contributions</option>
+					<option value="partial_withdraw">Partial withdrawals</option>
+					<option value="address">Change of address</option>
+					<option value="benefit_quote">Obtain a benefit quotation</option>
+					<option value="other">Other</option>
+					<option value="none">None</option>
+				
+					<score value="inv_switch">0.3333333333</score>
+					<score value="select_contrib">0.3333333333</score>
+					<score value="partial_withdraw">0.3333333333</score>
+					<score value="address">0.3333333333</score>
+					<score value="benefit_quote">0.3333333333</score>
+					<score value="other">0.3333333333</score>
+				</question>
+				<group>
+					<rule>admin_mem_trans~~'other'</rule>
+					<question id="admin_mem_trans_other" prev="admin_mem_trans_other" type="multiline">
+						If any other transaction, please specify
+					</question>
+				</group>
+				<group>
+					<rule>admin_mem_trans~~'inv_switch'</rule>
+					<question id="investment_switch_stp" prev="investment_switch_stp" type="option" option-list="Yes/No">
+						Are investment switches processed using Straight Through Processing without manual intervention?
+						<score value="Yes">2</score>
+					</question>
+				</group>
+
+				<question id="admin_ecomm_channels" prev="admin_ecomm_channels" type="multioption">
+					What device is your website fully compatible with or optimised for?
+					<option value="desktop">PC Web Browser</option>
+					<option value="tablet">iPad/tablet</option>
+					<option value="mobile">Mobile Phone</option>
+					<option value="other">Other</option>
+
+					<score value="desktop">0.5</score>
+					<score value="tablet">0.5</score>
+					<score value="mobile">0.5</score>
+					<score value="other">0.5</score>
+				</question>
+				<group>
+					<rule>admin_ecomm_channels~~'other'</rule>
+					<question id="admin_ecomm_channels_other" prev="admin_ecomm_channels_other" type="text">If other, please specify</question>
+				</group>
+				<group>
+					<rule>admin_ecomm_channels~~'mobile'</rule>
+					<question id="mobile_functionality" prev="mobile_functionality" type="option">
+						What functionality is available on the mobile site?
+						<option value="scheme_info">Static Scheme information only</option>
+						<option value="pers_info">Read only personal information</option>
+						<option value="mbr_trans">Member transaction capability</option>
+
+						<score value="scheme_info">0</score>
+						<score value="pers_info">1</score>
+						<score value="mbr_trans">2</score>
+					</question>
+				</group>
+
+				<question id="admin_statistics" prev="admin_statistics" type="option" option-list="Yes/No">
+					Do you have statistics on member usage of the Schemes dedicated member online area?
+				</question>
+				<group>
+					<rule>admin_statistics=='Yes'</rule>
+					<question id="admin_statistics_login" type="percentage">
+						What is the percentage of members that have logged into this area over the past 12 months?
+					</question>
+				</group>
+			</group>
+
+			<group id="admin-phone" type="select" option-list="hours-of-operation">
+				<group-question>What are your call centre hours of operation?</group-question>
+				<question id="admin_phone_hours_mon_open" prev="admin_phone_hours_mon_open" >Monday</question>
+				<question id="admin_phone_hours_mon_close" prev="admin_phone_hours_mon_close">Monday</question>
+				<question id="admin_phone_hours_tue_open" prev="admin_phone_hours_tue_open">Tuesday</question>
+				<question id="admin_phone_hours_tue_close" prev="admin_phone_hours_tue_close">Tuesday</question>
+				<question id="admin_phone_hours_wed_open" prev="admin_phone_hours_wed_open">Wednesday</question>
+				<question id="admin_phone_hours_wed_close" prev="admin_phone_hours_wed_close">Wednesday</question>
+				<question id="admin_phone_hours_thu_open" prev="admin_phone_hours_thu_open">Thursday</question>
+				<question id="admin_phone_hours_thu_close" prev="admin_phone_hours_thu_close">Thursday</question>
+				<question id="admin_phone_hours_fri_open" prev="admin_phone_hours_fri_open">Friday</question>
+				<question id="admin_phone_hours_fri_close" prev="admin_phone_hours_fri_close">Friday</question>
+				<question id="admin_phone_hours_sat_open" prev="admin_phone_hours_sat_open">Saturday</question>
+				<question id="admin_phone_hours_sat_close" prev="admin_phone_hours_sat_close">Saturday</question>
+				<question id="admin_phone_hours_sun_open" prev="admin_phone_hours_sun_open">Sunday</question>
+				<question id="admin_phone_hours_sun_close" prev="admin_phone_hours_sun_close">Sunday</question>
+			</group>
+						
+			<group id="admin-phone1" type="option" option-list="Yes/No">
+				<question id="admin_phone_call_response" prev="admin_phone_call_response" option-list="call response">
+					How is a member's call first responded to during call centre working hours?
+					<score value="Menu selection before proceeding">1</score>
+					<score value="Answered by Service Officer">2</score>
+					<score value="Receptionist who redirects">0</score>
+				</question>
+				<question id="admin_phone_AVR" prev="admin_phone_AVR">
+					Do you use an Interactive Voice Response (IVR) Telephone System (e.g. caller is provided with a voice activated or touch pad menu when their call is answered)?
+				</question>
+				<group>
+					<rule>admin_phone_AVR=='Yes'</rule>
+					<question id="admin_phone_inform_queuetime" prev="admin_phone_inform_queuetime">
+						Does your IVR inform callers of how long they may be expected to speak to a representative?
+					</question>
+					<question id="admin_phone_callback" prev="admin_phone_callback">
+						Is there an opportunity to leave a message and receive a call back?
+						<score value="Yes">0.25</score>
+					</question>
+					<group>
+						<rule>admin_phone_callback=='Yes'</rule>
+						<question id="admin_phone_servicelevel" prev="admin_phone_servicelevel" type="multiline">
+							What is the service level for responding to messages left by callers?
+						</question>
+					</group>
+					<question id="admin_phone_min_call_menu" prev="admin_phone_min_call_menu" option-list="call menu">
+						What is the minimum number of menu options a caller must navigate before being able to speak with a Client Service Officer?
+					</question>
+					<question id="admin_phone_max_call_menu" prev="admin_phone_max_call_menu" option-list="call menu">
+						What is the maximum number of menu options a caller must navigate before being able to speak with a Client Service Officer?
+					</question>
+					<question id="admin_phone_min_call_time" prev="admin_phone_min_call_time" option-list="min call time">
+						In regard to the above questions, what is the minimum time (in seconds) that it would take a new caller to negotiate the menu and listen to menu options before they can get through to a Client Service Officer regarding normal enquiries?
+					</question>
+				</group>
+				<question id="admin_phone_call_directed" prev="admin_phone_call_directed" option-list="call directed">
+					To where are calls mostly directed?
+					<score value="Call centre staffed by service officers">2</score>
+					<score value="Various departments depending call type">0</score>
+					<score value="Client administrators">1</score>
+				</question>
+				<question id="admin_phone_query" prev="admin_phone_query" option-list="Yes/No">
+					Are query types prioritised?
+					<score value="Yes">1</score>
+				</question>
+				<question id="admin_phone_call_centre_structure" prev="admin_phone_call_centre_structure">
+					What is the structure of your Call Centre?
+					<option value="shared">Outsourced with shared team</option>
+					<option value="dedicated">Outsourced with dedicated team</option>
+					<option value="outsourced">In house provision through outsourced provider</option>
+					<option value="inhouse">In house call centre</option>
+					
+					<score value="shared">0.5</score>
+					<score value="dedicated">1</score>
+					<score value="outsourced">2</score>
+					<score value="inhouse">2</score>
+				</question>
+				<question id="admin_phone_fte_inbound" prev="admin_phone_fte_inbound" type="number">
+					How many FTE staff sit within your inbound call team?
+				</question>
+				<question id="admin_phone_outbound_team" prev="admin_phone_outbound_team">
+					Do you have an outbound call team?
+					<score value="Yes">2</score>
+				</question>
+				<group>
+					<rule>admin_phone_outbound_team=='Yes'</rule>
+					<question id="admin_phone_outbound_team_purpose" prev="admin_phone_outbound_team" type="multioption">
+						If Yes, What is its purpose?
+						<option value="newbiz">New Business</option>
+						<option value="welcome">Welcome calls</option>
+						<option value="retention">Retention</option>
+						<option value="edu">Education</option>
+						<option value="survey">Survey</option>
+						<option value="advice">Advice</option>
+						<option value="other">Other</option>
+
+						<score value="newbiz">0.142857143</score>
+						<score value="welcome">0.142857143</score>
+						<score value="retention">0.142857143</score>
+						<score value="edu">0.142857143</score>
+						<score value="survey">0.142857143</score>
+						<score value="advice">0.142857143</score>
+						<score value="other">0.142857143</score>
+					</question>
+					<group>
+						<rule>admin_phone_outbound_team_purpose~~'other'</rule>
+						<question id="admin_phone_outbound_team_purpose_other" prev="admin_phone_outbound_team_purpose_other" type="text">If other, please specify</question>
+					</group>
+					<question id="admin_phone_outbound_team_staff" prev="admin_phone_outbound_team_staff" type="option">
+						Is your outbound call team staffed by a dedicated outbound team or does it utilise inbound call staff?
+						<option value="dedicated">Dedicated outbound team</option>
+						<option value="inbound">Utilises inbound call staff</option>
+						<option value="other">Other</option>
+
+						<score value="dedicated">1</score>
+						<score value="inbound">0.5</score>
+					</question>
+					<group>
+						<rule>admin_phone_outbound_team_staff~~'other'</rule>
+						<question id="admin_phone_outbound_team_staff_other" prev="admin_phone_outbound_team_staff_other" type="text">Other, please specify</question>
+					</group>
+					<group>
+						<rule>admin_phone_outbound_team_staff~~'dedicated'</rule>
+						<question id="admin_phone_fte_outbound" prev="admin_phone_fte_outbound" type="number">
+							How many FTE staff sit within your dedicated outbound call team?
+						</question>
+					</group>
+					<question id="admin_phone_outbound_n_calls" type="number">
+						How many calls did your outbound call team make in last full financial year?
+					</question>
+
+				</group>
+				<question id="admin_phone_autostat" prev="admin_phone_autostat" option-list="auto/manual">
+					Does your telephone system automatically provide statistics or are they manually recorded?
+					<score value="Auto">0.5</score>
+					<score value="Manual">0</score>
+				</question>
+				<question id="admin_phone_avewait" prev="admin_phone_avewait">
+					What is the average call wait time after exiting IVR (if applicable)?
+					<option value="0-15sec">0-15 seconds</option>
+					<option value="16-30sec">16-30 seconds</option>
+					<option value="31-60sec">31-60 seconds</option>
+					<option value="1-2min">1-2 minutes</option>
+					<option value="2+min">2+ minutes</option>
+
+					<score value="0-15sec">0.5</score>
+					<score value="16-30sec">0.5</score>
+				</question>
+				<question id="admin_phone_total_yr" type="number">
+					Please approximate the total number of KiwiSaver calls received for the past 12 months to 31 March &year;.
+				</question>
+
+				<question id="admin_phone_cso" prev="admin_phone_cso" type="multioption">
+					When a member calls in, do your Client Service Officers have immediate access to any of the items listed below?
+					<option value="record_member">Record of the Member's previous calls to the system</option>
+					<option value="correspondence">Copies of the Member's recent correspondence online</option>
+					<option value="online_help">Knowledge based online help system available for use by the client service officer</option>
+					<option value="account_balance">The Member's account balance</option>
+					<option value="history_acct">History of the Members' account transactions</option>
+					<option value="memb_statement">Copy of the Member's most recent statement</option>
+					<option value="hisorical_memb_statement">Copies of the Member's historical statements</option>
+					<option value="beneficiary">The member's beneficiary information</option>
+					<option value="address">The member's home address and contact telephone numbers</option>
+					<option value="inv_option">Rates of return for investment options</option>
+					<option value="unit_price">Current unit prices</option>
+					<option value="historic_unit_price">Historical unit prices</option>
+					<option value="none">None of the above</option>
+				
+					<score value="record_member">0.0833333333</score>
+					<score value="correspondence">0.0833333333</score>
+					<score value="online_help">0.0833333333</score>
+					<score value="account_balance">0.0833333333</score>
+					<score value="history_acct">0.0833333333</score>
+					<score value="memb_statement">0.0833333333</score>
+					<score value="hisorical_memb_statement">0.0833333333</score>
+					<score value="beneficiary">0.0833333333</score>
+					<score value="address">0.0833333333</score>
+					<score value="inv_option">0.0833333333</score>
+					<score value="unit_price">0.0833333333</score>
+					<score value="historic_unit_price">0.0833333333</score>
+				</question>
+				<question id="admin_phone_cso_single_portal">
+					Is the above information readily available in a single portal?
+					<score value="Yes">1</score>
+				</question>
+				<question id="suggested_conversation_with_mem">
+					When a member calls, does the customer service operator see a suggested conversation to have with a member based on the Scheme’s analytics/segmentation program?
+					<score value="Yes">1</score>
+				</question>
+				<question id="admin_phone_deflecting" prev="admin_phone_deflecting">
+					Does the Scheme have a process for deflecting or ending calls in times of high volume?
+					<score value="Yes">1</score>
+				</question>
+				<question id="deflection_rate" prev="deflection_rate" type="number">
+					What was the Scheme’s call deflection rate for the past 12 months to 31 March &year;? (%)
+				</question>
+				<question id="abandonment_rate" prev="abandonment_rate" type="number">
+					What was the Scheme’s call abandonment rate for the past 12 months to 31 March &year;? (%)
+				</question>
+				<question id="abandoned_call_back" prev="abandoned_call_back" >
+					Do you call back members following an abandoned call?
+				</question>
+
+				<question id="admin_phone_transaction" prev="admin_phone_transaction">
+					Can a member perform account transactions over the phone via a Client Service Officer, without having to take other actions such as returning a form?
+					<score value="Yes">2</score>
+				</question>
+				<group>
+					<rule>admin_phone_transaction=='Yes'</rule>
+					<question id="admin_phone_transactions" prev="admin_phone_transactions" type="multioption">
+						Can members do any of the following items over the phone?
+						<option value="switch">Switch between investment options</option>
+						<option value="phone_contri">Change investment option selections for regular contributions</option>
+						<option value="address_change">Change of address</option>
+						<option value="benefit_quot">Obtain a benefit quotation</option>
+						<option value="trans_phone">Complete any non client service officer assisted transactions</option>
+						<option value="none">None of the above</option>
+					
+						<score value="switch">0.2</score>
+						<score value="phone_contri">0.2</score>
+						<score value="address_change">0.2</score>
+						<score value="benefit_quot">0.2</score>
+						<score value="trans_phone">0.2</score>
+					</question>
+				</group>
+				<question id="post_call_surveys" prev="post_call_surveys">
+					Do you conduct post phone call surveys?
+					<score value="Yes">1</score>
+				</question>
+				<question id="track_promoter_score" prev="track_promoter_score">
+					Do you track your Net Promoter Score?
+				</question>
+				<question id="current_nps_score" prev="current_nps_score" type="text">
+					What is your current NPS score?
+					<rule>track_promoter_score=='Yes'</rule>
+				</question>
+			</group>
+
+			<group id="admin-phone4" type="option" option-list="Yes/No">
+				<question id="admin_phone_staff_afa" type="percentage">
+					What proportion of call centre staff are AFAs?
+				</question>
+				<question id="admin_phone_staff_rfa" type="percentage">
+					What proportion of call centre staff are RFAs?
+				</question>
+				<question id="admin_phone_staff_tenure" type="number">
+					What was the average tenure in years of contact centre staff as at 31 March &year;?
+				</question>
+				<question id="total_staff_turnover" type="percentage">
+					What was the total level of staff turnover for your contact centre in the year to 31 March &year;?
+				</question>
+				<question id="other_business_proportion" type="percentage">
+					Of this turnover, what proportion was due to internal promotions/transfers to other business units?
+				</question>
+				<question id="admin_phone_advice_requests" prev="admin_phone_advice_requests" type="option">
+					How are advice requests responded to?
+					<option value="warm">Warm handover to adviser</option>
+					<option value="callback">Adviser call back</option>
+					<option value="na">Not applicable</option>
+					<score value="warm">2</score>
+					<score value="callback">1</score>
+				</question>
+				<group>
+					<rule>admin_phone_advice_requests!='na'</rule>
+					<question id="admin_phone_advice_requests_procedure" prev="admin_phone_advice_requests_procedure" type="option">
+						Do you have a formal procedure for handing advice requests over to the advice team?
+						<score value="Yes">1</score>
+					</question>
+				</group>
+			
+				<question id="admin_phone_non_op" prev="admin_phone_non_op" option-list="non-operation">
+					What service is provided during non-operational hours?
+					<score value="msg">0.5</score>
+					<score value="msg-hours">0.25</score>
+				</question>
+				<question id="admin_phone_coaching" prev="admin_phone_coaching">
+					Do you monitor calls for training/coaching purposes?
+					<score value="Yes">0.5</score>
+				</question>
+				<group>
+					<rule>admin_phone_coaching=='Yes'</rule>
+					<question id="admin_phone_training" prev="admin_phone_training" type="percentage">
+						What percentage of calls per month are monitored and used for training?
+					</question>
+				</group>
+				<question id="admin_phone_record_calls" prev="admin_phone_record_calls">
+					Do you record calls?
+					<score value="Yes">0.5</score>
+				</question>
+				<group>
+					<rule>admin_phone_record_calls=='Yes'</rule>
+					<question id="admin_phone_retain_calls" prev="admin_phone_retain_calls" type="percentage">
+						What percentage of calls per month are recorded and retained?
+					</question>
+					<question id="admin_phone_record_time" prev="admin_phone_record_time" type="text">
+						How long are the recorded calls kept for?
+					</question>
+				</group>
+			</group>
+			<group id="data_quality" prev="data_quality">
+				<question id="low_acct_bal_zero" prev="low_acct_bal_zero" type="number">
+						Please provide the number of zero account balance accounts within your fund
+				</question>
+				<question id="data_quality_missing_dob" prev="data_quality_missing_dob" type="number">
+					Please provide the number of accounts where no member date of birth is recorded
+				</question>
+				<question id="number_less_1000" prev="number_less_1000" type="number">
+					Please provide the number of members with account balance less than $1000
+				</question>
+				<question id="admin_percent_member_mobile_num" prev="admin_percent_member_mobile_num" type="percentage">
+					What percentage of members does the scheme have mobile phone numbers for?
+				</question>
+				<question id="admin_percent_member_emails" prev="admin_percent_member_emails" type="percentage">
+					What percentage of members does the scheme have an email address for?
+				</question>
+			</group>
+			<group id="admin-inv-admin1" type="option" option-list="Yes/No">			
+				<question id="admin_inv_admin_forward_unit" prev="admin_inv_admin_forward_unit">
+					Does your system allow for forward unit pricing?
+				</question>
+				<group>
+					<rule>admin_inv_admin_forward_unit=='Yes'</rule>
+					<question id="admin_inv_admin_use_forward_unit" prev="admin_inv_admin_use_forward_unit">
+						Does the Scheme use forward unit pricing?
+						<score value="Yes">2</score>
+					</question>
+					<question id="admin_inv_admin_wait_forward_unit" prev="admin_inv_admin_wait_forward_unit">
+						Does the Scheme wait for a full market close and valuation?
+						<score value="Yes">2</score>
+					</question>
+					<question id="admin_inv_admin_unit_price_lag" prev="admin_inv_admin_unit_price_lag" type="option">
+						What is the unit pricing lag?
+						<option value="t+1">T+1</option>
+						<option value="t+2">T+2</option>
+						<option value="t+3">T+3</option>
+						<option value="other">Other</option>
+
+						<score value="t+1">1</score>
+						<score value="t+2">0.5</score>
+						<score value="t+3">0.25</score>
+					</question>
+				</group>
+				<question id="admin_inv_admin_unit_provider" prev="admin_inv_admin_unit_provider" option-list="inhouse/Ext">
+					Are unit price calculations performed in-house or outsourced to an external service provider?
+				</question>
+				<question id="admin_inv_admin_auto_integrate_admin" prev="admin_inv_admin_auto_integrate_admin">
+					Does the unit pricing process automatically integrate with your administration system?
+					<score value="Yes">1</score>
+				</question>
+				<question id="admin_inv_admin_auto_integrate_acct" prev="admin_inv_admin_auto_integrate_acct">
+					Does the unit pricing process automatically integrate with your Scheme accounting system?
+					<score value="Yes">1</score>
+				</question>				
+				<question id="admin_inv_admin_inv_switch" prev="admin_inv_admin_inv_switch" option-list="freq-low">
+					When can a member switch between investment options?
+					<score value="request">2</score>
+					<score value="week">1</score>
+					<score value="month">0.5</score>
+				</question>
+				<question id="admin_inv_admin_transaction" prev="admin_inv_admin_transaction" option-list="complete time frequency/other">
+					In regard to the above question, when are the underlying physical investment transactions completed?
+					<score value="daily">2</score>
+					<score value="weekly">1</score>
+					<score value="fortnightly">0.5</score>
+				</question>
+				<question id="admin_inv_admin_min_cost" prev="admin_inv_admin_min_cost">
+					Are Scheme investments and redemptions contra'd to minimise transaction costs?
+					<score value="Yes">2</score>
+				</question>
+			</group>
+			<group id="admin-sys" type="option">
+				<question id="admin_systems" prev="admin_systems" type="text">
+					Which administration systems do you use for the administration of your Scheme?
+				</question>
+				<question id="admin_vendor" prev="admin_vendor" option-list="inhouse/3party">
+					Is this provided by a third party vendor or is it developed in-house?
+				</question>
+				<group>
+					<rule>admin_vendor=='3party'</rule>
+					<question id="admin_vendor_details" prev="admin_vendor_details" type="multiline">
+						Please provide details of the vendor?
+					</question>
+					<question id="admin_modification" prev="admin_modification" option-list="Y/N/Na">
+						Have you made your own modifications to the system?
+					</question>
+				</group>
+				<question id="admin_running" prev="admin_running" type="text">
+					When was this system put in place?
+				</question>
+				<question id="admin_web" prev="admin_web">
+					Is this Administration system web integrated or has additional browser ability been added?
+					<option value="notweb">Not web integrated</option>
+					<option value="web">Web integrated</option>
+					<option value="browser">Additional web browser</option>
+
+					<score value="web">2</score>
+					<score value="browser">1</score>
+				</question>
+				<question id="admin_workflow" prev="admin_workflow" option-list="Auto/Manual/Both">
+					Do you have an integrated workflow management system?
+					<score value="Auto">2</score>
+					<score value="Manual">0.5</score>
+					<score value="Both">1</score>
+				</question>
+				<group>
+					<rule>admin_workflow!='Manual'</rule>
+					<question id="admin_workflow_imaging_name" prev="admin_workflow_imaging_name" type="text">
+						What is the name of your imaging system?
+					</question>
+					<question id="admin_workflow_name" prev="admin_workflow_name" type="text">
+						What is the name of workflow system?
+					</question>
+					<question id="admin_workflow_types" type="multioption">
+						Which document/correspondence types are managed through the imaging/workflow systems?
+						<option value="in_hard">Inbound written</option>
+						<option value="in_soft">Inbound email/electronic</option>
+						<option value="out_hard">Outbound written</option>
+						<option value="out_soft">Outbound electronic</option>
+						<score value="in_hard">0.5</score>
+						<score value="in_soft">0.5</score>
+						<score value="out_hard">0.5</score>
+						<score value="out_soft">0.5</score>
+					</question>
+					<question id="admin_workflow_imaging_stage" type="option">
+						At what stage are documents imaged?
+						<option value="receipt">At the time of receipt</option>
+						<option value="post">After Processing</option>
+						<score value="receipt">2</score>
+						<score value="post">1</score>
+					</question>
+				</group>
+				<question id="admin_acct_sys" prev="admin_acct_sys" type="text">
+					What system do you use for your Scheme accounting requirements?
+				</question>
+				<question id="admin_acct_integrated" prev="admin_acct_integrated" option-list="Yes/No">
+					Does the Scheme accounting system automatically integrate with your administration system?
+					<score value="Yes">1</score>
+				</question>
+			</group>
+			
+			<group id="admin-advisor" type="option" option-list="Yes/No">
+				<question id="admin_advisor_third_party">
+					Does the Scheme liaise with third party Financial Advisers?
+					<score value="Yes">2</score>
+				</question>
+				<question id="admin_advisor_third_party_formal" prev="admin_advisor_third_party_formal">
+					Does the Fund have formal relationships with third party Financial Advisers?
+				</question>
+				<group>
+					<rule>admin_advisor_third_party_formal=='No'</rule>
+					<question id="admin_advisor_third_party_formal_consider" prev="admin_advisor_third_party_formal_consider">
+						If not, is the fund considering formal relationships with third party Financial Advisers?
+					</question>
+				</group>
+				<question id="admin_advisor_third_party_servicing" prev="admin_advisor_third_party_servicing">
+					Is there a dedicated servicing team for third party Financial Advisers?
+				</question>
+				<question id="admin_advisor_website">
+					Is a dedicated Financial Adviser website available?
+					<score value="Yes">2</score>
+				</question>
+				<question id="admin_advisor_member_behalf">
+					Can Financial Advisers transact on behalf of members?
+					<score value="Yes">1</score>
+				</question>
+				<question id="admin_advisor_member_behalf_bulk">
+					Can advisers transact in bulk across all of their members?
+					<rule>admin_advisor_member_behalf=='Yes'</rule>
+					<score value="Yes">1</score>
+				</question>
+				<question id="admin_advisor_client_report" prev="admin_advisor_client_report">
+					Can third party Financial Advisers access/produce client reports?
+					<score value="Yes">1</score>
+				</question>
+				<question id="admin_advisor_client_report_type" prev="admin_advisor_client_report_type" type="multiline">What types of reports can advisers access?</question>
+				<question id="admin_advisor_feed" prev="admin_advisor_feed">
+					Do you provide data feeds to third party Financial Advisers via planning software?
+					<score value="Yes">1</score>
+				</question>
+				<question id="data_refresh_frequency" prev="data_refresh_frequency">
+					How frequent is the data feed refreshed?
+					<option value="daily">Daily</option>
+					<option value="weekly">Weekly</option>
+					<option value="fortnightly">Fortnightly</option>
+					<option value="monthly">Monthly</option>
+					<option value="other">Other</option>
+					<rule>admin_advisor_feed=='Yes'</rule>
+
+					<score value="daily">0.5</score>
+					<score value="weekly">0.25</score>
+				</question>
+				<question id="data_refresh_frequency_other" type="text">
+					If other, please specify
+					<rule>data_refresh_frequency=='other'</rule>
+				</question>
+				<question id="admin_advisor_payments">
+					Do you facilitate Financial Adviser fee payments?
+					<score value="Yes">1</score>
+				</question>
+			</group>
+
+			<group id="admin-service" type="number">
+				<question id="admin_service_new_member" prev="admin_service_new_member">
+					The number of days to process new Member applications
+				</question>
+				<question id="admin_service_new_member_complete95" prev="admin_service_new_member_complete95" type="option" option-list="1-14/more">At what point 95% of transactions are completed?</question>
+				<question id="admin_service_post_conts" prev="admin_service_post_conts">
+					The number of days to process post contributions to member accounts
+				</question>
+				<question id="admin_service_post_conts_complete95" prev="admin_service_post_conts_complete95" type="option" option-list="1-14/more">At what point 95% of transactions are completed?</question>
+				<question id="admin_service_inv_switch" prev="admin_service_inv_switch">
+					The number of days to process investment switches
+				</question>
+				<question id="admin_service_inv_switch_complete95" prev="admin_service_inv_switch_complete95" type="option" option-list="1-14/more">At what point 95% of transactions are completed?</question>
+				<question id="admin_service_withdrawal" prev="admin_service_withdrawal">
+					The number of days to process withdrawals, benefit transfers or termination request
+				</question>
+				<question id="admin_service_withdrawal_complete95" prev="admin_service_withdrawal_complete95" type="option" option-list="1-14/more">At what point 95% of transactions are completed?</question>
+				<question id="admin_service_correspondence" prev="admin_service_correspondence">
+					The number of days to process answer routine correspondence
+				</question>
+				<question id="admin_service_correspondence_complete95" prev="admin_service_correspondence_complete95" type="option" option-list="1-14/more">At what point 95% of transactions are completed?</question>
+				<question id="admin_service_process_account" prev="admin_service_process_account">
+					The number of days to process process/alter Member account
+				</question>
+				<question id="admin_service_process_account_complete95" prev="admin_service_process_account_complete95" type="option" option-list="1-14/more">At what point 95% of transactions are completed?</question>
+			</group>
+
+			<group id="admin-benefit">
+				<question id="admin_benefit_consent" prev="admin_benefit_consent" type="option" option-list="Yes/No">
+					Does specific consent need to be provided for benefit payments?
+				</question>
+				<question id="admin_benefit_consent_comments" prev="admin_benefit_consent_comments" type="multiline" mandatory="not-mandatory">
+					Please add comments
+				</question>
+				<question id="admin_homestart_claims" prev="admin_homestart_claims" type="text">
+					How many First Home Withdrawal claims were paid from the Scheme in the 12 months to 31/03/&year;? Please provide the number of claims and total $ amount
+				</question>
+			</group>
+		
+		</group>
+			
+		<group module="advice">
+			<group id="market" type="option">
+
+				<question id="mkt_team" prev="mkt_team" option-list="Yes/No">
+					Do you have an internal marketing team?
+				</question>
+
+				<group>
+					<rule>mkt_team=='Yes'</rule>
+					<question id="mkt_team_size" prev="mkt_team_size">
+						How large is the team?
+						<option value="10_more">10 or more</option>
+						<option value="5_to_9">5 to 9</option>
+						<option value="2_to_4">2 to 4</option>
+						<option value="1">1</option>
+					</question>
+				</group>
+				<question id="mkt_communication" prev="mkt_communication" type="multioption">
+					Do you use any of the following communication methods to target current and potential members?
+					<option value="tvad">TV Advertising</option>
+					<option value="rdad">Radio Advertising</option>
+					<option value="news">Newspaper/Magazine Advertising</option>
+					<option value="mail">Direct Mail</option>
+					<option value="online">Online</option>
+					<option value="blog">Blogging</option>
+					<option value="sponsorship">Sponsorship</option>
+					<option value="social">Social Networking Sites</option>
+					<option value="sms">SMS</option>
+
+					<score value="tvad">0.22</score>
+					<score value="rdad">0.22</score>
+					<score value="news">0.22</score>
+					<score value="mail">0.22</score>
+					<score value="online">0.22</score>
+					<score value="blog">0.22</score>
+					<score value="sponsorship">0.22</score>
+					<score value="social">0.22</score>
+					<score value="sms">0.22</score>
+				</question>
+				<group>
+					<rule>mkt_communication~~'social'</rule>
+					<question id="mkt_communication_social" prev="mkt_communication_social" type="multioption">
+						What social networking sites are used?
+						<option value="facebook">Facebook</option>
+						<option value="twitter">Twitter</option>
+						<option value="linkedin">LinkedIn</option>
+						<option value="googleplus">Google+</option>
+						<option value="other">Other</option>
+					</question>
+					<group>
+						<rule>mkt_communication_social~~'other'</rule>
+						<question id="mkt_communication_social_other" prev="mkt_communication_social_other" type="multiline">
+							If other, please specify
+						</question>
+					</group>
+				</group>
+				<question id="cost_per_acquisition" prev="cost_per_acquisition" option-list="Yes/No">
+					Do you know your Cost per Acquisition?
+				</question>
+				<question id="cost_per_acquisition_value" prev="cost_per_acquisition_value" type="number">
+					What is your cost per Acquisition?
+					<rule>cost_per_acquisition=='Yes'</rule>
+				</question>
+			</group>
+			<group id="admin-member-service" type="option">
+				<question id="admin_member_statement" prev="admin_member_statement" option-list="time frequency">
+					How often are written member statements provided to members each year?
+					<score value="monthly">1</score>
+					<score value="quarterly">1</score>
+					<score value="half_yearly">0.5</score>
+					<score value="annual">0.5</score>
+				</question>
+				<question id="admin_statement_deliv" prev="admin_statement_deliv" type="multioption">
+					How are statements delivered?
+					<option value="printed">Printed letter</option>
+					<option value="email">Email</option>
+					<score value="printed">0.5</score>
+					<score value="email">0.5</score>
+				</question>
+				<question id="admin_statement_electronic" prev="admin_statement_electronic" type="percentage">
+					What percentage of your most recent member statements were communicated electronically?
+				</question>
+				<question id="admin_retirement_projection" prev="admin_retirement_projection" option-list="Yes/No">
+					For your most recent member statement, was a retirement income projection provided to members?
+					<score value="Yes">1</score>
+				</question>
+				<question id="admin_statement_projection" prev="admin_statement_projection" option-list="Yes/No">
+					Will a retirement income projection be provided to members next year?
+				</question>
+				<question id="admin_statement_tailored" prev="admin_statement_tailored" option-list="Yes/No">
+					Are member statements tailored to each cohort of members/individual members?
+					<score value="Yes">1</score>
+				</question>
+				<question id="admin_statement_tailored_comment" prev="admin_statement_tailored_comment" type="text">
+					Additional Comments
+				</question>
+				<question id="admin_engage_auto_enrollees" prev="admin_engage_auto_enrollees" type="multiline">
+					What are you doing to engage with automatic enrolled/default members?
+				</question>
+				<question id="mem_subsequent_percentage" prev="mem_subsequent_percentage" type="number">
+					What percentage of enrolled/default members made an active choice subsequent to this process?
+				</question>
+			</group>
+
+			<group id="advice-member-education" type="option" option-list="Yes/No">
+				<question id="advice_member_edu" prev="advice_member_edu" type="multioption">
+					Do you have formal education material which specifically addresses the following topics?
+					<option value="invest_overview">Investment overview</option>
+					<option value="invest_risk">Investment risk profiles</option>
+					<option value="invest_option">Investment options explained</option>
+					<option value="contrib">Contribution levels</option>
+					<option value="fees">Fees explained</option>
+					<option value="product">Product features and design</option>
+					<option value="highlight">Scheme highlights</option>
+					<option value="commentary">KiwiSaver, investment and/or economic commentary</option>
+					<option value="planning">Planning and budgeting for retirement</option>
+					<option value="strategy">Trans-tasman Portability</option>
+					<option value="tax">KiwiSaver tax in detail</option>
+					<option value="family">Family Law</option>
+					<option value="estate">Estate Planning</option>
+					<option value="enough_kws">How much KiwiSaver is enough</option>
+					<option value="regulatory_changes">Regulatory changes in KiwiSaver</option>
+					<option value="redundancy">Redundancy and KiwiSaver</option>
+					<option value="none">None of the above</option>
+					
+					<score value="invest_overview">0.125</score>
+					<score value="invest_risk">0.125</score>
+					<score value="invest_option">0.125</score>
+					<score value="contrib">0.125</score>
+					<score value="fees">0.125</score>
+					<score value="product">0.125</score>
+					<score value="highlight">0.125</score>
+					<score value="commentary">0.125</score>
+					<score value="planning">0.125</score>
+					<score value="strategy">0.125</score>
+					<score value="tax">0.125</score>
+					<score value="family">0.125</score>
+					<score value="estate">0.125</score>
+					<score value="enough_kws">0.125</score>
+					<score value="regulatory_changes">0.125</score>
+					<score value="redundancy">0.125</score>
+					<score value="none">0</score>
+				</question>
+				<question id="advice_biz_edu" prev="advice_biz_edu">
+					Do you have a specific business unit for member education?
+					<score value="Yes">2</score>
+				</question>
+				<group>
+					<rule>advice_biz_edu=='Yes'</rule>
+					<question id="advice_biz_edu_staff" prev="advice_biz_edu_staff">How many staff are directly employed in this unit?
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="more">&gt;5</option>
+						
+						<score value="1">0.25</score>
+						<score value="2">0.5</score>
+						<score value="3">0.75</score>
+						<score value="4">0.75</score>
+						<score value="5">1</score>
+						<score value="more">1</score>
+					</question>
+				</group>
+				<question id="advice_member_edu_3rdparty" prev="advice_member_edu_3rdparty">
+					Do you use third party providers to develop or deliver any part of your Member Education Program?
+				</question>
+				<group>
+					<rule>advice_member_edu_3rdparty=='Yes'</rule>
+					<question id="advice_member_edu_3rdparty_name" prev="advice_member_edu_3rdparty_name" type="text">If so, what is the name of the provider?</question>
+					<question id="advice_member_ext_dev" prev="advice_member_ext_dev" type="multiline">
+						What parts of your program are developed or delivered externally?
+					</question>
+				</group>				
+				<question id="advice_fte_presenters" prev="advice_fte_presenters" type="number">
+					How many FTE equivalent seminar presenters do you have?
+				</question>
+				<question id="advice_fte_presenters_employees" prev="advice_fte_presenters_employees" type="percentage">
+					What proportion are employees of the Scheme?
+				</question>
+				<question id="advice_presenters_afa" type="option" prev="advice_presenters_afa">
+					What proportion of your seminar presenters are AFAs?
+					<option value="0">0%</option>
+					<option value="49">&lt;50%</option>
+					<option value="90">50%-90%</option>
+					<option value="100">90%-100%</option>
+
+					<score value="49">0.5</score>
+					<score value="90">1</score>
+					<score value="100">1</score>
+				</question>				
+				<question id="advice_presenters_rfa" type="option" prev="advice_presenters_rfa">
+					What proportion of your seminar presenters are RFAs?
+					<option value="0">0%</option>
+					<option value="49">&lt;50%</option>
+					<option value="90">50%-90%</option>
+					<option value="100">90%-100%</option>
+
+					<score value="49">0.5</score>
+					<score value="90">1</score>
+					<score value="100">1</score>
+				</question>
+				<question id="admin_ongoing_info_session" prev="admin_ongoing_info_session" option-list="Yes/No">
+					Are ongoing information sessions or seminars held for members?
+					<score value="Yes">2</score>
+				</question>
+				<group>
+					<rule>admin_ongoing_info_session=='Yes'</rule>
+					<question id="admin_seminar_member_contact" prev="admin_seminar_member_contact">
+						Are members proactively contacted to let them know sessions are available?
+						<score value="Yes">1</score>
+					</question>
+					<group>
+						<rule>admin_seminar_member_contact=='Yes'</rule>
+						<question id="admin_seminar_member_contact_method" prev="admin_seminar_member_contact_method" type="multioption">
+							How are they contacted?
+							<option value="Phone">Phone</option>
+							<option value="Email">Email</option>
+							<option value="SMS">SMS</option>
+							<option value="Letter">Written Correspondence</option>
+						</question>
+					</group>
+					<question id="admin_n_seminars" prev="admin_n_seminars" type="text">
+						Approximately how many seminars were held in the 12 months to 31 March &year;?
+					</question>
+					<question id="admin_n_attend" prev="admin_n_seminars" type="text">
+						Approximately how many members attended seminars in the 12 months to 31 March &year;?
+					</question>
+					
+					<question id="admin_seminar_online_rego" prev="admin_seminar_online_rego">
+						Do you offer online registration for seminars?
+						<score value="Yes">1</score>
+					</question>
+
+					<question id="admin_seminar_site" prev="admin_seminar_site" type="multioption">
+						What sites are seminars delivered from?
+						<option value="office">At Scheme offices or shop front</option>
+						<option value="online">Online/web-cast</option>
+						<option value="thirdparty">Third party venues</option>
+						<score value="office">0.333333333</score>
+						<score value="online">0.333333333</score>
+						<score value="thirdparty">0.333333333</score>
+					</question>
+					<group>
+						<rule>admin_seminar_site~~'online'</rule>
+						<question id="admin_seminar_online_format" type="multioption">
+							Are online/webcasts interactive?
+							<option value="interactive">Interactive</option>
+							<option value="prerec">Pre-recorded</option>
+							<score value="interactive">1</score>
+						</question>
+					</group>
+					<question id="absent_attendees_followup" prev="absent_attendees_followup" option-list="Y/N/Na">
+						Do you follow up registered seminar attendees which were absent from the seminar?
+						<score value="Yes">0.5</score>
+					</question>
+					<question id="admin_seminar_immediate_advice" prev="admin_seminar_immediate_advice" option-list="Yes/No">
+						Are Financial Planners or similarly qualified personnel on hand to provide immediate class advice?
+						<score value="Yes">1</score>
+					</question>
+					<question id="admin_seminar_more_info" prev="admin_seminar_more_info" type="number">
+						As a result of your seminar program, how many members sought further information?
+					</question>
+					<question id="admin_seminar_financial_advice" prev="admin_seminar_financial_advice" type="number">
+						As a result of your seminar program, how many members sought financial advice?
+					</question>
+					<question id="admin_seminar_mem_telemarket" prev="admin_seminar_mem_telemarket">
+						Do you follow up members with outbound telemarketing calls to generate leads for financial advisers?
+						<score value="Yes">1</score>
+					</question>
+					<question id="admin_seminar_topics" prev="admin_seminar_topics" type="multiline">
+						What topics are typically covered at the seminars?
+					</question>
+				</group>
+				<question id="admin_material" prev="admin_material" option-list="1-6">
+					How many times a year do you provide/send education materials to members (e.g. newsletters)?
+					<score value="1">0.5</score>
+					<score value="2">0.5</score>
+					<score value="3">1</score>
+					<score value="4">1</score>
+					<score value="5">1.5</score>
+					<score value="6">1.5</score>
+					<score value="&gt;6">2</score>
+				</question>
+				<question id="admin_material_newsletter" prev="admin_material_newsletter" type="text">Name of newsletters</question>
+			
+				<question id="mkt_member_crm" prev="mkt_member_crm" type="option" option-list="Yes/No">
+					Do you have a CRM to monitor member activities?
+					<score value="Yes">2</score>
+				</question>
+				<group>
+					<rule>mkt_member_crm=='Yes'</rule>
+					<question id="mkt_member_crm_name" prev="mkt_member_crm_name" type="text">
+						What is the name / system provider?
+					</question>
+					<question id="mkt_member_crm_function" prev="mkt_member_crm_function" option-list="Yes/No">
+						Does it have analytics capabilities?
+						<score value="Yes">2</score>
+					</question>
+					<question id="mkt_member_crm_integrated" prev="mkt_member_crm_integrated" type="multioption">
+						Is it integrated with the following systems?
+						<option value="admin">Administration</option>
+						<option value="member_online">Member Online</option>
+						<option value="telephony">Telephony</option>
+						<option value="campaign">Marketing/Campaign</option>
+						<option value="finplan">Financial Planning</option>
+						<option value="other">Other</option>
+
+						<score value="admin">0.4</score>
+						<score value="member_online">0.4</score>
+						<score value="telephony">0.4</score>
+						<score value="campaign">0.4</score>
+						<score value="finplan">0.4</score>
+					</question>
+					<group>
+						<rule>mkt_member_crm_integrated=='other'</rule>
+						<question id="mkt_member_crm_integrated_other" prev="mkt_member_crm_integrated_other" type="multiline">If other, please specify?</question>
+					</group>
+					<question id="data_update" prev="data_update" type="option">
+						How often is the data updated?
+						<option value="immediate">Immediate</option>
+						<option value="overnight">Overnight</option>
+						<option value="weekly">Weekly</option>
+						<option value="monthly">Monthly</option>
+						<option value="other">Other</option>
+
+						<score value="immediate">1</score>
+						<score value="overnight">0.75</score>
+						<score value="weekly">0.5</score>
+						<score value="monthly">0.25</score>
+				</question>
+				</group>
+				<group>
+					<rule>data_update=='other'</rule>
+					<question id="data_update_other" prev="data_update_other" type="text">If other, please specify?</question>
+				</group>
+				<question id ="member_edu_insights_team" prev="member_edu_insights_team" option-list="Yes/No">
+					Do you have a dedicated member insights/analytics team?
+					<score value="Yes">1</score>
+				</question>
+				<group>
+					<rule>member_edu_insights_team=='Yes'</rule>
+					<question id ="member_edu_analytics_fte" prev="member_edu_analytics_fte" type="number">
+						What is the number of FTE staff dedicated to member analytics?
+					</question>
+					<question id="analytics_team_report" prev="analytics_team_report" type="multioption">
+						Who do the analytics team report to?
+						<option value="marketing_team">Marketing team</option>
+						<option value="product_team">Product team</option>
+						<option value="administration_team">Administration team</option>
+						<option value="other">Other</option>
+
+						<score value="marketing_team">0.33</score>
+						<score value="product_team">0.33</score>
+						<score value="administration_team">0.33</score>
+					</question>
+					<question id ="analytics_team_report_other" prev="analytics_team_report_other" type="text">
+						If other, please specify
+						<rule>analytics_team_report=='other'</rule>
+					</question>
+				</group>
+				<question id ="integrate_3rd_party" prev="integrate_3rd_party" option-list="Yes/No">
+					Do you currently integrate with any 3rd party data providers?
+					<score value="Yes">0.5</score>
+				</question>
+				<question id ="advice_segment_comm" prev="advice_segment_comm" option-list="Yes/No">
+					Do you segment your member communications?
+					<score value="Yes">2</score>
+				</question>
+				<group>
+					<rule>advice_segment_comm=='Yes'</rule>
+					<question id="advice_segment_method" type="multioption">
+						How do you segment?
+						<option value="age">Age</option>
+						<option value="gender">Gender</option>
+						<option value="account">Account Balance</option>
+						<option value="location">Location</option>
+						<option value="generation">Generation</option>
+						<option value="income">Income</option>
+						<option value="occupation">Occupation</option>
+						<option value="education">Education</option>
+						<option value="psychographic">Psychographic (interests, opinions, attitudes)</option>
+						<option value="behavioural">Behavioural</option>
+						<option value="other">Other</option>
+
+						<score value="age">0.0909090909</score>
+						<score value="gender">0.0909090909</score>
+						<score value="account">0.0909090909</score>
+						<score value="location">0.0909090909</score>
+						<score value="generation">0.0909090909</score>
+						<score value="income">0.0909090909</score>
+						<score value="occupation">0.0909090909</score>
+						<score value="education">0.0909090909</score>
+						<score value="psychographic">0.0909090909</score>
+						<score value="behavioural">0.0909090909</score>
+						<score value="other">0.0909090909</score>
+					</question>
+					<group>
+						<rule>advice_segment_method~~'other'</rule>
+						<question id="advice_segment_method_other" type="text">If other, please specify</question>
+					</group>
+					<question id="advice_personalise_comm" prev="advice_personalise_comm" option-list="Yes/No">
+						Do you personalise your communication outcomes with the attributes above?
+						<score value="Yes">2</score>
+					</question>
+				</group>
+
+				<group>
+					<rule>mkt_member_crm=='Yes'</rule>
+					<question id="mkt_member_crm_drive" prev="mkt_member_crm_drive" type="multioption">
+						Does the CRM/Analytics drive the following aspects of the Scheme?
+						<option value="marketing">Marketing</option>
+						<option value="communications">Communications</option>
+						<option value="seminars">Seminars</option>
+						<option value="advice">Advice</option>
+						<option value="investments">Investments</option>
+						<option value="other">Other</option>
+
+						<score value="marketing">0.3333333333</score>
+						<score value="communications">0.3333333333</score>
+						<score value="seminars">0.3333333333</score>
+						<score value="advice">0.3333333333</score>
+						<score value="investments">0.3333333333</score>
+						<score value="other">0.3333333333</score>
+					</question>
+					<group>
+						<rule>mkt_member_crm_drive~~'other'</rule>
+						<question id="mkt_member_crm_drive_other" prev="mkt_member_crm_drive_other" type="multiline">
+							Other
+						</question>
+					</group>
+				</group>
+
+				<question id="mkt_member_dist_plat" prev="mkt_member_dist_plat" type="multioption">
+					Which of the following platforms do you use to distribute communications to members?
+					<option value="online">Online</option>
+					<option value="face">Face to face</option>
+					<option value="seminars">Seminars</option>
+					<option value="webinars">Webinars</option>
+					<option value="fin_plan">Financial planners</option>
+					<option value="newsletters">Newsletters</option>
+					<option value="enewsletters">eNewsletters</option>
+					<option value="flyers">Flyers/Factsheets</option>
+					<option value="case_studies">Case Studies</option>
+					<option value="magazines">Magazines</option>
+					<option value="sms">SMS</option>
+					<option value="online_forms">Online Forms</option>
+
+					<score value="online">0.1666666667</score>
+					<score value="face">0.1666666667</score>
+					<score value="seminars">0.1666666667</score>
+					<score value="webinars">0.1666666667</score>
+					<score value="fin_plan">0.1666666667</score>
+					<score value="newsletters">0.1666666667</score>
+					<score value="enewsletters">0.1666666667</score>
+					<score value="flyers">0.1666666667</score>
+					<score value="case_studies">0.1666666667</score>
+					<score value="magazines">0.1666666667</score>
+					<score value="sms">0.1666666667</score>
+					<score value="online_forms">0.1666666667</score>
+				</question>
+
+			</group>
+
+			<group id="emp-gen-fund-extra" module="advice" type="option" option-list="Yes/No">
+				<question id="emp_gen_fund_ex" prev="emp_gen_fund_ex" type="multioption">
+					Does the Scheme offer any of the following?
+					<option value="home">Home Loans</option>
+					<option value="creditcat">Credit Cards</option>
+					<option value="bank">Bank Accounts</option>
+					<option value="health">Health Insurance</option>
+					<option value="reverse_mort">Reverse Mortgages</option>
+					<option value="travel">Travel and Accommodation</option>
+					<option value="consol">Free Consolidation Service</option>
+					<option value="trans_tas">Trans-Tasman Portability</option>	
+					<option value="life">Life Insurance</option>			
+					<option value="other">Other</option>
+				</question>
+				<group>
+					<rule>emp_gen_fund_ex~~'other'</rule>
+					<question id="emp_gen_fund_ex_other" prev="emp_gen_fund_ex_other" type="multiline">Other</question>
+				</group>
+			</group>
+
+			<question id="advice_finplan_ltd_service" type="option" option-list="Yes/No">
+					Do you offer financial advice services to members?
+					<score value="Yes">2</score>
+			</question>
+			<group id="advice-finplan-ltd">
+				<rule>advice_finplan_ltd_service=='Yes'</rule>
+				<question id="advice_finplan_ltd_area" type="multioption">
+					What areas are class advice provided on?
+					<option value="contribution">Contributions</option>
+					<option value="investment">Investment Choice and Switching</option>
+					<option value="estate">Estate Planning</option>
+					<option value="consolidation">Consolidation</option>
+					<option value="other">Other, specify in comments</option>
+
+					<score value="contribution">0.4</score>
+					<score value="investment">0.4</score>
+					<score value="estate">0.4</score>
+					<score value="consolidation">0.4</score>
+					<score value="other">0.4</score>
+				</question>
+				<group>
+					<rule>advice_finplan_ltd_area~~'other'</rule>
+					<question id="advice_finplan_ltd_area_comments" type="multiline">Comments</question>
+				</group>
+				<question id="advice_finplan_ltd_qfe" type="option" option-list="Yes/No">
+					Are your advice services provided under QFE arrangement?
+				</question>
+				
+				<question id="advice_finplan_ltd_provider" type="option">
+					Is the service provided in-house or outsourced?
+					<option value="inhouse">In-house</option>
+					<option value="outsourced">Outsourced</option>
+					<score value="inhouse">1</score>
+				</question>
+				<group>
+					<rule>advice_finplan_ltd_provider=='outsourced'</rule>
+					<question id="advice_finplan_ltd_outsource_provider" type="multiline">If outsourced, to whom?</question>
+				</group>
+				<question id="fte_staff_advice_team" prev="fte_staff_advice_team" type="number">
+					If in-house, how many FTE staff are within the class advice team?
+					<rule>advice_finplan_ltd_provider=='inhouse'</rule>
+				</question>
+				<question id="advice_finplan_ltd_delivery" prev="advice_finplan_ltd_delivery" type="multioption">
+					How is the class advice delivered?
+					<option value="phone">Over the phone</option>
+					<option value="in_person">In person at Scheme offices</option>
+					<option value="visit">External client visits</option>
+					<option value="internet">Over the Internet</option>
+					<option value="other">Other, specify in comments</option>
+
+					<score value="phone">0.2</score>
+					<score value="in_person">0.2</score>
+					<score value="visit">0.2</score>
+					<score value="internet">0.2</score>
+					<score value="other">0.2</score>
+				</question>
+				<group>
+					<rule>advice_finplan_ltd_delivery~~'internet'</rule>
+					<question id="click_feature_available" type="option" option-list="Yes/No">
+						Is a click-to-implement feature available on your online advice tool?
+						<score value="Yes">1</score>
+					</question>
+				</group>
+				<group>
+					<rule>advice_finplan_ltd_delivery~~'other'</rule>
+					<question id="advice_finplan_ltd_delivery_comments" prev="advice_finplan_ltd_delivery_comments" type="multiline">Comments</question>
+				</group>
+				<question id="class_advice_system" type="text">What system/platform is used to provide class advice?</question>
+				<group>
+					<rule>advice_finplan_ltd_delivery~~'phone'</rule>
+					<question id="advice_finplan_ltd_delivery_phone" prev="advice_finplan_ltd_delivery_phone" type="option">
+						Is the phone based advice team part of the call centre or a separate planning team?
+						<option value="callcentre">Part of call centre team</option>
+						<option value="dedicated">Dedicated class advice team housed separately</option>
+						<option value="comprehensive">Services provided through comprehensive advice team</option>
+					</question>
+					<question id="advice_finplan_ltd_delivery_phone_imp" prev="advice_finplan_ltd_delivery_phone_imp" type="option" option-list="Yes/No">
+						Can the phone based advice team implement advice recommendations at the time of delivery?
+						<score value="Yes">1</score>
+					</question>
+				</group>
+				<group>
+					<rule>advice_finplan_ltd_delivery~~'internet'</rule>
+					<question id="advice_finplan_ltd_delivery_internet" prev="advice_finplan_ltd_delivery_internet" type="multioption">
+						Does the internet advice tool cover the following areas
+						<option value="investment">Investment</option>
+						<option value="contributions">Contribution</option>
+						<option value="pension">Government Pension</option>
+						<option value="other">Other</option>
+
+						<score value="investment">0.25</score>
+						<score value="contributions">0.25</score>
+						<score value="pension">0.25</score>
+						<score value="other">0.25</score>
+					</question>
+					<group>
+						<rule>advice_finplan_ltd_delivery_internet~~'other'</rule>
+						<question id="advice_finplan_ltd_delivery_internet_comments" other="advice_finplan_ltd_delivery_internet_comments" type="multiline">Comments</question>
+					</group>
+					<question id="advice_finplan_ltd_delivery_internet_imp" prev="advice_finplan_ltd_delivery_internet_imp" type="option" option-list="Yes/No">
+						Does the internet advice tool integrate with administration to implement advice recommendations at the time of delivery?
+						<score value="Yes">1</score>
+					</question>
+				</group>
+				
+				<question id="advice_finplan_ltd_statement" type="option" option-list="Yes/No">
+					Is a Record of Advice issued to members following advice?
+					<score value="Yes">1</score>
+				</question>
+				<question id="advice_finplan_n_roa" type="text">
+					Approximately how many Record of Advice were issued for class advice queries during the past 12 months to 31 March &year;?
+				</question>
+				<question id="advice_finplan_n_roa_est" prev="advice_finplan_n_roa_est" type="text" >
+					What is the estimated time to produce and issue an ROA to members?
+				</question>	
+				<question id="advice_impl_rate" prev="advice_impl_rate" type="option" option-list="Yes/No">
+					Do you track implementation rate of class advice?
+				</question>
+				<question id="advice_impl_rate_value" prev="advice_impl_rate_value" type="number">
+					What is the implementation rate of class advice?
+					<rule>advice_impl_rate=='Yes'</rule>
+				</question>
+				<question id="advice_impl_followup" prev="advice_impl_followup" type="multioption">
+						How do you follow up if class advice is not implemented?
+						<option value="phone">Phone</option>
+						<option value="email">Email</option>
+						<option value="other">Other</option>
+						<option value="none">No follow up program in place</option>
+				</question>
+				<question id="advice_finplan_ltd_cost_what" type="text">What is the average cost to the Scheme of providing this service (including the Record of Advice)?</question>
+
+
+				<question id="advice_finplan_ltd_cost_recouped" type="option">
+					How is the cost of class advice recouped?
+					<option value="member">Fully paid by member</option>
+					<option value="subsidised">Subsidised by Scheme</option>
+					<option value="scheme">Fully paid by Scheme</option>
+
+					<score value="member">0</score>
+					<score value="subsidised">1</score>
+					<score value="scheme">2</score>
+				</question>
+
+			</group>
+			
+			<question id="advice_finplan_service" prev="advice_finplan_service" type="option" option-list="Yes/No">
+				Does your Scheme offer a full financial planning service to members?
+				<score value="Yes">2</score>
+			</question>
+			<group>
+				<rule>advice_finplan_service=='Yes'</rule>
+				<question id="advice_finplan_service_nature" prev="advice_finplan_service_nature" type="option">
+					What is the nature of the Scheme’s financial planning service?
+					<option value="inhouse_internal">In-house provision of planners with internal licensing</option>
+					<option value="inhouse_external">In-house provision of planners with external licensing</option>
+					<option value="outsource_associate">Outsourced to an associated entity</option>
+					<option value="outsource_independant">Outsourced to an external independent financial planning firm</option>
+					<option value="outsource_independant_group">Outsourced to an external financial planning group offering its own financial products</option>
+					<option value="none">None of the above</option>
+
+					<score value="inhouse_internal">2</score>
+					<score value="inhouse_external">1</score>
+					<score value="outsource_associate">0.5</score>
+					<score value="outsource_independant">0.5</score>
+					<score value="outsource_independant_group">0.5</score>
+				</question>
+				<question id="comp_advice_team_staff" prev="comp_advice_team_staff" type="number">
+					If in-house, how many FTE staff are within the comprehensive advice team?
+					<rule>advice_finplan_service_nature=='inhouse_internal|inhouse_external'</rule>
+				</question>
+				<question id="advice_queries_records" prev="advice_queries_records" type="number">
+					Approximately how many Records of Advice were issued for full advice queries during the past 12 months to 31 March &year;?
+				</question>
+			</group>
+		</group>
+		
+		<group module="fndgov">
+			
+			<group id="fndgov-monitor" type="option" option-list="time frequency/na">
+				<question id="scheme_regime" prev="scheme_regime" type="option" option-list="Yes/No">
+					Has the scheme opted into FMCA regime?
+					<score value="Yes">1</score>
+				</question>
+				<group>
+					<rule>scheme_regime~~'Yes'</rule>
+					<question id="scheme_regime_when" prev="scheme_regime_when" type="date">
+						If yes, when?
+					</question>
+				</group>
+			</group>
+			<group id="fndgov-monitor-title">
+				<question mandatory="not-mandatory">
+				</question>
+			</group>
+			<group id="fndgov-monitor-continue" type="option" option-list="time frequency/na">
+				<question id="fndgov_monitor_admin" prev="fndgov_monitor_admin">
+					Administrator
+					<score value="monthly">1</score>
+					<score value="quarterly">0.75</score>
+					<score value="half_yearly">0.5</score>
+					<score value="annual">0.25</score>
+				</question>
+				<question id="fndgov_monitor_custodian" prev="fndgov_monitor_custodian">
+					Custodian
+					<score value="monthly">1</score>
+					<score value="quarterly">0.75</score>
+					<score value="half_yearly">0.5</score>
+					<score value="annual">0.25</score>
+				</question>
+				<question id="fndgov_monitor_auditor_ext" prev="fndgov_monitor_auditor_ext">
+					Auditor (external)
+				</question>
+				<question id="fndgov_monitor_auditor_int" prev="fndgov_monitor_auditor_int">
+					Auditor (internal)
+					<score value="monthly">1</score>
+					<score value="quarterly">1</score>
+					<score value="half_yearly">0.5</score>
+					<score value="annual">0.25</score>
+				</question>
+				<question id="fndgov_monitor_asset" prev="fndgov_monitor_asset">
+					Asset consultants
+					<score value="monthly">1</score>
+					<score value="quarterly">0.75</score>
+					<score value="half_yearly">0.5</score>
+					<score value="annual">0.25</score>
+				</question>
+				<question id="fndgov_monitor_invman" prev="fndgov_monitor_invman">
+					Investment managers
+					<score value="monthly">1</score>
+					<score value="quarterly">0.75</score>
+					<score value="half_yearly">0.5</score>
+					<score value="annual">0.25</score>
+				</question>
+
+				<group option-list="Yes/No">
+					<question id="fndgov_monitor_sis_noncomp" prev="fndgov_monitor_sis_noncomp">
+						Is there a procedure in place for the prompt reporting of non-compliance or other illegal acts to the Supervisor?
+						<score value="Yes">1</score>
+					</question>
+				</group>
+				<question id="service_providers_cover" prev="service_providers_cover" type="multioption">
+					Does the service providers’ report cover the following?
+					<option value="service_level_agreements">Service level agreements</option>
+					<option value="breaches">Breaches</option>
+					<option value="benchmarks">Performance against benchmarks</option>
+					<option value="incidents">Incidents</option>
+					<option value="complaints">Complaints</option>
+					<option value="business_case_approval">Business Case Approval</option>
+
+					<score value="service_level_agreements">0.166666667</score>
+					<score value="breaches">0.166666667</score>
+					<score value="benchmarks">0.166666667</score>
+					<score value="incidents">0.166666667</score>
+					<score value="complaints">0.166666667</score>
+					<score value="business_case_approval">0.166666667</score>
+				</question>
+				<question id="supervisors_conduct_visits" prev="supervisors_conduct_visits" type="option" option-list="Yes/No">
+					Do Supervisors conduct site visits?
+					<score value="Yes">1</score>
+				</question>
+				<question id="advisory_committee" prev="advisory_committee" type="option" option-list="Yes/No">
+					Do you have an advisory committee that sits between the Scheme provider and the Supervisor?
+					<score value="Yes">1</score>
+				</question>
+				<question id="fndgov_monitor_meet_trustee" prev="fndgov_monitor_meet_trustee" type="option" option-list="time frequency/na">
+					How often do you formally meet with the Supervisor?
+				</question>
+				<group option-list="Yes/No">
+					<question id="fndgov_monitor_trustee_directors" prev="fndgov_monitor_trustee_directors">
+						Does the advisory committee have any independent Directors or Chair?
+						<score value="Yes">1</score>
+					</question>
+					<question id="fndgov_strucutre_board_renewal_policy" prev="fndgov_strucutre_board_renewal_policy">
+						Does the advisory committee have a formal policy on Board renewal?
+						<score value="Yes">1</score>
+					</question>
+					<group>
+						<rule>fndgov_strucutre_board_renewal_policy=='Yes'</rule>
+						<question id="fndgov_strucutre_board_renewal_period" prev="fndgov_strucutre_board_renewal_period" type="multiline">
+							What is the renewal period/policy?
+						</question>
+					</group>
+				</group>
+				<question id="female_comprised_proportion" prev="female_comprised_proportion" type="number">
+					What proportion of your advisory committee is comprised of females?
+				</question>
+				<question id="gender_diversity_strategy" prev="gender_diversity_strategy" type="option" option-list="Yes/No">
+					Does your Scheme have a formal Board Gender Diversity strategy?
+					<score value="Yes">0.5</score>
+				</question>
+				<group type="multioption">
+					<question id="fndgov_monitor_support_committees" prev="fndgov_monitor_support_committees" type="multioption" >
+						Do you maintain any Committees to support the Scheme and Supervisor?
+						<option value="administration">Administration Committee</option>
+						<option value="audit">Audit Committee</option>
+						<option value="risk">Risk &amp; Compliance Committee</option>
+						<option value="marketing">Marketing Committee</option>
+						<option value="remuneration">Remuneration Committee</option>
+						<option value="none">None of the above</option>
+
+						<score value="administration">0.4</score>
+						<score value="audit">0.4</score>
+						<score value="risk">0.4</score>
+						<score value="marketing">0.4</score>
+						<score value="remuneration">0.4</score>
+					</question>
+				</group>
+				<question id="fndgov_monitor_support_committees_delegation" prev="fndgov_monitor_support_committees_delegation" mandatory="not-mandatory">
+					If committees exist, what delegations do they have in relation to decision making?
+					<option value="full">Full delegation</option>
+					<option value="recommendonly">Recommend Only</option>
+					<option value="none">No delegation</option>
+
+					<score value="full">1</score>
+					<score value="recommendonly">0.5</score>
+				</question>
+				<group>
+					<rule>fndgov_monitor_support_committees~~'administration'</rule>
+					<question id="fndgov_meet_admin_committee" prev="fndgov_meet_admin_committee" option-list="1-12-more-na">
+						How many times per annum does the Administration committee meet?
+					</question>
+				</group>
+				<group>
+					<rule>fndgov_monitor_support_committees~~'audit'</rule>
+					<question id="fndgov_meet_audit_committee" prev="fndgov_meet_audit_committee" option-list="1-12-more-na">
+						How many times per annum does the Audit committee meet?
+					</question>
+				</group>
+				<group>
+					<rule>fndgov_monitor_support_committees~~'risk'</rule>
+					<question id="fndgov_meet_risk_committee" prev="fndgov_meet_risk_committee" option-list="1-12-more-na">
+						How many times per annum does the Risk &amp; Compliance committee meet?
+					</question>
+				</group>
+				<group>
+					<rule>fndgov_monitor_support_committees~~'marketing'</rule>
+					<question id="fndgov_meet_marketing_committee" prev="fndgov_meet_marketing_committee" option-list="1-12-more-na">
+						How many times per annum does the Marketing committee meet?
+					</question>
+				</group>
+				<group>
+					<rule>fndgov_monitor_support_committees~~'remuneration'</rule>
+					<question id="fndgov_meet_remuneration_committee" prev="fndgov_meet_remuneration_committee" option-list="1-12-more-na">
+						How many times per annum does the Remuneration committee meet?
+					</question>
+				</group>
+			</group>
+			<group id="fndgov-risk" type="option" option-list="Yes/No">
+				<question id="fndgov_risk_workshop" prev="fndgov_risk_workshop">
+					Has the Supervisor conducted a Risk Management workshop within the last 12 months to identify key scheme risks and mitigating controls?
+					<score value="Yes">1</score>
+				</question>
+				<question id="fndgov_risk_plan" prev="fndgov_risk_plan">
+					Does the Scheme have a formal Risk Management Strategy Plan including risk schedules and controls?
+					<score value="Yes">1</score>
+				</question>
+				<group>
+					<rule>fndgov_risk_plan=='Yes'</rule>
+					<question id="fndgov_risk_plan_review" prev="fndgov_risk_plan_review">
+						Is this regularly tabled and reviewed at Supervisor or Committee meetings?
+					</question>
+				</group>
+				<question id="fndgov_risk_measures" prev="fndgov_risk_measures" type="multioption">
+					Does it set out reasonable measures and procedures to identify, monitor and manage risks associated with?
+					<option value="governace">Governance</option>
+					<option value="outsourcing">Outsourcing arrangements</option>
+					<option value="conflicts">Potential conflicts of interest</option>
+					<option value="fraud">Fraud</option>
+					<option value="investments">Investments</option>
+					<option value="other">Other</option>
+					<option value="none">None of the above</option>
+
+					<score value="governace">0.1666666667</score>
+					<score value="outsourcing">0.1666666667</score>
+					<score value="conflicts">0.1666666667</score>
+					<score value="fraud">0.1666666667</score>
+					<score value="investments">0.1666666667</score>
+					<score value="other">0.1666666667</score>
+				</question>
+				<question id="fndgov_risk_maintain" prev="fndgov_risk_maintain">
+					  Do you maintain an up to date register of the relevant financial interests and other relevant fiduciary roles?
+					<score value="Yes">1</score>
+				</question>
+				<question id="fndgov_risk_doc" prev="fndgov_risk_doc">
+					Do you have a Compliance Policy which includes monitoring procedures and internal controls?
+					<score value="Yes">1</score>
+				</question>
+				<question id="fndgov_risk_recovery" prev="fndgov_risk_recovery">
+					Does the Scheme have a formal Disaster Recovery Plan in place?
+					<score value="Yes">1</score>
+				</question>
+
+				<question id="fndgov_risk_monitor" prev="fndgov_risk_monitor" type="option">
+					How do you monitor and track compliance incidents and complaints?
+					<option value="automated">Automated Systems</option>
+					<option value="manual">Manually compiled (eg excel)</option>
+					<option value="other">Other (please specify in additional comments)</option>
+
+					<score value="automated">1</score>
+					<score value="manual">0.5</score>
+					<score value="other">0</score>
+				</question>
+				<group>
+					<rule>fndgov_risk_monitor=='other'</rule>
+					<question id="fndgov_risk_monitor_other" prev="fndgov_risk_monitor_other" type="multiline">
+						Additional Comments
+					</question>
+				</group>
+				<question id="fndgov_risk_complaint_memb_rate" type="percentage">
+					What percentage of members made a complaint over the past year?
+				</question>
+				<question id="fndgov_risk_top3_complaint" prev="fndgov_risk_top3_complaint" type="multiline">
+					What were the top 3 reasons for complaints being lodged?
+				</question>
+				<question id="fndgov_total_fte" prev="fndgov_total_fte" type="number">
+					How many FTE staff are within your Organisation?
+				</question>
+			</group>
+			<group id="fndgov-human-resources-staff">
+					<question id="fndgov_fte_staff_invest" prev="fndgov_fte_staff_invest" type="number">
+						Investment Team
+					</question>
+					<question id="fndgov_fte_staff_prod" prev="fndgov_fte_staff_prod" type="number">
+						Product Team
+					</question>
+					<question id="fndgov_fte_staff_marketing" prev="fndgov_fte_staff_marketing" type="number">
+						Marketing Team
+					</question>
+					<question id="fndgov_fte_staff_compliance" prev="fndgov_fte_staff_compliance" type="number">
+						Compliance Team
+					</question>
+				</group>
+		</group>
+
+	</questions>
+</rfi>
+
