@@ -15,7 +15,7 @@ public class SGXContentsBasedRouter extends RouteBuilder {
 	public void configure() {
 
          from("file://C:/sqltest/input?charset=utf-8")
-        .to("file://C:/sqltest/holdingbay?fileName=${date:now:yyyyMMddHHmmssSSS}_${file:name}")
+        .to("file://C:/sqltest/holdingbay?fileName=${date:now:yyyyMMddHHmmss}_${file:name}")
     	.routeId("sgx-holdingbay-route");
 
          from("scheduler://sgxFileMover?delay=60s")
