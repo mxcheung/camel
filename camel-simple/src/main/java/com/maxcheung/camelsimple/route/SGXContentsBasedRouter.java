@@ -8,10 +8,10 @@ public class SGXContentsBasedRouter extends RouteBuilder {
 
     static final String topicExchangeName = "spring-boot-exchange";
     static final String queueName = "spring-boot";
+    static final long delay= 60000;
 
 	@Override
 	public void configure() {
-		
 		
 
         from("file://C:/sqltest/?charset=utf-8")
@@ -35,6 +35,9 @@ public class SGXContentsBasedRouter extends RouteBuilder {
 		.log(">>> table b ${headers} ${body}");
 
 		from("direct:c")
+		.log(">>> Delay wait for bos to process " + delay + " milli seconds table A ${headers} ${body}")
+		.delay(delay)
+		.asyncDelayed()
 		.log(">>> table A ${headers} ${body}")
 		.to("sql:classpath:sql/myquery.sql") 
 		.to("direct:index");
