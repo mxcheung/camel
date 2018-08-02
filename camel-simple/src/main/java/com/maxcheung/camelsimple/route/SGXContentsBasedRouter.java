@@ -36,7 +36,7 @@ public class SGXContentsBasedRouter extends RouteBuilder {
 
 		from("direct:c")
 		.log(">>> table A ${headers} ${body}")
-		.to("sql:select * from ROUTE_DEF WHERE ID = :#id") 
+		.to("sql:classpath:sql/myquery.sql") 
 		.to("direct:index");
 		
 		from("direct:d")
