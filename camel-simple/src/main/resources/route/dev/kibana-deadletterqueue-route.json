@@ -1,0 +1,8 @@
+{
+  "routeId": "kibana-deadletterqueue-route",
+  "routeType": "KIBANA",
+  "from": "direct:kibana-deadletterqueue",
+  "toUris": ["elasticsearch://elasticsearch?ip=localhost&port=9300&operation=INDEX&indexName=deadletterqueue&indexType=tweet"],
+  "log": ">>> Kibana {{server.port}}  ${body}",
+  "tracing": "true"
+}

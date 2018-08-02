@@ -1,5 +1,5 @@
 {
-  "routeId": "kibana-route",
+  "routeId": "kibana-airforce1-route",
   "routeType": "KIBANA",
   "from": "direct:index",
   "toUris": ["elasticsearch://elasticsearch?ip=localhost&port=9300&operation=INDEX&indexName=airforce1&indexType=tweet"],
