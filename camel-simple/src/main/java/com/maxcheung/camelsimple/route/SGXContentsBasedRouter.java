@@ -1,5 +1,6 @@
 package com.maxcheung.camelsimple.route;
 
+import org.apache.camel.Exchange;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
@@ -12,9 +13,16 @@ public class SGXContentsBasedRouter extends RouteBuilder {
 
 	@Override
 	public void configure() {
-		
 
-        from("file://C:/sqltest/?charset=utf-8")
+         from("file://C:/sqltest/input?charset=utf-8")
+        .to("file://C:/sqltest/holdingbay?fileName=${date:now:yyyyMMddHHmmssSSS}_${file:name}")
+    	.routeId("sgx-holdingbay-route");
+
+         from("scheduler://sgxFileMover?delay=60s")
+         .to("bean:sgxFileMover?method=checkHoldingBay");
+         
+         
+        from("file://C:/sqltest/process?charset=utf-8")
         	.process(new SGXMessageProcessor())
     		.log(">>> send to contents based route ${headers} ${body}")
             .to("direct:a")
@@ -36,8 +44,6 @@ public class SGXContentsBasedRouter extends RouteBuilder {
 
 		from("direct:c")
 		.log(">>> Delay wait for bos to process " + delay + " milli seconds table A ${headers} ${body}")
-		.delay(delay)
-		.asyncDelayed()
 		.log(">>> table A ${headers} ${body}")
 		.to("sql:classpath:sql/myquery.sql") 
 		.to("direct:index");
