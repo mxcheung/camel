@@ -1,12 +1,15 @@
 package com.maxcheung.camelsimple.model;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -20,7 +23,8 @@ public class SgxMargin {
 	private long id;
 
     @Column
-	private String tradeDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate tradeDate;
     @Column
 	private BigDecimal marginAmount;
     @Column
@@ -33,10 +37,10 @@ public class SgxMargin {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getTradeDate() {
+	public LocalDate getTradeDate() {
 		return tradeDate;
 	}
-	public void setTradeDate(String tradeDate) {
+	public void setTradeDate(LocalDate tradeDate) {
 		this.tradeDate = tradeDate;
 	}
 	public BigDecimal getMarginAmount() {

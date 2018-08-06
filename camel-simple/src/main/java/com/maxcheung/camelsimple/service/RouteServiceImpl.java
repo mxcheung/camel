@@ -7,6 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -68,10 +69,10 @@ public class RouteServiceImpl implements RouteService {
 			this.routeDefs = initRoute();
 			routeDefRepository.save(routeDefs);
 			List<SgxMargin> sgxMargins = new ArrayList<SgxMargin>();
-			sgxMargins.add(getSgxMargin("2018-08-05",  BigDecimal.valueOf(10000000),  BigDecimal.valueOf(75000000),  BigDecimal.valueOf(60000000)) );
-			sgxMargins.add(getSgxMargin("2018-08-06",  BigDecimal.valueOf(10000000),  BigDecimal.valueOf(75000000),  BigDecimal.valueOf(60000000)) );
-			sgxMargins.add(getSgxMargin("2018-08-07",  BigDecimal.valueOf(10000000),  BigDecimal.valueOf(74000000),  BigDecimal.valueOf(60000000)) );
-			sgxMargins.add(getSgxMargin("2018-08-08",  BigDecimal.valueOf(10000000),  BigDecimal.valueOf(73000000),  BigDecimal.valueOf(60000000)) );
+			sgxMargins.add(getSgxMargin(LocalDate.of(2018, 8, 05),  BigDecimal.valueOf(100000000),  BigDecimal.valueOf(75000000),  BigDecimal.valueOf(60000000)) );
+			sgxMargins.add(getSgxMargin(LocalDate.of(2018, 8, 06),  BigDecimal.valueOf(100000000),  BigDecimal.valueOf(55000000),  BigDecimal.valueOf(60000000)) );
+			sgxMargins.add(getSgxMargin(LocalDate.of(2018, 8, 07),  BigDecimal.valueOf(100000000),  BigDecimal.valueOf(74000000),  BigDecimal.valueOf(60000000)) );
+			sgxMargins.add(getSgxMargin(LocalDate.of(2018, 8, 8),  BigDecimal.valueOf(100000000),  BigDecimal.valueOf(73000000),  BigDecimal.valueOf(60000000)) );
 			sgxMarginRepository.save(sgxMargins);
 			
 			Iterable<SgxMargin> margins = sgxMarginRepository.findAll();
@@ -86,7 +87,7 @@ public class RouteServiceImpl implements RouteService {
 		}
 	}
 
-	private SgxMargin getSgxMargin(String tradeDate,  BigDecimal marginAmount, BigDecimal excessAmount, BigDecimal requiredAmount) {
+	private SgxMargin getSgxMargin(LocalDate tradeDate,  BigDecimal marginAmount, BigDecimal excessAmount, BigDecimal requiredAmount) {
 		SgxMargin sgxMargin = new SgxMargin();
 		sgxMargin.setTradeDate(tradeDate);
 		sgxMargin.setMarginAmount(marginAmount);
