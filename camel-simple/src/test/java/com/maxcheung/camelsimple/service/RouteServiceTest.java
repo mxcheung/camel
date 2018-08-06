@@ -22,6 +22,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.maxcheung.camelsimple.model.RouteDef;
 import com.maxcheung.camelsimple.repo.RouteDefRepository;
+import com.maxcheung.camelsimple.repo.SgxMarginRepository;
 
 @RunWith(MockitoJUnitRunner.class)
 public class RouteServiceTest {
@@ -42,6 +43,9 @@ public class RouteServiceTest {
 	@Mock
 	private RouteDefRepository routeDefRepository;
 
+	@Mock
+	private SgxMarginRepository sgxMarginRepository;
+
 	private List<RouteDefinition> routeDefinitions;
 	
 	private DefaultResourceLoader resourceLoader;
@@ -53,7 +57,7 @@ public class RouteServiceTest {
 		when(env.getProperty(CAMELSIMPLE_ROUTE_PATH)).thenReturn("\\route\\dev\\");
 		when(camelContext.getRouteDefinitions()).thenReturn(routeDefinitions);
 		mapper = new ObjectMapper();
-		routeService = new RouteServiceImpl(env, camelContext, routeDefRepository, resourceLoader);
+		routeService = new RouteServiceImpl(env, camelContext, routeDefRepository, sgxMarginRepository, resourceLoader);
 	}
 
 	@Test

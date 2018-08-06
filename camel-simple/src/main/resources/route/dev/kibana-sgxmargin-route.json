@@ -1,0 +1,8 @@
+{
+  "routeId": "kibana-sgxmargin-route",
+  "routeType": "KIBANA",
+  "from": "direct:kibana-sgxmargin",
+  "toUris": ["elasticsearch://elasticsearch?ip=localhost&port=9300&operation=INDEX&indexName=sgxmargin&indexType=tweet"],
+  "log": ">>> Kibana sgxmargin ${headers} ${body}",
+  "tracing": "true"
+}

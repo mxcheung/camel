@@ -1,6 +1,8 @@
 package com.maxcheung.camelsimple.service;
 
+import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -27,10 +29,12 @@ import org.springframework.util.FileCopyUtils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.maxcheung.camelsimple.model.RouteDef;
+import com.maxcheung.camelsimple.model.SgxMargin;
 import com.maxcheung.camelsimple.repo.RouteDefRepository;
+import com.maxcheung.camelsimple.repo.SgxMarginRepository;
 import com.maxcheung.camelsimple.route.DefaultRouteBuilder;
-import com.maxcheung.camelsimple.route.KibanaRouteBuilder;
 import com.maxcheung.camelsimple.route.WireTapRouteBuilder;
+import com.maxcheung.camelsimple.route.kibana.KibanaRouteBuilder;
 
 @Service
 public class RouteServiceImpl implements RouteService {
@@ -46,12 +50,15 @@ public class RouteServiceImpl implements RouteService {
 	private ObjectMapper mapper = new ObjectMapper();
 
 	private RouteDefRepository routeDefRepository;
+	private SgxMarginRepository sgxMarginRepository;
 	
 	@Autowired
-	public RouteServiceImpl(Environment env, CamelContext camelContext, RouteDefRepository routeDefRepository, ResourceLoader resourceLoader) {
+	public RouteServiceImpl(Environment env, CamelContext camelContext, RouteDefRepository routeDefRepository, 
+			SgxMarginRepository sgxMarginRepository, ResourceLoader resourceLoader) {
 		this.env = env;
 		this.camelContext = camelContext;
 		this.routeDefRepository = routeDefRepository;
+		this.sgxMarginRepository = sgxMarginRepository;
 		this.resourceLoader = resourceLoader;
 		loadRoutes();
 	}
@@ -60,9 +67,32 @@ public class RouteServiceImpl implements RouteService {
 		try {
 			this.routeDefs = initRoute();
 			routeDefRepository.save(routeDefs);
+			List<SgxMargin> sgxMargins = new ArrayList<SgxMargin>();
+			sgxMargins.add(getSgxMargin("2018-08-05",  BigDecimal.valueOf(10000000),  BigDecimal.valueOf(75000000),  BigDecimal.valueOf(60000000)) );
+			sgxMargins.add(getSgxMargin("2018-08-06",  BigDecimal.valueOf(10000000),  BigDecimal.valueOf(75000000),  BigDecimal.valueOf(60000000)) );
+			sgxMargins.add(getSgxMargin("2018-08-07",  BigDecimal.valueOf(10000000),  BigDecimal.valueOf(74000000),  BigDecimal.valueOf(60000000)) );
+			sgxMargins.add(getSgxMargin("2018-08-08",  BigDecimal.valueOf(10000000),  BigDecimal.valueOf(73000000),  BigDecimal.valueOf(60000000)) );
+			sgxMarginRepository.save(sgxMargins);
+			
+			Iterable<SgxMargin> margins = sgxMarginRepository.findAll();
+			ObjectMapper mapper = new ObjectMapper();
+			for (SgxMargin margin : margins) {
+				mapper.writeValue(new File("c:\\temp\\"+ margin.getTradeDate() + "_file.json"), margin);
+
+				
+			}
 		} catch (Exception e) {
 			LOG.error("Exception ocurred loading routes {}", e);
 		}
+	}
+
+	private SgxMargin getSgxMargin(String tradeDate,  BigDecimal marginAmount, BigDecimal excessAmount, BigDecimal requiredAmount) {
+		SgxMargin sgxMargin = new SgxMargin();
+		sgxMargin.setTradeDate(tradeDate);
+		sgxMargin.setMarginAmount(marginAmount);
+		sgxMargin.setExcessAmount(excessAmount);
+		sgxMargin.setRequiredAmount(requiredAmount);
+		return sgxMargin;
 	}
 
 	@Override

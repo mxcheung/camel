@@ -1,0 +1,1 @@
+select trade_date as indexId, trade_date, excess_amount, margin_amount, required_amount from SGX_MARGIN 

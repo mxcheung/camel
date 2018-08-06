@@ -148,7 +148,18 @@
 			<version>${camel.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-quartz2</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
 
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jackson</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/org.apache.camel/camel-test-spring -->
 		<dependency>
 			<groupId>org.apache.camel</groupId>

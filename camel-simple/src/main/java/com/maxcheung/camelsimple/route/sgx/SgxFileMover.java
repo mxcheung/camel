@@ -1,10 +1,9 @@
-package com.maxcheung.camelsimple.route;
+package com.maxcheung.camelsimple.route.sgx;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -15,16 +14,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component("sgxFileMover")
-public class SGXFileMover {
+public class SgxFileMover {
 
-	private static final Logger LOG = LoggerFactory.getLogger(SGXMessageProcessor.class);
+	private static final Logger LOG = LoggerFactory.getLogger(SgxFileMover.class);
 
 	public void checkHoldingBay() throws IOException {
 		LOG.info("Checking files in holdingBay");
-
-		Files.newDirectoryStream(Paths.get("C:/sqltest/holdingbay/"), path -> path.toFile().isFile())
+		Files.newDirectoryStream(Paths.get("C:/camel/sgxtest/holdingbay/"), path -> path.toFile().isFile())
 				.forEach(f -> moveFile(f.toFile()));
-
 	}
 
 	private void moveFile(File fileToMove) {

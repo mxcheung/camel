@@ -22,6 +22,7 @@ import org.springframework.core.io.ResourceLoader;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.maxcheung.camelsimple.repo.RouteDefRepository;
+import com.maxcheung.camelsimple.repo.SgxMarginRepository;
 
 @RunWith(MockitoJUnitRunner.class)
 public class RouteServiceCamelTest {
@@ -44,13 +45,16 @@ public class RouteServiceCamelTest {
 	@Mock
 	private RouteDefRepository routeDefRepository;
 
+	@Mock
+	private SgxMarginRepository sgxMarginRepository;
+
 	@Before
 	public void setup() throws Exception {
 		camelContext = new DefaultCamelContext();
 		resourceLoader = new DefaultResourceLoader();
 		when(env.getProperty(CAMELSIMPLE_ROUTE_PATH)).thenReturn("route\\test\\");
 		mapper = new ObjectMapper();
-		routeService = new RouteServiceImpl(env, camelContext, routeDefRepository, resourceLoader);
+		routeService = new RouteServiceImpl(env, camelContext, routeDefRepository, sgxMarginRepository, resourceLoader);
 	}
 
 	@Test

@@ -1,4 +1,4 @@
-package com.maxcheung.camelsimple.route;
+package com.maxcheung.camelsimple.route.sgx;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,9 +13,9 @@ import org.w3c.dom.Document;
 
 import com.maxcheung.camelsimple.util.XmlToJsonHelper;
 
-public class SGXMessageProcessor implements Processor {
+public class SgxProcessor implements Processor {
 
-	private static final Logger LOG = LoggerFactory.getLogger(SGXMessageProcessor.class);
+	private static final Logger LOG = LoggerFactory.getLogger(SgxProcessor.class);
 
     private XmlToJsonHelper xmlToJsonHelper = new XmlToJsonHelper();
     private Map<String, String> messageTypeIdMap = getMessageTypeIdMap();

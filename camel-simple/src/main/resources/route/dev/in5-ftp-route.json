@@ -1,9 +1,0 @@
-{
-  "routeId": "in5-ftp-route",
-  "from": "{{in5ftproute.from}}",
-  "toUris": ["{{in5ftproute.toUri1}}"],
-  "log": ">>> ${body}",
-  "tracing": "true"
-}
-
-
