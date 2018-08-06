@@ -73,6 +73,7 @@ public class RouteServiceImpl implements RouteService {
 			sgxMargins.add(getSgxMargin(LocalDate.of(2018, 8, 06),  BigDecimal.valueOf(100000000),  BigDecimal.valueOf(55000000),  BigDecimal.valueOf(60000000)) );
 			sgxMargins.add(getSgxMargin(LocalDate.of(2018, 8, 07),  BigDecimal.valueOf(100000000),  BigDecimal.valueOf(74000000),  BigDecimal.valueOf(60000000)) );
 			sgxMargins.add(getSgxMargin(LocalDate.of(2018, 8, 8),  BigDecimal.valueOf(100000000),  BigDecimal.valueOf(73000000),  BigDecimal.valueOf(60000000)) );
+			sgxMargins.add(getSgxMargin(LocalDate.of(2018, 8, 9),  BigDecimal.valueOf(100000000),  BigDecimal.valueOf(33000000),  BigDecimal.valueOf(60000000)) );
 			sgxMarginRepository.save(sgxMargins);
 			
 			Iterable<SgxMargin> margins = sgxMarginRepository.findAll();
