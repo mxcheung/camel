@@ -18,6 +18,7 @@ public class SqlRouteBuilder extends RouteBuilder {
 			.log(">>> row  ${body}")
 	   	    .process(new SqlProcessor())
 			.log(">>> sql ${headers}  ${body}")
+			.to("direct:sgx")
 		//	.to("elasticsearch://elasticsearch?ip=localhost&port=9300&operation=INDEX&indexName=sgxmargin&indexType=tweet")
  		.end();
 

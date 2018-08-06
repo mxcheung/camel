@@ -17,16 +17,16 @@ public class SqlProcessor implements Processor {
 
 	public void process(Exchange exchange) throws Exception {
 		LinkedCaseInsensitiveMap<?> map = (LinkedCaseInsensitiveMap) exchange.getIn().getBody();
-		Map<String, String> msg = getMessageTypeIdMap(map);
+		Map<String, Object> msg = getMessageTypeIdMap(map);
 		exchange.getOut().setBody(msg);
 		exchange.getOut().setHeader("indexId", map.get("indexId"));
 		ProducerTemplate template = exchange.getContext().createProducerTemplate();
-		String indexId = template.requestBodyAndHeader("direct:sgx", msg,  "indexId",  map.get("indexId"),String.class);
+	//	String indexId = template.requestBodyAndHeader("direct:sgx", msg,  "indexId",  map.get("indexId"),String.class);
 //				template.requestBody("direct:sgx", map, String.class);
 	}
 
-	private Map<String, String> getMessageTypeIdMap(LinkedCaseInsensitiveMap<?> map) {
-		Map<String, String> messageTypeIdMap = new HashMap<String, String>();
+	private Map<String, Object> getMessageTypeIdMap(LinkedCaseInsensitiveMap<?> map) {
+		Map<String, Object> messageTypeIdMap = new HashMap<String, Object>();
 		String pattern = "yyyy-MM-dd";
 		DateTimeFormatter Parser = DateTimeFormatter.ofPattern(pattern);
 		CharSequence TRADE_DATE = (CharSequence) map.get("TRADE_DATE");
@@ -40,9 +40,9 @@ public class SqlProcessor implements Processor {
 
 		//"2018-07-29T04:06:55.310+10:00
 		messageTypeIdMap.put("TRADE_DATE", formatDateTime);
-		messageTypeIdMap.put("EXCESS_AMOUNT", EXCESS_AMOUNT.toPlainString());
-		messageTypeIdMap.put("MARGIN_AMOUNT", MARGIN_AMOUNT.toPlainString());
-		messageTypeIdMap.put("REQUIRED_AMOUNT", MARGIN_AMOUNT.toPlainString());
+		messageTypeIdMap.put("EXCESS_AMOUNT", EXCESS_AMOUNT.longValue());
+		messageTypeIdMap.put("MARGIN_AMOUNT", MARGIN_AMOUNT.longValue());
+		messageTypeIdMap.put("REQUIRED_AMOUNT", REQUIRED_AMOUNT.longValue());
 		return messageTypeIdMap;
 	}
 }
