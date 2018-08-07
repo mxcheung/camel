@@ -129,10 +129,10 @@ public class RouteServiceImpl implements RouteService {
 		RoutesBuilder routesBuilder;
 		if ("WIRETAP".equalsIgnoreCase(routeOptions.getRouteType())) {
 			routesBuilder = new WireTapRouteBuilder(camelContext, new NoopProcessor(), routeOptions);
-		} else if ("KIBANA".equalsIgnoreCase(routeOptions.getRouteType())) {
-			routesBuilder = new DefaultRouteBuilder(camelContext, new KibanaProcessor(), routeOptions);
 		} else if ("SQL".equalsIgnoreCase(routeOptions.getRouteType())) {
 			routesBuilder = new SqlRouteBuilder(camelContext, new SqlProcessor(), routeOptions);
+		} else if ("KIBANA".equalsIgnoreCase(routeOptions.getRouteType())) {
+			routesBuilder = new DefaultRouteBuilder(camelContext, new KibanaProcessor(), routeOptions);
 		} else {
 			routesBuilder = new DefaultRouteBuilder(camelContext, new NoopProcessor(), routeOptions);
 		}
