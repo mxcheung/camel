@@ -27,6 +27,9 @@ logstash-2.4.0
 │       │   └── DefaultRouteBuilder.java
 │       │   └── WireTapRouteBuilder.java
 │       │   └── BaseRouteBuilder.java
+│       ├── processor/
+│       │   └── NoopProcessor.java
+│       │   └── KibanaProcesor.java
 │       ├── model/
 │       │   └── RouteDef.java
 │       └── service/
