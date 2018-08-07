@@ -1,4 +1,4 @@
-package com.maxcheung.camelsimple.route.kibana;
+package com.maxcheung.camelsimple.route.processor;
 
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;

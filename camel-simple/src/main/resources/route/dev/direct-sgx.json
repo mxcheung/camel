@@ -1,0 +1,11 @@
+{
+  "routeId": "direct-sgx-kibana-route",
+  "routeType": "DEFAULT",
+  "from": "direct:sgx",
+  "toUris": ["elasticsearch://elasticsearch?ip=localhost&port=9300&operation=INDEX&indexName=sgxmargin&indexType=tweet"],
+  "log": ">>> ${sysenv.OS} ${sys.java.io.tmpdir} {{camelsimple.route.path}} {{server.port}}  ${body}",
+  "tracing": "true"
+}
+
+
+

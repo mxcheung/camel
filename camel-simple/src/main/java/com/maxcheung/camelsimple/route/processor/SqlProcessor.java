@@ -1,4 +1,4 @@
-package com.maxcheung.camelsimple.route.sql;
+package com.maxcheung.camelsimple.route.processor;
 
 import java.math.BigDecimal;
 import java.sql.Date;

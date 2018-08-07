@@ -1,6 +1,7 @@
 package com.maxcheung.camelsimple.route;
 import org.apache.camel.CamelContext;
 import org.apache.camel.LoggingLevel;
+import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -21,8 +22,9 @@ public abstract class AbsRouteBuilder extends RouteBuilder {
 	protected final RouteDef routeDef;
 	protected final double backOffMultiplier;
 	protected final int maximumRedeliveries;
+	protected final Processor processor;
 
-	public AbsRouteBuilder(CamelContext camelContext, RouteDef routeDef) {
+	public AbsRouteBuilder(CamelContext camelContext, Processor processor, RouteDef routeDef) {
 		super(camelContext);
 		this.routeId = routeDef.getRouteId();
 		this.from = routeDef.getFrom();
@@ -31,10 +33,8 @@ public abstract class AbsRouteBuilder extends RouteBuilder {
 		this.tracing = StringUtils.defaultIfEmpty(routeDef.getTracing(), DEFAULT_TRACING);
 		this.backOffMultiplier = (double) ObjectUtils.defaultIfNull(routeDef.getBackOffMultiplier(), DEFAULT_BACKOFF_MULTIPLIER);
 		this.maximumRedeliveries = ObjectUtils.defaultIfNull(routeDef.getMaximumRedeliveries(), DEFAULT_MAXIIMUM_REDELIVERIES);
+		this.processor = processor;
 		this.routeDef = routeDef;
-
-		
-		
 		initErrorHandling();
 
 	}

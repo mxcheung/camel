@@ -1,0 +1,8 @@
+{
+  "routeId": "sql-sgxmargin-route",
+  "routeType": "SQL",
+  "from": "file://C:/camel/sqltest/sgxmargin/input?charset=utf-8",
+  "toUris": ["sql:classpath:sql/sgxmarginall.sql?outputType=StreamList"],
+  "log": ">>> SQL sgxmargin ${headers} ${body}",
+  "tracing": "true"
+}

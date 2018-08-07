@@ -34,8 +34,11 @@ import com.maxcheung.camelsimple.model.SgxMargin;
 import com.maxcheung.camelsimple.repo.RouteDefRepository;
 import com.maxcheung.camelsimple.repo.SgxMarginRepository;
 import com.maxcheung.camelsimple.route.DefaultRouteBuilder;
+import com.maxcheung.camelsimple.route.SqlRouteBuilder;
 import com.maxcheung.camelsimple.route.WireTapRouteBuilder;
-import com.maxcheung.camelsimple.route.kibana.KibanaRouteBuilder;
+import com.maxcheung.camelsimple.route.processor.KibanaProcessor;
+import com.maxcheung.camelsimple.route.processor.NOOPProcessor;
+import com.maxcheung.camelsimple.route.processor.SqlProcessor;
 
 @Service
 public class RouteServiceImpl implements RouteService {
@@ -125,11 +128,13 @@ public class RouteServiceImpl implements RouteService {
 	private RoutesBuilder getRouteBuilder(RouteDef routeOptions) {
 		RoutesBuilder routesBuilder;
 		if ("WIRETAP".equalsIgnoreCase(routeOptions.getRouteType())) {
-			routesBuilder = new WireTapRouteBuilder(camelContext, routeOptions);
+			routesBuilder = new WireTapRouteBuilder(camelContext, new NOOPProcessor(), routeOptions);
 		} else if ("KIBANA".equalsIgnoreCase(routeOptions.getRouteType())) {
-			routesBuilder = new KibanaRouteBuilder(camelContext, routeOptions);
+			routesBuilder = new DefaultRouteBuilder(camelContext, new KibanaProcessor(), routeOptions);
+		} else if ("SQL".equalsIgnoreCase(routeOptions.getRouteType())) {
+			routesBuilder = new SqlRouteBuilder(camelContext, new SqlProcessor(), routeOptions);
 		} else {
-			routesBuilder = new DefaultRouteBuilder(camelContext, routeOptions);
+			routesBuilder = new DefaultRouteBuilder(camelContext, new NOOPProcessor(), routeOptions);
 		}
 		return routesBuilder;
 	}
