@@ -53,7 +53,7 @@ public class RouteServiceImpl implements RouteService {
 	private final ResourceLoader resourceLoader;
 	private List<RouteDef> routeDefs;
 	private ObjectMapper mapper = new ObjectMapper();
-
+	
 	private RouteDefRepository routeDefRepository;
 	private SgxMarginRepository sgxMarginRepository;
 	

@@ -2,7 +2,7 @@
   "routeId": "file-beanio-route",
   "routeType": "BEANIO",
   "from": "file://C:/beanio/input?charset=utf-8",
-  "toUris": ["file://C:/beanio/output?charset=utf-8"],
+  "toUris": ["file://C:/beanio/output?fileName=${date:now:yyyyMMdd}/${file:name}-${exchangeId}.json"],
   "log": ">>> ${sysenv.OS} ${sys.java.io.tmpdir} {{camelsimple.route.path}} {{server.port}}  ${body}",
   "tracing": "true"
 }

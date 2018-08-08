@@ -16,7 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class BeanIOProcessor implements Processor {
 
 	private StreamFactory factory = StreamFactory.newInstance();
-
+	
 	public BeanIOProcessor() {
 		super();
 		factory.load("./src/main/resources/beanio/mappings.xml");

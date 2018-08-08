@@ -6,6 +6,8 @@ https://github.com/davsclaus/camel-riders-in-the-cloud
 http://camel.apache.org/articles.html
 https://tech.willhaben.at/testing-apache-camel-applications-with-spring-boot-da536568d9f7
 https://stackoverflow.com/questions/25869428/classpath-resource-not-found-when-running-as-jar
+http://useof.org/java-open-source/org.beanio.BeanReader
+https://github.com/apache/camel/blob/master/camel-core/src/test/java/org/apache/camel/component/file/AntPathMatcherGenericFileFilterTest.java
 
 java -jar -Dspring.profiles.active=dev camelsimple.jar
 
