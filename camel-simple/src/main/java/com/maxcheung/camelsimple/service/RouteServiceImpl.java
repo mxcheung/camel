@@ -36,6 +36,7 @@ import com.maxcheung.camelsimple.repo.SgxMarginRepository;
 import com.maxcheung.camelsimple.route.DefaultRouteBuilder;
 import com.maxcheung.camelsimple.route.SqlRouteBuilder;
 import com.maxcheung.camelsimple.route.WireTapRouteBuilder;
+import com.maxcheung.camelsimple.route.processor.BeanIOProcessor;
 import com.maxcheung.camelsimple.route.processor.KibanaProcessor;
 import com.maxcheung.camelsimple.route.processor.NoopProcessor;
 import com.maxcheung.camelsimple.route.processor.SqlProcessor;
@@ -133,6 +134,8 @@ public class RouteServiceImpl implements RouteService {
 			routesBuilder = new SqlRouteBuilder(camelContext, new SqlProcessor(), routeOptions);
 		} else if ("KIBANA".equalsIgnoreCase(routeOptions.getRouteType())) {
 			routesBuilder = new DefaultRouteBuilder(camelContext, new KibanaProcessor(), routeOptions);
+		} else if ("BEANIO".equalsIgnoreCase(routeOptions.getRouteType())) {
+			routesBuilder = new DefaultRouteBuilder(camelContext, new BeanIOProcessor(), routeOptions);
 		} else {
 			routesBuilder = new DefaultRouteBuilder(camelContext, new NoopProcessor(), routeOptions);
 		}

@@ -1,4 +1,5 @@
 package com.maxcheung.camelsimple.beanio;
+import com.maxcheung.camelsimple.beanio.Record;
 
 public class A1Record extends Record {
     Double currentPrice;

@@ -22,7 +22,7 @@ public class SqlProcessorTest extends CamelTestSupport {
 	private static final String TRADE_DATE = "TRADE_DATE";
 
 	@Test
-	public void testKibanaProcessor() throws Exception {
+	public void testSqlProcessor() throws Exception {
 		MockEndpoint mock = getMockEndpoint("mock:result");
 		Map<String, Object> sqlResultSet = new LinkedCaseInsensitiveMap<>();
 		java.sql.Date tradeDt = java.sql.Date.valueOf("2017-11-15");
