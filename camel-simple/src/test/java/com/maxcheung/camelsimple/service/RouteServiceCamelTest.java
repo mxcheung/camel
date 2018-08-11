@@ -38,7 +38,6 @@ public class RouteServiceCamelTest {
 	@Mock
 	private Environment env;
 
-	private ResourceLoader resourceLoader;
 
 	private CamelContext camelContext;
 
@@ -51,10 +50,9 @@ public class RouteServiceCamelTest {
 	@Before
 	public void setup() throws Exception {
 		camelContext = new DefaultCamelContext();
-		resourceLoader = new DefaultResourceLoader();
 		when(env.getProperty(CAMELSIMPLE_ROUTE_PATH)).thenReturn("route\\test\\");
 		mapper = new ObjectMapper();
-		routeService = new RouteServiceImpl(env, camelContext, routeDefRepository, sgxMarginRepository, resourceLoader);
+		routeService = new RouteServiceImpl(env, camelContext, routeDefRepository, sgxMarginRepository);
 	}
 
 	@Test

@@ -1,5 +1,6 @@
 package com.maxcheung.camelsimple.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -42,7 +43,7 @@ public class RouteController {
 
 
 	@RequestMapping(value = "/getFiles", method = RequestMethod.GET)
-	public @ResponseBody Resource[] getCamelRoutes( @RequestParam("locationPattern") String locationPattern) throws IOException {
+	public @ResponseBody List<File> getCamelRoutes( @RequestParam("locationPattern") String locationPattern) throws IOException {
 		LOG.info(" getFiles");
 		return routeService.getFiles(locationPattern);
 	}

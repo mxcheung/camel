@@ -47,17 +47,14 @@ public class RouteServiceTest {
 	private SgxMarginRepository sgxMarginRepository;
 
 	private List<RouteDefinition> routeDefinitions;
-	
-	private DefaultResourceLoader resourceLoader;
 
 	@Before
 	public void setup() throws Exception {
-		resourceLoader = new DefaultResourceLoader();
 		this.routeDefinitions = getRouteDefinitions();
 		when(env.getProperty(CAMELSIMPLE_ROUTE_PATH)).thenReturn("\\route\\dev\\");
 		when(camelContext.getRouteDefinitions()).thenReturn(routeDefinitions);
 		mapper = new ObjectMapper();
-		routeService = new RouteServiceImpl(env, camelContext, routeDefRepository, sgxMarginRepository, resourceLoader);
+		routeService = new RouteServiceImpl(env, camelContext, routeDefRepository, sgxMarginRepository);
 	}
 
 	@Test

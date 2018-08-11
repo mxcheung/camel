@@ -1,4 +1,4 @@
-package com.maxcheung.camelsimple.route.sgx;
+package com.maxcheung.camelsimple.route.processor;
 
 import java.util.HashMap;
 import java.util.Map;

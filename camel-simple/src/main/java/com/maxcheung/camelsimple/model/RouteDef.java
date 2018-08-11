@@ -12,7 +12,7 @@ import javax.persistence.Id;
 		"maximumRedeliveries" })
 @Entity
 public class RouteDef {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;

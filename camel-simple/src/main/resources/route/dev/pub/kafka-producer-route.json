@@ -1,0 +1,11 @@
+{
+  "routeId": "kafka-producer-route",
+  "routeType": "DEFAULT",
+  "from": "file://C:/kafka/input?charset=utf-8",
+  "toUris": ["kafka:localhost:9092?topic=test&brokers=localhost:9092"],
+  "log": ">>> writing to kafka ${sysenv.OS} ${sys.java.io.tmpdir}  {{server.port}}  ${body}",
+  "tracing": "true"
+}
+
+
+

@@ -9,8 +9,23 @@ https://stackoverflow.com/questions/25869428/classpath-resource-not-found-when-r
 http://useof.org/java-open-source/org.beanio.BeanReader
 https://github.com/apache/camel/blob/master/camel-core/src/test/java/org/apache/camel/component/file/AntPathMatcherGenericFileFilterTest.java
 
-java -jar -Dspring.profiles.active=dev camelsimple.jar
+java -jar -Dspring.profiles.active=dev -Dcamelsimple.route.path=/route/dev/pub camelsimple.jar
 
+
+java -jar -Dspring.profiles.active=dev -Dserver.port=8088 -Dcamelsimple.route.path=C:\camel\route\dev\pub .\target\camelsimple-0.0.1-SNAPSHOT.jar
+
+java -jar -Dspring.profiles.active=dev 
+-Dserver.port=8089 
+-Dmanagement.port=8089 
+-Dcamelsimple.route.path=C:\camel\route\dev\sub .\target\camelsimple-0.0.1-SNAPSHOT.jar
+
+
+java -jar -Dspring.profiles.active=dev -Dserver.port=8089 -Dmanagement.port=8089 -Dcamelsimple.route.path=/route/dev/sub camelsimple.jar
+
+
+
+
+-Dcamelsimple.route.path=/route/dev/pub
 http://www.baeldung.com/java-application-logs-to-elastic-stack
 elasticsearch-2.4.4
 kibana-4.6.0-windows-x86

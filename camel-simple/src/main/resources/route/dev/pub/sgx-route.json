@@ -1,0 +1,8 @@
+{
+  "routeId": "sgx-sgxmargin-route",
+  "routeType": "SGX",
+  "from": "",
+  "toUris": [],
+  "log": ">>> SGX File mover sgxmargin ${headers} ${body}",
+  "tracing": "true"
+}

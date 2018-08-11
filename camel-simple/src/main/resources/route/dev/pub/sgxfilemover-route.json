@@ -1,0 +1,8 @@
+{
+  "routeId": "sgxfilemover-sgxmargin-route",
+  "routeType": "SGXFILEMOVER",
+  "from": "scheduler://sgxFileMover?delay=60s",
+  "toUris": [],
+  "log": ">>> SGX File mover sgxmargin ${headers} ${body}",
+  "tracing": "true"
+}

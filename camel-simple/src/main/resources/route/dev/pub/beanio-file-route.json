@@ -1,0 +1,12 @@
+{
+  "routeId": "file-beanio-route",
+  "routeType": "BEANIO",
+  "from": "file://C:/camel/beanio/input?charset=utf-8",
+  "toUris": ["file://C:/camel/beanio/output?fileName=${date:now:yyyyMMdd}/${file:name}-${exchangeId}.json",
+  			"{{kafka.producer.endpoint}}"],
+  "log": ">>> ${sysenv.OS} ${sys.java.io.tmpdir} {{camelsimple.route.path}} {{server.port}}  ${body}",
+  "tracing": "true"
+}
+
+
+

@@ -4,7 +4,7 @@ camelsimple:
   api:
     path: /camel
   route:
-    path: /route/dev/
+    path: /route/dev/pub
 camel:
   springboot:
     name: CamelSimple
@@ -48,4 +48,9 @@ in5ftproute:
 resources:
   extract:
     dir: /route/dev/  
-      
+
+kafka:
+  producer:
+    endpoint: kafka:localhost:9092?topic=test&brokers=localhost:9092      
+  consumer:
+    endpoint: kafka:localhost:9092?topic=test&groupId=testing&brokers=localhost:9092&autoOffsetReset=earliest&consumersCount=1          

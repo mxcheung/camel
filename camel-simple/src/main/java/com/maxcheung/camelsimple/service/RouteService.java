@@ -1,6 +1,7 @@
 package com.maxcheung.camelsimple.service;
 
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -14,6 +15,6 @@ public interface RouteService {
 
 	List<String> getCamelRoutes();
 
-	Resource[] getFiles(String locationPattern) throws IOException;
+	List<File> getFiles(String locationPattern) throws IOException;
 	
 }

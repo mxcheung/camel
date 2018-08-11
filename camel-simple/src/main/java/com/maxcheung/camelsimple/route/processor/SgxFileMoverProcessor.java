@@ -1,4 +1,4 @@
-package com.maxcheung.camelsimple.route.sgx;
+package com.maxcheung.camelsimple.route.processor;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,15 +8,25 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
+import org.apache.camel.Exchange;
+import org.apache.camel.Processor;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
-@Component("sgxFileMover")
-public class SgxFileMover {
+public class SgxFileMoverProcessor implements Processor {
 
-	private static final Logger LOG = LoggerFactory.getLogger(SgxFileMover.class);
+
+	private static final Logger LOG = LoggerFactory.getLogger(SgxFileMoverProcessor.class);
+
+	
+	public SgxFileMoverProcessor() {
+		super();
+	}
+
+	public void process(Exchange exchange) throws Exception {
+		checkHoldingBay() ;
+	}
 
 	public void checkHoldingBay() throws IOException {
 		LOG.info("Checking files in holdingBay");
