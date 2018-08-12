@@ -9,13 +9,16 @@ camel:
   springboot:
     name: CamelSimple
 management:
-  port: 8088
+  port: ${server.port}
   security:
     enabled: false
 endpoints:
   enabled: true
   health:
     enabled: true
+  jolokia:
+    sensitive: false
+
 quickstart:
   generateOrderPeriod: 10s
   processOrderPeriod: 30s
@@ -54,3 +57,6 @@ kafka:
     endpoint: kafka:localhost:9092?topic=test&brokers=localhost:9092      
   consumer:
     endpoint: kafka:localhost:9092?topic=test&groupId=testing&brokers=localhost:9092&autoOffsetReset=earliest&consumersCount=1          
+    
+hawtio:
+  authenticationEnabled: false

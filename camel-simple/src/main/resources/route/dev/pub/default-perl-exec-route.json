@@ -1,0 +1,16 @@
+{
+  "routeId": "default-perl-exec-route",
+  "routeType": "DEFAULT",
+  "from": "file://C:/camel/perl/input?charset=utf-8",
+  "toUris": ["file://C:/camel/perl/output?fileName=${file:name}", 
+             "exec:perl?args=c:\\perl\\script.pl C:\\camel\\perl\\output\\words.txt",
+  			 "{{kafka.producer.endpoint}}"],
+  "log": ">>> ${sysenv.OS} ${sys.java.io.tmpdir} {{camelsimple.route.path}} {{server.port}} ${in.header.CamelFileNameProduced} ${body}",
+  "tracing": "true"
+}
+
+
+
+
+
+ 

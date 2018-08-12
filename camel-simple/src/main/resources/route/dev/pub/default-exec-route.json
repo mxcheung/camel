@@ -1,0 +1,11 @@
+{
+  "routeId": "default-exec-route",
+  "routeType": "DEFAULT",
+  "from": "file://C:/camel/exec/input?charset=utf-8",
+  "toUris": ["exec:cmd?args=/C echo echoString"],
+  "log": ">>> ${sysenv.OS} ${sys.java.io.tmpdir} {{camelsimple.route.path}} {{server.port}}  ${body}",
+  "tracing": "true"
+}
+
+
+
