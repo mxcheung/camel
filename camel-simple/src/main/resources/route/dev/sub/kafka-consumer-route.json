@@ -1,9 +1,9 @@
 {
   "routeId": "kafka-consumer-route",
-  "routeType": "DEFAULT",
+  "routeType": "KAFKACONSUMER",
   "from": "{{kafka.consumer.endpoint}}",
   "toUris": ["log:input"],
-  "log": ">>> ${sysenv.OS} ${sys.java.io.tmpdir}  {{server.port}}  ${body}",
+  "log": ">>> ${sysenv.OS} ${sys.java.io.tmpdir}  {{server.port}} ${headers} ${body}",
   "tracing": "true"
 }
 

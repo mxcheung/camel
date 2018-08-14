@@ -54,7 +54,7 @@ resources:
 
 kafka:
   producer:
-    endpoint: kafka:localhost:9092?topic=test&brokers=localhost:9092      
+    endpoint: kafka:localhost:9092?topic=test&brokers=localhost:9092&clientId=abc      
   consumer:
     endpoint: kafka:localhost:9092?topic=test&groupId=testing&brokers=localhost:9092&autoOffsetReset=earliest&consumersCount=1          
     

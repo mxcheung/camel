@@ -18,6 +18,8 @@ public class RouteDef {
 	private long id;
 
     @Column
+	private String applicationId;
+    @Column
 	private String routeId;
     @Column
 	private String routeType;
@@ -35,6 +37,15 @@ public class RouteDef {
 	private double backOffMultiplier;
     @Column
 	private int maximumRedeliveries;
+
+    
+	public String getApplicationId() {
+		return applicationId;
+	}
+
+	public void setApplicationId(String applicationId) {
+		this.applicationId = applicationId;
+	}
 
 	public String getRouteId() {
 		return routeId;

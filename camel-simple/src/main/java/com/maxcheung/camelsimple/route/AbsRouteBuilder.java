@@ -3,6 +3,7 @@ import org.apache.camel.CamelContext;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.component.kafka.KafkaConstants;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -14,6 +15,7 @@ public abstract class AbsRouteBuilder extends RouteBuilder {
 	private static final int DEFAULT_MAXIIMUM_REDELIVERIES = 5;
 	protected static final String DEFAULT_TRACING = "true";
 	protected static final String DEFAULT_BODY = ">>> ${body}";
+	protected final String applicationId;
 	protected final String routeId;
 	protected final String from;
 	protected final String[] toUris;
@@ -26,6 +28,8 @@ public abstract class AbsRouteBuilder extends RouteBuilder {
 
 	public AbsRouteBuilder(CamelContext camelContext, Processor processor, RouteDef routeDef) {
 		super(camelContext);
+	String x = KafkaConstants.KEY;
+		this.applicationId = routeDef.getApplicationId();
 		this.routeId = routeDef.getRouteId();
 		this.from = routeDef.getFrom();
 		this.toUris = routeDef.getToUris();

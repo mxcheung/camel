@@ -1,9 +1,10 @@
 {
+  "applicationId": "kafka",
   "routeId": "kafka-producer-route",
-  "routeType": "DEFAULT",
-  "from": "file://C:/kafka/input?charset=utf-8",
+  "routeType": "KAFKA",
+  "from": "file://C:/camel/kafka/input?charset=utf-8",
   "toUris": ["{{kafka.producer.endpoint}}"],
-  "log": ">>> writing to kafka ${sysenv.OS} ${sys.java.io.tmpdir}  {{server.port}}  ${body}",
+  "log": ">>> writing to kafka ${sysenv.OS} ${sys.java.io.tmpdir}  {{server.port}} ${headers} ${body}",
   "tracing": "true"
 }
 
