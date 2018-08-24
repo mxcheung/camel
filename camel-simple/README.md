@@ -31,6 +31,8 @@ elasticsearch-2.4.4
 kibana-4.6.0-windows-x86
 logstash-2.4.0
 
+https://play.golang.org/p/uAd5XHxscu
+
 
 ```
 ├── src/
@@ -139,4 +141,5 @@ no-tests - all tests are ignored
 all-tests - all tests are executed
 unit-tests - only unit tests are executed
 integration-tests - only integration tests are executed
+      
       
