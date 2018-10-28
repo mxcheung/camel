@@ -18,7 +18,6 @@
 		<build.profile.id>dev</build.profile.id>
 		<skip.integration.tests>true</skip.integration.tests>
 		<skip.unit.tests>false</skip.unit.tests>
-
 		<!-- Code coverage properties -->
 		<coverage.line.ratio>0.10</coverage.line.ratio>
 		<coverage.branch.ratio>0.10</coverage.branch.ratio>
@@ -189,13 +188,17 @@
 			<artifactId>camel-exec</artifactId>
 			<version>${camel.version}</version>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-slack</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
 		</dependency>
-
-
 
 		<!-- Test Dependencies -->
 		<dependency>

@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.apache.camel.CamelContext;
+import org.apache.camel.ProducerTemplate;
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.model.RouteDefinition;
 import org.slf4j.Logger;
@@ -30,6 +31,7 @@ import com.maxcheung.camelsimple.repo.RouteDefRepository;
 import com.maxcheung.camelsimple.repo.SgxMarginRepository;
 import com.maxcheung.camelsimple.route.DefaultRouteBuilder;
 import com.maxcheung.camelsimple.route.SgxRouteBuilder;
+import com.maxcheung.camelsimple.route.SlackRouteBuilder;
 import com.maxcheung.camelsimple.route.SqlRouteBuilder;
 import com.maxcheung.camelsimple.route.WireTapRouteBuilder;
 import com.maxcheung.camelsimple.route.processor.BeanIOProcessor;
@@ -137,6 +139,8 @@ public class RouteServiceImpl implements RouteService {
 			routesBuilder = new DefaultRouteBuilder(camelContext, new KafkaProcessor(), routeOptions);
 		} else if ("KAFKACONSUMER".equalsIgnoreCase(routeOptions.getRouteType())) {
 			routesBuilder = new DefaultRouteBuilder(camelContext, new KafkaConsumerProcessor(), routeOptions);
+		} else if ("SLACK".equalsIgnoreCase(routeOptions.getRouteType())) {
+			routesBuilder = new SlackRouteBuilder(camelContext, new NoopProcessor(), routeOptions);
 		} else if ("KIBANA".equalsIgnoreCase(routeOptions.getRouteType())) {
 			routesBuilder = new DefaultRouteBuilder(camelContext, new KibanaProcessor(), routeOptions);
 		} else if ("BEANIO".equalsIgnoreCase(routeOptions.getRouteType())) {

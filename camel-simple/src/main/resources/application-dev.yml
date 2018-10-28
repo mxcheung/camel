@@ -4,7 +4,7 @@ camelsimple:
   api:
     path: /camel
   route:
-    path: /route/dev/pub
+    path: /route/dev/chatbot
 camel:
   springboot:
     name: CamelSimple

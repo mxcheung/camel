@@ -4,7 +4,7 @@ camelsimple:
   api:
     path: /camel
   route:
-    path: /route/dev
+    path: C:\\camel\\route\\dev\\chatbot\\
 camel:
   springboot:
     name: CamelSimple
@@ -29,6 +29,5 @@ spring:
     console:
       enabled: true
 in3-in-2route:
-  from: file://C:/in3/?fileName=MyFile.txt&charset=utf-8
+  from: file://C:/in3/
   toUris: file://C:/in2A1/?fileName=${date:now:yyyyMMdd}/${file:name},file://C:/in2B/
-            
