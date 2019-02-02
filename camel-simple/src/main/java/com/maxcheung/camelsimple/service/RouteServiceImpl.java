@@ -39,6 +39,7 @@ import com.maxcheung.camelsimple.route.processor.KafkaConsumerProcessor;
 import com.maxcheung.camelsimple.route.processor.KafkaProcessor;
 import com.maxcheung.camelsimple.route.processor.KibanaProcessor;
 import com.maxcheung.camelsimple.route.processor.NoopProcessor;
+import com.maxcheung.camelsimple.route.processor.QuickFixProcessor;
 import com.maxcheung.camelsimple.route.processor.SgxFileMoverProcessor;
 import com.maxcheung.camelsimple.route.processor.SgxProcessor;
 import com.maxcheung.camelsimple.route.processor.SqlProcessor;
@@ -145,6 +146,8 @@ public class RouteServiceImpl implements RouteService {
 			routesBuilder = new DefaultRouteBuilder(camelContext, new KibanaProcessor(), routeOptions);
 		} else if ("BEANIO".equalsIgnoreCase(routeOptions.getRouteType())) {
 			routesBuilder = new DefaultRouteBuilder(camelContext, new BeanIOProcessor(), routeOptions);
+		} else if ("QUICKFIX".equalsIgnoreCase(routeOptions.getRouteType())) {
+			routesBuilder = new DefaultRouteBuilder(camelContext, new QuickFixProcessor(), routeOptions);
 		} else {
 			routesBuilder = new DefaultRouteBuilder(camelContext, new NoopProcessor(), routeOptions);
 		}
