@@ -1,0 +1,8 @@
+{
+  "routeId": "file-quickfix-route",
+  "routeType": "QUICKFIX",
+  "from": "file://C:/elastic2/a?charset=utf-8",
+  "toUris": ["quickfix:simple.cfg?sessionID=FIX.4.2:BROKER04->REUTERS&lazyCreateEngine=false","file://C:/elastic2/b?charset=utf-8"],
+  "log": ">>> ${sysenv.OS} ${sys.java.io.tmpdir} {{camelsimple.route.path}} {{server.port}}  ${body}",
+  "tracing": "true"
+}
