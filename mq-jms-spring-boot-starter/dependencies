@@ -1,0 +1,15 @@
+<dependencies>
+  <!-- Jakarta-compatible MQ base classes -->
+  <dependency>
+    <groupId>com.ibm.mq</groupId>
+    <artifactId>com.ibm.mq.jakarta.client</artifactId>
+    <version>9.4.3.0</version>
+  </dependency>
+
+  <!-- WebSphere MQ transport-specific classes, including WMQConstants -->
+  <dependency>
+    <groupId>com.ibm.mq</groupId>
+    <artifactId>com.ibm.mq.jakarta.wmq.client</artifactId>
+    <version>9.4.3.0</version>
+  </dependency>
+</dependencies>
