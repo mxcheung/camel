@@ -1,0 +1,27 @@
+import org.apache.camel.component.kafka.KafkaComponent;
+import org.apache.camel.builder.RouteBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class KafkaConfig {
+
+    @Bean("kafka-onprem")
+    public KafkaComponent kafkaOnPrem() {
+        KafkaComponent kafka = new KafkaComponent();
+        kafka.getConfiguration().setBrokers("onprem-kafka:9092");
+        kafka.getConfiguration().setClientId("onprem-client");
+        return kafka;
+    }
+
+    @Bean("kafka-cloud")
+    public KafkaComponent kafkaCloud() {
+        KafkaComponent kafka = new KafkaComponent();
+        kafka.getConfiguration().setBrokers("cloud-kafka.aws.com:9094");
+        kafka.getConfiguration().setClientId("cloud-client");
+        kafka.getConfiguration().setSecurityProtocol("SSL"); // or SASL_SSL
+        kafka.getConfiguration().setSslTruststoreLocation("/path/to/truststore.jks");
+        kafka.getConfiguration().setSslTruststorePassword("changeit");
+        return kafka;
+    }
+}
