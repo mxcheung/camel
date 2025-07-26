@@ -1,22 +1,13 @@
-import com.ibm.mq.jms.MQConnectionFactory;
-import com.ibm.msg.client.wmq.WMQConstants;
+import com.ibm.mq.jakarta.jms.MQConnectionFactory;
 import jakarta.jms.ConnectionFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
-@Configuration
-public class MqConfig {
-
-    @Bean
-    public ConnectionFactory connectionFactory() throws Exception {
-        MQConnectionFactory factory = new MQConnectionFactory();
-        factory.setQueueManager("QM1");
-        factory.setChannel("DEV.APP.SVRCONN");
-        factory.setTransportType(WMQConstants.WMQ_CM_CLIENT);
-        factory.setHostName("localhost");
-        factory.setPort(1414);
-        factory.setStringProperty(WMQConstants.USERID, "app");
-        factory.setStringProperty(WMQConstants.PASSWORD, "passw0rd");
-        return factory;
-    }
+@Bean
+public ConnectionFactory connectionFactory() throws JMSException {
+    MQConnectionFactory cf = new MQConnectionFactory();
+    cf.setHostName("your-host");
+    cf.setPort(1414);
+    cf.setQueueManager("QM1");
+    cf.setChannel("DEV.APP.SVRCONN");
+    cf.setTransportType(WMQConstants.WMQ_CM_CLIENT);
+    return cf;
 }
