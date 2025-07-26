@@ -1,0 +1,15 @@
+camel:
+  component:
+    kafka-onprem:
+      brokers: onprem-kafka:9092
+      client-id: onprem-client
+      group-id: onprem-group
+    kafka-cloud:
+      brokers: cloud-kafka.aws.com:9094
+      client-id: cloud-client
+      group-id: cloud-group
+      security-protocol: SASL_SSL
+      sasl-mechanism: PLAIN
+      sasl-jaas-config: >
+        org.apache.kafka.common.security.plain.PlainLoginModule required
+        username="cloud-user" password="cloud-password";
