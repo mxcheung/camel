@@ -13,3 +13,9 @@ camel:
       sasl-jaas-config: >
         org.apache.kafka.common.security.plain.PlainLoginModule required
         username="cloud-user" password="cloud-password";
+
+logging:
+  level:
+    org.apache.camel: DEBUG
+    org.apache.camel.component.kafka: DEBUG
+    org.apache.kafka: WARN    # Optional: suppress lower-level Kafka noise
