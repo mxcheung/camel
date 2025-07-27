@@ -1,42 +1,38 @@
 import org.apache.camel.CamelContext;
 import org.apache.camel.component.kafka.KafkaComponent;
 import org.apache.camel.component.kafka.KafkaConfiguration;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class KafkaConfig {
 
+    @Bean
+    @ConfigurationProperties(prefix = "camel.component.kafka-onprem")
+    public KafkaConfiguration kafkaOnPremConfiguration() {
+        return new KafkaConfiguration();
+    }
+
     @Bean(name = "kafka-onprem")
-    public KafkaComponent kafkaOnPrem(CamelContext context, KafkaClustersConfig clustersConfig) {
-        KafkaClusterProperties props = clustersConfig.getOnprem();
+    public KafkaComponent kafkaOnPrem(CamelContext context, KafkaConfiguration kafkaOnPremConfiguration) {
+        KafkaComponent kafkaComponent = new KafkaComponent();
+        kafkaComponent.setConfiguration(kafkaOnPremConfiguration);
+        context.addComponent("kafka-onprem", kafkaComponent);
+        return kafkaComponent;
+    }
 
-        KafkaConfiguration config = new KafkaConfiguration();
-        config.setBrokers(props.getBrokers());
-        config.setClientId(props.getClientId());
-        config.setGroupId(props.getGroupId());
-
-        KafkaComponent component = new KafkaComponent();
-        component.setConfiguration(config);
-        context.addComponent("kafka-onprem", component);
-        return component;
+    @Bean
+    @ConfigurationProperties(prefix = "camel.component.kafka-cloud")
+    public KafkaConfiguration kafkaCloudConfiguration() {
+        return new KafkaConfiguration();
     }
 
     @Bean(name = "kafka-cloud")
-    public KafkaComponent kafkaCloud(CamelContext context, KafkaClustersConfig clustersConfig) {
-        KafkaClusterProperties props = clustersConfig.getCloud();
-
-        KafkaConfiguration config = new KafkaConfiguration();
-        config.setBrokers(props.getBrokers());
-        config.setClientId(props.getClientId());
-        config.setGroupId(props.getGroupId());
-        config.setSecurityProtocol(props.getSecurityProtocol());
-        config.setSaslMechanism(props.getSaslMechanism());
-        config.setSaslJaasConfig(props.getSaslJaasConfig());
-
-        KafkaComponent component = new KafkaComponent();
-        component.setConfiguration(config);
-        context.addComponent("kafka-cloud", component);
-        return component;
+    public KafkaComponent kafkaCloud(CamelContext context, KafkaConfiguration kafkaCloudConfiguration) {
+        KafkaComponent kafkaComponent = new KafkaComponent();
+        kafkaComponent.setConfiguration(kafkaCloudConfiguration);
+        context.addComponent("kafka-cloud", kafkaComponent);
+        return kafkaComponent;
     }
 }
