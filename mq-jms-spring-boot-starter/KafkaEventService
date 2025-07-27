@@ -1,0 +1,19 @@
+@Service
+public class KafkaEventService {
+
+    private final KafkaComponent kafkaComponent;
+
+    public KafkaEventService(
+        @Qualifier("kafka-onprem") KafkaComponent kafkaOnPrem,
+        @Qualifier("kafka-cloud") KafkaComponent kafkaCloud,
+        @Value("${app.kafka.target:cloud}") String target // use 'onprem' or 'cloud'
+    ) {
+        this.kafkaComponent = "onprem".equalsIgnoreCase(target) ? kafkaOnPrem : kafkaCloud;
+    }
+
+    public void sendEvent(String topic, String message) {
+        // You can now use kafkaComponent.getConfiguration() etc. here
+        System.out.println("Sending to topic: " + topic + " via " + kafkaComponent.getConfiguration().getBrokers());
+        // For actual Camel usage, this is where you'd create a ProducerTemplate and send a message
+    }
+}
