@@ -1,5 +1,5 @@
+import org.apache.camel.CamelContext;
 import org.apache.camel.component.kafka.KafkaComponent;
-import org.apache.camel.component.kafka.KafkaConfiguration;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,13 +9,17 @@ public class KafkaConfig {
 
     @Bean(name = "kafka-onprem")
     @ConfigurationProperties(prefix = "camel.component.kafka-onprem")
-    public KafkaComponent kafkaOnPrem() {
-        return new KafkaComponent();
+    public KafkaComponent kafkaOnPrem(CamelContext context) {
+        KafkaComponent component = new KafkaComponent();
+        context.addComponent("kafka-onprem", component);
+        return component;
     }
 
     @Bean(name = "kafka-cloud")
     @ConfigurationProperties(prefix = "camel.component.kafka-cloud")
-    public KafkaComponent kafkaCloud() {
-        return new KafkaComponent();
+    public KafkaComponent kafkaCloud(CamelContext context) {
+        KafkaComponent component = new KafkaComponent();
+        context.addComponent("kafka-cloud", component);
+        return component;
     }
 }
