@@ -1,0 +1,11 @@
+from("kafka:employees-avro"
+     + "?brokers=localhost:9092"
+     + "&groupId=empGroup"
+     + "&valueDeserializer=io.confluent.kafka.serializers.KafkaAvroDeserializer"
+     + "&schema.registry.url=http://localhost:8081"
+     + "&specific.avro.reader=true")
+  .process(exchange -> {
+      com.example.avro.Employee emp = exchange.getIn().getBody(com.example.avro.Employee.class);
+      log.info("Employee: {} {}", emp.getFirstName(), emp.getLastName());
+  })
+  .to("mock:end");
