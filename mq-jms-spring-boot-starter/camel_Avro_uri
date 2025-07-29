@@ -9,3 +9,15 @@ from("kafka:employees-avro"
       log.info("Employee: {} {}", emp.getFirstName(), emp.getLastName());
   })
   .to("mock:end");
+
+from("kafka:your-topic?brokers=your-broker:9092"
+     + "&valueDeserializer=io.confluent.kafka.serializers.KafkaAvroDeserializer"
+     + "&groupId=your-group-id"
+     + "&additionalProperties.schema.registry.url=https://your-schema-registry-url"
+     + "&additionalProperties.basic.auth.credentials.source=USER_INFO"
+     + "&additionalProperties.basic.auth.user.info=your-username:your-password")
+  .unmarshal().avro(AvroLibrary.Jackson, JsonNode.class)
+  .process(exchange -> {
+    JsonNode json = exchange.getIn().getBody(JsonNode.class);
+    // Process the Avro message
+  });
