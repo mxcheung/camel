@@ -49,10 +49,13 @@ public class EndpointResolver {
     private static final String IBM_MQ_TEMPLATE =
         "ibmmq:queue:%s?connectionFactory=#mqConnectionFactory";
 
-    public static String resolve(String symbolicUri) {
-        String[] parts = symbolicUri.split(":", 2);
-        if (parts.length != 2) {
-            throw new IllegalArgumentException("Invalid symbolic URI: " + symbolicUri);
+    private static final Set<String> SYMBOLIC_SCHEMES = Set.of("kafkaOnPrem", "kafkaCloud", "ibmMq");
+
+    public static String resolve(String uri) {
+        String[] parts = uri.split(":", 2);
+        if (parts.length != 2 || !SYMBOLIC_SCHEMES.contains(parts[0])) {
+            // Not symbolic — return as-is
+            return uri;
         }
 
         String type = parts[0];
@@ -61,12 +64,11 @@ public class EndpointResolver {
         return switch (type) {
             case "kafkaOnPrem" -> String.format(ON_PREM_KAFKA_TEMPLATE, value);
             case "kafkaCloud" -> String.format(CLOUD_KAFKA_TEMPLATE, value);
-            case "ibmMq" -> String.format(IBM_MQ_TEMPLATE, value);
-            default -> throw new IllegalArgumentException("Unknown symbolic URI type: " + type);
+            case "ibmMq"      -> String.format(IBM_MQ_TEMPLATE, value);
+            default -> uri; // Should not reach here due to SYMBOLIC_SCHEMES check
         };
     }
 }
-
 
 String from = EndpointResolver.resolve("kafkaOnPrem:orders");
 String to1 = EndpointResolver.resolve("ibmMq:ORDER.Q");
