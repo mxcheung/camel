@@ -1,3 +1,12 @@
+public class EndpointTemplates {
+    public static final String ON_PREM_KAFKA_TEMPLATE =
+        "kafka:{topic}?brokers=onprem-broker:9093"
+        + "&securityProtocol=SSL"
+        + "&sslTruststoreLocation=/opt/ssl/truststore.jks"
+        + "&sslTruststorePassword=changeit";
+}
+
+
 public class EndpointResolver {
 
     public static String resolve(String symbolicUri) {
