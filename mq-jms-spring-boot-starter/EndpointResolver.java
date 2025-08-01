@@ -75,6 +75,12 @@ public class EndpointResolver {
             .map(EndpointResolver::resolve)
             .collect(Collectors.toList());
     }
+
+    public static String[] resolveAll(String[] toUris) {
+    return Arrays.stream(toUris)
+                 .map(EndpointResolver::resolve)
+                 .toArray(String[]::new);
+    }
 }
 
 
