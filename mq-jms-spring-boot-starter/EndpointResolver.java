@@ -29,7 +29,8 @@ String resolvedUri = EndpointResolver.resolve(symbolic);
 
 
 
-
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class EndpointResolver {
 
@@ -54,8 +55,7 @@ public class EndpointResolver {
     public static String resolve(String uri) {
         String[] parts = uri.split(":", 2);
         if (parts.length != 2 || !SYMBOLIC_SCHEMES.contains(parts[0])) {
-            // Not symbolic — return as-is
-            return uri;
+            return uri; // passthrough
         }
 
         String type = parts[0];
@@ -65,10 +65,19 @@ public class EndpointResolver {
             case "kafkaOnPrem" -> String.format(ON_PREM_KAFKA_TEMPLATE, value);
             case "kafkaCloud" -> String.format(CLOUD_KAFKA_TEMPLATE, value);
             case "ibmMq"      -> String.format(IBM_MQ_TEMPLATE, value);
-            default -> uri; // Should not reach here due to SYMBOLIC_SCHEMES check
+            default           -> uri;
         };
     }
+
+    // ✅ New method to resolve a List of URIs
+    public static List<String> resolveAll(List<String> uris) {
+        return uris.stream()
+            .map(EndpointResolver::resolve)
+            .collect(Collectors.toList());
+    }
 }
+
+
 
 String from = EndpointResolver.resolve("kafkaOnPrem:orders");
 String to1 = EndpointResolver.resolve("ibmMq:ORDER.Q");
