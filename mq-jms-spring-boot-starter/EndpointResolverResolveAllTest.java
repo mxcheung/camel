@@ -64,3 +64,22 @@ class EndpointResolverResolveAllTest {
         assertThat(resolved.get(2)).isEqualTo("file:/tmp/logs");
     }
 }
+
+
+
+
+@Test
+void resolvesArrayOfToUrisWithParams() {
+    String[] input = {
+        "kafkaOnPrem:topicA&groupId=g1",
+        "kafkaCloud:topicB&clientId=c1",
+        "file:/output"
+    };
+
+    String[] resolved = EndpointResolver.resolveAll(input);
+
+    assertThat(resolved[0]).contains("kafka:topicA").contains("groupId=g1");
+    assertThat(resolved[1]).contains("kafka:topicB").contains("clientId=c1");
+    assertThat(resolved[2]).isEqualTo("file:/output");
+}
+
