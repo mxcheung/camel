@@ -1,0 +1,30 @@
+@Configuration
+@EnableConfigurationProperties({Qm1Properties.class, Qm2Properties.class})
+public class MultiMQAutoConfig {
+
+    @Bean("jms-qm1")
+    public JmsComponent jmsQm1(CamelContext context, Qm1Properties props) throws Exception {
+        MQConnectionFactory factory = new MQConnectionFactory();
+        factory.setQueueManager(props.getQueueManager());
+        factory.setChannel(props.getChannel());
+        factory.setConnectionNameList(props.getConnectionNameList());
+        factory.setTransportType(WMQConstants.WMQ_CM_CLIENT);
+        factory.setStringProperty(WMQConstants.USERID, props.getUser());
+        factory.setStringProperty(WMQConstants.PASSWORD, props.getPassword());
+
+        return JmsComponent.jmsComponentAutoAcknowledge(factory);
+    }
+
+    @Bean("jms-qm2")
+    public JmsComponent jmsQm2(CamelContext context, Qm2Properties props) throws Exception {
+        MQConnectionFactory factory = new MQConnectionFactory();
+        factory.setQueueManager(props.getQueueManager());
+        factory.setChannel(props.getChannel());
+        factory.setConnectionNameList(props.getConnectionNameList());
+        factory.setTransportType(WMQConstants.WMQ_CM_CLIENT);
+        factory.setStringProperty(WMQConstants.USERID, props.getUser());
+        factory.setStringProperty(WMQConstants.PASSWORD, props.getPassword());
+
+        return JmsComponent.jmsComponentAutoAcknowledge(factory);
+    }
+}
