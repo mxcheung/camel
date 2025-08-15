@@ -6,13 +6,13 @@
 [ An Exception is thrown ]
          |
          v
-  ┌──────────────────────────┐
+  ┌───────────────────────-───┐
   │ Does any onException(...) │
   │ match this Exception type?│
-  └──────────────────────────┘
+  └────────────────────────-──┘
         YES | NO
             |  
-YES ─────────┘  
+YES ────────┘  
             v
      NO → [ Apply default/errorHandler(...) settings ]
             |
