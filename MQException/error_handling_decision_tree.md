@@ -24,3 +24,18 @@ YES ────────┘
             v
    [ Mark Exchange as failed, send to Dead Letter Channel if configured ]
 ```
+
+# Example Visual
+```
+                  +----------------+
+                  | Exception      |
+                  +----------------+
+                           |
+         +-----------------+-----------------+
+         |                                   |
+  Matches onException?               No match
+         |                                   |
+   Apply onException rules           Apply defaultErrorHandler rules
+ (retry, fallback, handled, etc.)   (retry, delay, dead letter, etc.)
+
+```
