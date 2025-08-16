@@ -1,0 +1,10 @@
+import com.example.camel.util.MqExceptionUtils;
+
+onException(org.springframework.jms.UncategorizedJmsException.class)
+    .onWhen(MqExceptionUtils::isMqHostNotAvailableOrConnectionBroken)
+    .maximumRedeliveries(100)
+    .redeliveryDelay(1000)
+    .backOffMultiplier(2.0)
+    .maximumRedeliveryDelay(60000)
+    .log(LoggingLevel.ERROR, 
+         "Retrying due to MQ connectivity issue: ${exception.message}");
