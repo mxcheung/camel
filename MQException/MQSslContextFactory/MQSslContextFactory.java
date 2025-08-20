@@ -1,4 +1,4 @@
-import com.ibm.mq.spring.boot.MQConfigurationProperties;
+import com.ibm.mq.spring.boot.MQConfigurationPropertiesJks;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.KeyManagerFactory;
@@ -8,10 +8,10 @@ import java.security.SecureRandom;
 
 public class MQSslContextFactory {
 
-    public static SSLContext createSslContext(MQConfigurationProperties.Jks jksConfig) throws Exception {
-        if (jksConfig == null || 
+    public static SSLContext createSslContext(MQConfigurationPropertiesJks jksConfig) throws Exception {
+        if (jksConfig == null ||
             (jksConfig.getKeyStore() == null && jksConfig.getTrustStore() == null)) {
-            return null; // SSL not configured
+            return null; // no SSL configured
         }
 
         String keyStorePath = jksConfig.getKeyStore();
@@ -19,7 +19,7 @@ public class MQSslContextFactory {
         String trustStorePath = jksConfig.getTrustStore();
         String trustStorePassword = jksConfig.getTrustStorePassword();
 
-        // Load KeyStore
+        // KeyStore
         KeyManagerFactory kmf = null;
         if (keyStorePath != null) {
             KeyStore keyStore = createKeyStore(keyStorePath, keyStorePassword);
@@ -27,7 +27,7 @@ public class MQSslContextFactory {
             kmf.init(keyStore, keyStorePassword != null ? keyStorePassword.toCharArray() : null);
         }
 
-        // Load TrustStore
+        // TrustStore
         TrustManagerFactory tmf = null;
         if (trustStorePath != null) {
             KeyStore trustStore = createKeyStore(trustStorePath, trustStorePassword);
@@ -46,7 +46,6 @@ public class MQSslContextFactory {
     }
 
     private static KeyStore createKeyStore(String path, String password) throws Exception {
-        // detect type by extension
         String type = path.endsWith(".p12") || path.endsWith(".pfx") ? "PKCS12" : "JKS";
         KeyStore ks = KeyStore.getInstance(type);
         try (FileInputStream is = new FileInputStream(path)) {
