@@ -1,41 +1,57 @@
-public static SSLContext createSslContext(MQConfigurationProperties mqConfig) throws Exception {
-    String keyStorePath = mqConfig.getJks().getKeyStore();
-    String keyStorePassword = mqConfig.getJks().getKeyStorePassword();
-    String trustStorePath = mqConfig.getJks().getTrustStore();
-    String trustStorePassword = mqConfig.getJks().getTrustStorePassword();
+import com.ibm.mq.spring.boot.MQConfigurationProperties;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManagerFactory;
+import javax.net.ssl.KeyManagerFactory;
+import java.io.FileInputStream;
+import java.security.KeyStore;
+import java.security.SecureRandom;
 
-    if (keyStorePath == null && trustStorePath == null) {
-        return null; // SSL not configured
-    }
+public class MQSslContextFactory {
 
-    // Load KeyStore
-    KeyManagerFactory kmf = null;
-    if (keyStorePath != null) {
-        KeyStore keyStore = KeyStore.getInstance("JKS"); // or PKCS12 if needed
-        try (FileInputStream ksStream = new FileInputStream(keyStorePath)) {
-            keyStore.load(ksStream, keyStorePassword != null ? keyStorePassword.toCharArray() : null);
+    public static SSLContext createSslContext(MQConfigurationProperties.Jks jksConfig) throws Exception {
+        if (jksConfig == null || 
+            (jksConfig.getKeyStore() == null && jksConfig.getTrustStore() == null)) {
+            return null; // SSL not configured
         }
-        kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
-        kmf.init(keyStore, keyStorePassword != null ? keyStorePassword.toCharArray() : null);
-    }
 
-    // Load TrustStore
-    TrustManagerFactory tmf = null;
-    if (trustStorePath != null) {
-        KeyStore trustStore = KeyStore.getInstance("JKS");
-        try (FileInputStream tsStream = new FileInputStream(trustStorePath)) {
-            trustStore.load(tsStream, trustStorePassword != null ? trustStorePassword.toCharArray() : null);
+        String keyStorePath = jksConfig.getKeyStore();
+        String keyStorePassword = jksConfig.getKeyStorePassword();
+        String trustStorePath = jksConfig.getTrustStore();
+        String trustStorePassword = jksConfig.getTrustStorePassword();
+
+        // Load KeyStore
+        KeyManagerFactory kmf = null;
+        if (keyStorePath != null) {
+            KeyStore keyStore = createKeyStore(keyStorePath, keyStorePassword);
+            kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+            kmf.init(keyStore, keyStorePassword != null ? keyStorePassword.toCharArray() : null);
         }
-        tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-        tmf.init(trustStore);
+
+        // Load TrustStore
+        TrustManagerFactory tmf = null;
+        if (trustStorePath != null) {
+            KeyStore trustStore = createKeyStore(trustStorePath, trustStorePassword);
+            tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+            tmf.init(trustStore);
+        }
+
+        SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
+        sslContext.init(
+            kmf != null ? kmf.getKeyManagers() : null,
+            tmf != null ? tmf.getTrustManagers() : null,
+            new SecureRandom()
+        );
+
+        return sslContext;
     }
 
-    SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
-    sslContext.init(
-        kmf != null ? kmf.getKeyManagers() : null,
-        tmf != null ? tmf.getTrustManagers() : null,
-        new SecureRandom()
-    );
-
-    return sslContext;
+    private static KeyStore createKeyStore(String path, String password) throws Exception {
+        // detect type by extension
+        String type = path.endsWith(".p12") || path.endsWith(".pfx") ? "PKCS12" : "JKS";
+        KeyStore ks = KeyStore.getInstance(type);
+        try (FileInputStream is = new FileInputStream(path)) {
+            ks.load(is, password != null ? password.toCharArray() : null);
+        }
+        return ks;
+    }
 }
