@@ -22,4 +22,20 @@ public static SSLContext createSslContext(MQConfigurationProperties mqConfig) th
     // Load TrustStore
     TrustManagerFactory tmf = null;
     if (trustStorePath != null) {
-        KeyStore trustStore =
+        KeyStore trustStore = KeyStore.getInstance("JKS");
+        try (FileInputStream tsStream = new FileInputStream(trustStorePath)) {
+            trustStore.load(tsStream, trustStorePassword != null ? trustStorePassword.toCharArray() : null);
+        }
+        tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+        tmf.init(trustStore);
+    }
+
+    SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
+    sslContext.init(
+        kmf != null ? kmf.getKeyManagers() : null,
+        tmf != null ? tmf.getTrustManagers() : null,
+        new SecureRandom()
+    );
+
+    return sslContext;
+}
