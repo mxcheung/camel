@@ -1,16 +1,22 @@
+import io.confluent.kafka.schemaregistry.client.SchemaMetadata;
+import io.confluent.kafka.schemaregistry.client.SchemaRegistryClient;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 @Component
 public class MySchemaChecker {
 
-    private final SchemaRegistryClient schemaRegistryClient;
+    private final SchemaMetadata dlqSchemaMetadata;
 
     public MySchemaChecker(
-        SchemaRegistryClient schemaRegistryClient,
-        @Value("${kafka.cloud.topics.dlq}") String dlqTopic) {
+            SchemaRegistryClient schemaRegistryClient,
+            @Value("${kafka.cloud.topics.dlq}") String dlqTopic) throws Exception {
 
-        this.schemaRegistryClient = schemaRegistryClient;
+        // resolve schema at construction
+        this.dlqSchemaMetadata = schemaRegistryClient.getLatestSchemaMetadata(dlqTopic);
+    }
 
-        // resolved here during bean construction
-        SchemaMetadata metadata = schemaRegistryClient.getLatestSchemaMetadata(dlqTopic);
-        // ... do something with metadata
+    public SchemaMetadata getDlqSchemaMetadata() {
+        return dlqSchemaMetadata;
     }
 }
