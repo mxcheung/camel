@@ -31,21 +31,14 @@ Then, create logback-spring.xml in src/main/resources:
     <appender name="CLOUDWATCH" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
             <providers>
-                <!-- Timestamp -->
                 <timestamp/>
-                <!-- Log level -->
                 <logLevel/>
-                <!-- Logger name -->
                 <loggerName/>
-                <!-- Thread -->
                 <threadName/>
-                <!-- Human-readable message -->
                 <message/>
-                <!-- Custom structured fields -->
                 <jsonProvider class="net.logstash.logback.composite.loggingevent.GlobalCustomFieldsJsonProvider">
                     <customFields>{"service":"springboot-app"}</customFields>
                 </jsonProvider>
-                <!-- MDC fields for structured metadata -->
                 <mdc/>
             </providers>
         </encoder>
