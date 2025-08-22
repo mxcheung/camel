@@ -66,26 +66,31 @@ import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.util.Map;
 
 @Service
 public class InstructionService {
 
     private static final Logger logger = LoggerFactory.getLogger(InstructionService.class);
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
-    public void processInstruction(String instructionId, String status, String type) {
+    public void processInstruction(Map<String, Object> instructionMeta) {
         try {
-            // Put structured metadata into MDC
-            MDC.put("instruction_meta", String.format("{\"instructionId\":\"%s\",\"status\":\"%s\",\"type\":\"%s\"}", 
-                instructionId, status, type));
+            // Convert Map to JSON string for MDC
+            String metaJson = objectMapper.writeValueAsString(instructionMeta);
+            MDC.put("instruction_meta", metaJson);
 
-            // Log human-readable message
+            // Human-readable message
             logger.info("Processed instruction");
 
+        } catch (Exception e) {
+            logger.error("Failed to log instruction metadata", e);
         } finally {
-            // Clear MDC to avoid leaking metadata to other logs
             MDC.clear();
         }
     }
 }
+
 ```
