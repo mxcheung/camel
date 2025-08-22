@@ -1,11 +1,3 @@
-<configuration>
-    <appender name="CLOUDWATCH" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
-            <customFields>{"service":"springboot-app"}</customFields>
-        </encoder>
-    </appender>
-
-    <root level="INFO">
-        <appender-ref ref="CLOUDWATCH"/>
-    </root>
-</configuration>
+<encoder>
+    <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg [%X{requestId} %X{clientId}]%n</pattern>
+</encoder>
