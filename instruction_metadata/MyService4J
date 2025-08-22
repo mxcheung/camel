@@ -1,0 +1,15 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import software.amazon.lambda.powertools.logging.Logging;
+
+import java.util.Map;
+
+public class MyService {
+
+    private static final Logger logger = LogManager.getLogger(MyService.class);
+
+    @Logging(logEvent = true)
+    public void sendMessage(String message, Map<String, Object> metadata) {
+        logger.info("Sent message: {}", message, metadata);
+    }
+}
