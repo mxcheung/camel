@@ -1,0 +1,12 @@
+<configuration>
+    <appender name="JSON_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
+            <!-- Optional settings -->
+            <prettyPrint>true</prettyPrint>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="JSON_CONSOLE"/>
+    </root>
+</configuration>
