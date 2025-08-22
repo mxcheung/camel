@@ -1,0 +1,11 @@
+<configuration>
+    <appender name="CLOUDWATCH" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <customFields>{"service":"springboot-app"}</customFields>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CLOUDWATCH"/>
+    </root>
+</configuration>
