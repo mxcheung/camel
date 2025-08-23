@@ -2,9 +2,12 @@ import org.apache.camel.CamelContext;
 import org.apache.camel.Route;
 import org.apache.camel.model.RouteDefinition;
 import org.springframework.core.env.Environment;
+import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,34 +35,32 @@ public class RouteService {
     }
 
     /**
-     * Returns all route definitions with from/to URIs.
+     * Load route definitions from configured resource path.
      */
+    public List<RouteDef> loadRoutes() {
+        String resourcePath = env.getProperty("camel_route_path");
+        if (resourcePath == null || resourcePath.isBlank()) {
+            throw new IllegalStateException("Property 'camel_route_path' is not configured");
+        }
+
+        Resource[] resources = getFilesList(resourcePath);
+
+        return Arrays.stream(resources)
+                .map(this::toRouteDefFromResource)
+                .collect(Collectors.toList());
+    }
+
+    // --- Public methods to access Camel routes ---
     public List<RouteDef> getRouteDefs() {
         return camelContext.getRouteDefinitions().stream()
                 .map(this::toRouteDef)
                 .collect(Collectors.toList());
     }
 
-    /**
-     * Returns all Camel route IDs.
-     */
     public List<String> getCamelRoutes() {
         return camelContext.getRoutes().stream()
                 .map(Route::getId)
                 .collect(Collectors.toList());
     }
 
-    /**
-     * Logs a route message with instruction metadata.
-     */
-    public void logRouteMessage(String routeId, String message, Object instructionMeta) {
-        messageService.sendMessage("Route [" + routeId + "]: " + message, Map.of("instruction_meta", instructionMeta));
-    }
-
-    // --- Private helpers ---
-    private RouteDef toRouteDef(RouteDefinition rd) {
-        String fromUri = rd.getInputs().isEmpty() ? "" : rd.getInputs().get(0).getEndpointUri();
-        String toUri = rd.getOutputs().isEmpty() ? "" : rd.getOutputs().get(0).getEndpointUri();
-        return new RouteDef(rd.getId(), fromUri, toUri);
-    }
-}
+    public void logRo
