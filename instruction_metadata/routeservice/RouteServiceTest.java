@@ -40,4 +40,20 @@ class RouteServiceTest {
         assertThat(def.getFromUri()).isEqualTo("direct:start");
         assertThat(def.getToUri()).isEqualTo("log:output");
 
-        verify(mockCamelCo
+        verify(mockCamelContext, times(1)).getRouteDefinitions();
+    }
+
+    @Test
+    void testGetCamelRoutes() throws Exception {
+        Route route = mock(Route.class);
+        when(route.getId()).thenReturn("route-2");
+
+        when(mockCamelContext.getRoutes()).thenReturn(List.of(route));
+
+        List<String> routeIds = routeService.getCamelRoutes();
+
+        assertThat(routeIds).containsExactly("route-2");
+
+        verify(mockCamelContext, times(1)).getRoutes();
+    }
+}
