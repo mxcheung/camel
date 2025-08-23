@@ -43,4 +43,48 @@ class RouteServiceTest {
     }
 
     @Test
-    void testGetRouteDefs() throws E
+    void testGetRouteDefs() throws Exception {
+        RouteDefinition rd = new RouteDefinition();
+        rd.setId("route-1");
+        rd.addInput(new FromDefinition("direct:start"));
+        rd.addOutput(new ToDefinition("log:output"));
+
+        when(mockCamelContext.getRouteDefinitions()).thenReturn(List.of(rd));
+
+        List<RouteDef> defs = routeService.getRouteDefs();
+
+        assertThat(defs).hasSize(1);
+        RouteDef def = defs.get(0);
+        assertThat(def.getId()).isEqualTo("route-1");
+        assertThat(def.getFromUri()).isEqualTo("direct:start");
+        assertThat(def.getToUri()).isEqualTo("log:output");
+
+        verify(mockCamelContext, times(1)).getRouteDefinitions();
+    }
+
+    @Test
+    void testGetCamelRoutes() throws Exception {
+        Route route = mock(Route.class);
+        when(route.getId()).thenReturn("route-2");
+
+        when(mockCamelContext.getRoutes()).thenReturn(List.of(route));
+
+        List<String> routeIds = routeService.getCamelRoutes();
+
+        assertThat(routeIds).containsExactly("route-2");
+
+        verify(mockCamelContext, times(1)).getRoutes();
+    }
+
+    @Test
+    void testLogRouteMessage_DelegatesToMessageService() {
+        String routeId = "route-1";
+        String message = "Processing started";
+        Map<String, Object> meta = Map.of("instructionId", 123);
+
+        routeService.logRouteMessage(routeId, message, meta);
+
+        verify(mockMessageService, times(1))
+                .sendMessage("Route [route-1]: Processing started", Map.of("instruction_meta", meta));
+    }
+}
