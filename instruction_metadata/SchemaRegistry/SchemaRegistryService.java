@@ -1,40 +1,46 @@
 import io.confluent.kafka.schemaregistry.client.SchemaRegistryClient;
 import io.confluent.kafka.schemaregistry.client.rest.entities.SchemaMetadata;
-import io.confluent.kafka.schemaregistry.client.rest.exceptions.RestClientException;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.stereotype.Service;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.*;
 
-@Service
-public class SchemaRegistryService {
+class SchemaRegistryServiceTest {
 
-    private final SchemaRegistryClient client;
+    private SchemaRegistryClient mockClient;
+    private SchemaRegistryService schemaRegistryService;
 
-    public SchemaRegistryService(SchemaRegistryClient client) {
-        this.client = client;
+    @BeforeEach
+    void setup() {
+        mockClient = mock(SchemaRegistryClient.class);
+        schemaRegistryService = new SchemaRegistryService(mockClient);
     }
 
-    /**
-     * Get latest schema metadata for a DLQ topic (subject = topic + "-value").
-     */
-    @Cacheable(value = "dlqSchemas", key = "#dlqTopic")
-    public SchemaMetadata getDlqSchemaMeta(String dlqTopic) {
-        return getLatestSchemaMetadata(dlqTopic, "dlqSchemas");
+    @Test
+    void testGetDlqSchemaMeta() throws Exception {
+        when(mockClient.getLatestSchemaMetadata("orders-dlq-value"))
+                .thenReturn(new SchemaMetadata(1, 1, "{\"type\":\"record\",\"name\":\"DlqOrder\"}"));
+
+        SchemaMetadata meta = schemaRegistryService.getDlqSchemaMeta("orders-dlq");
+
+        assertThat(meta.getId()).isEqualTo(1);
+        assertThat(meta.getSchema()).contains("DlqOrder");
+
+        verify(mockClient, times(1)).getLatestSchemaMetadata("orders-dlq-value");
     }
 
-    /**
-     * Get latest schema metadata for a Feedback topic (subject = topic + "-value").
-     */
-    @Cacheable(value = "feedbackSchemas", key = "#feedbackTopic")
-    public SchemaMetadata getFeedbackSchemaMeta(String feedbackTopic) {
-        return getLatestSchemaMetadata(feedbackTopic, "feedbackSchemas");
-    }
+    @Test
+    void testGetFeedbackSchemaMeta() throws Exception {
+        when(mockClient.getLatestSchemaMetadata("orders-feedback-value"))
+                .thenReturn(new SchemaMetadata(2, 3, "{\"type\":\"record\",\"name\":\"FeedbackOrder\"}"));
 
-    // --- Shared helper ---
-    private SchemaMetadata getLatestSchemaMetadata(String topic, String cacheName) {
-        String subject = topic + "-value";
-        try {
-            return client.getLatestSchemaMetadata(subject);
-        } catch (IOException | RestClientException e) {
-            throw new SchemaRegistryServiceException("Failed to fetch latest schema metadata for subject="
+        SchemaMetadata meta = schemaRegistryService.getFeedbackSchemaMeta("orders-feedback");
+
+        assertThat(meta.getId()).isEqualTo(2);
+        assertThat(meta.getVersion()).isEqualTo(3);
+        assertThat(meta.getSchema()).contains("FeedbackOrder");
+
+        verify(mockClient, times(1)).getLatestSchemaMetadata("orders-feedback-value");
+    }
+}
