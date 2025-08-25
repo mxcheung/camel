@@ -3,7 +3,6 @@ import io.confluent.kafka.schemaregistry.client.rest.entities.SchemaMetadata;
 import io.confluent.kafka.schemaregistry.client.rest.exceptions.RestClientException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.io.IOException;
 
@@ -67,5 +66,26 @@ class SchemaRegistryServiceTest {
         );
 
         assertTrue(ex.getMessage().contains(subject));
+    }
+
+    @Test
+    void shouldUpdateFallbackOnEverySuccess() throws Exception {
+        String topic = "dlqTopic2";
+        String subject = topic + "-value";
+
+        SchemaMetadata first = new SchemaMetadata(1, 1, "{\"type\":\"string1\"}", 1, 0, "avro");
+        SchemaMetadata second = new SchemaMetadata(2, 2, "{\"type\":\"string2\"}", 2, 0, "avro");
+
+        // First fetch -> store first schema in fallback
+        when(mockClient.getLatestSchemaMetadata(subject)).thenReturn(first);
+        assertEquals(first, service.getDlqSchemaMeta(topic));
+
+        // Second fetch -> should update fallback with second schema
+        when(mockClient.getLatestSchemaMetadata(subject)).thenReturn(second);
+        assertEquals(second, service.getDlqSchemaMeta(topic));
+
+        // Simulate registry failure -> should return the updated fallback (second schema)
+        when(mockClient.getLatestSchemaMetadata(subject)).thenThrow(new IOException("down"));
+        assertEquals(second, service.getDlqSchemaMeta(topic));
     }
 }
