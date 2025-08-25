@@ -1,46 +1,58 @@
 import io.confluent.kafka.schemaregistry.client.SchemaRegistryClient;
 import io.confluent.kafka.schemaregistry.client.rest.entities.SchemaMetadata;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import io.confluent.kafka.schemaregistry.client.rest.exceptions.RestClientException;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
+import java.io.IOException;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
-class SchemaRegistryServiceTest {
+@Service
+public class SchemaRegistryService {
 
-    private SchemaRegistryClient mockClient;
-    private SchemaRegistryService schemaRegistryService;
+    private final SchemaRegistryClient client;
 
-    @BeforeEach
-    void setup() {
-        mockClient = mock(SchemaRegistryClient.class);
-        schemaRegistryService = new SchemaRegistryService(mockClient);
+    // Local fallback store: subject → SchemaMetadata
+    private final Map<String, SchemaMetadata> fallbackSchemas = new ConcurrentHashMap<>();
+
+    public SchemaRegistryService(SchemaRegistryClient client) {
+        this.client = client;
     }
 
-    @Test
-    void testGetDlqSchemaMeta() throws Exception {
-        when(mockClient.getLatestSchemaMetadata("orders-dlq-value"))
-                .thenReturn(new SchemaMetadata(1, 1, "{\"type\":\"record\",\"name\":\"DlqOrder\"}"));
-
-        SchemaMetadata meta = schemaRegistryService.getDlqSchemaMeta("orders-dlq");
-
-        assertThat(meta.getId()).isEqualTo(1);
-        assertThat(meta.getSchema()).contains("DlqOrder");
-
-        verify(mockClient, times(1)).getLatestSchemaMetadata("orders-dlq-value");
+    /**
+     * Get latest schema metadata for a DLQ topic (subject = topic + "-value").
+     */
+    @Cacheable(value = "dlqSchemas", key = "#dlqTopic")
+    public SchemaMetadata getDlqSchemaMeta(String dlqTopic) {
+        return getLatestSchemaMetadata(dlqTopic);
     }
 
-    @Test
-    void testGetFeedbackSchemaMeta() throws Exception {
-        when(mockClient.getLatestSchemaMetadata("orders-feedback-value"))
-                .thenReturn(new SchemaMetadata(2, 3, "{\"type\":\"record\",\"name\":\"FeedbackOrder\"}"));
+    /**
+     * Get latest schema metadata for a Feedback topic (subject = topic + "-value").
+     */
+    @Cacheable(value = "feedbackSchemas", key = "#feedbackTopic")
+    public SchemaMetadata getFeedbackSchemaMeta(String feedbackTopic) {
+        return getLatestSchemaMetadata(feedbackTopic);
+    }
 
-        SchemaMetadata meta = schemaRegistryService.getFeedbackSchemaMeta("orders-feedback");
-
-        assertThat(meta.getId()).isEqualTo(2);
-        assertThat(meta.getVersion()).isEqualTo(3);
-        assertThat(meta.getSchema()).contains("FeedbackOrder");
-
-        verify(mockClient, times(1)).getLatestSchemaMetadata("orders-feedback-value");
+    // --- Shared helper ---
+    private SchemaMetadata getLatestSchemaMetadata(String topic) {
+        String subject = topic + "-value";
+        try {
+            SchemaMetadata schemaMetadata = client.getLatestSchemaMetadata(subject);
+            // refresh fallback cache if fetch succeeds
+            fallbackSchemas.put(subject, schemaMetadata);
+            return schemaMetadata;
+        } catch (IOException | RestClientException e) {
+            // fall back to last known schema
+            SchemaMetadata fallback = fallbackSchemas.get(subject);
+            if (fallback != null) {
+                return fallback;
+            }
+            throw new SchemaRegistryServiceException(
+                "Failed to fetch schema and no fallback available for subject=" + subject, e
+            );
+        }
     }
 }
