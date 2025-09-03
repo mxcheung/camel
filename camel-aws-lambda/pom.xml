@@ -1,0 +1,36 @@
+<dependencies>
+    <!-- Core Camel -->
+    <dependency>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-core</artifactId>
+        <version>${camel.version}</version>
+    </dependency>
+
+    <!-- Camel Main (if running standalone, not Spring Boot) -->
+    <dependency>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-main</artifactId>
+        <version>${camel.version}</version>
+    </dependency>
+
+    <!-- Kafka component -->
+    <dependency>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-kafka</artifactId>
+        <version>${camel.version}</version>
+    </dependency>
+
+    <!-- AWS Lambda v2 component -->
+    <dependency>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-aws2-lambda</artifactId>
+        <version>${camel.version}</version>
+    </dependency>
+
+    <!-- Jackson (for JSON marshalling/unmarshalling) -->
+    <dependency>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-jackson</artifactId>
+        <version>${camel.version}</version>
+    </dependency>
+</dependencies>
