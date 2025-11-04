@@ -1,0 +1,52 @@
+import jakarta.jms.*;
+import com.ibm.msg.client.jms.JmsConnectionFactory;
+import com.ibm.msg.client.jms.JmsFactoryFactory;
+import com.ibm.msg.client.wmq.WMQConstants;
+
+public class IbmMqSimpleTest {
+
+    public static void main(String[] args) {
+        String host = "localhost";
+        int port = 1414;
+        String channel = "DEV.APP.SVRCONN";
+        String queueManager = "QM1";
+        String queueName = "DEV.QUEUE.1";
+        String user = "app";
+        String password = "passw0rd";
+
+        JMSContext context = null;
+
+        try {
+            // Create a connection factory
+            JmsFactoryFactory ff = JmsFactoryFactory.getInstance(WMQConstants.WMQ_PROVIDER);
+            JmsConnectionFactory cf = ff.createConnectionFactory();
+
+            // Configure connection properties
+            cf.setStringProperty(WMQConstants.WMQ_HOST_NAME, host);
+            cf.setIntProperty(WMQConstants.WMQ_PORT, port);
+            cf.setStringProperty(WMQConstants.WMQ_CHANNEL, channel);
+            cf.setIntProperty(WMQConstants.WMQ_CONNECTION_MODE, WMQConstants.WMQ_CM_CLIENT);
+            cf.setStringProperty(WMQConstants.WMQ_QUEUE_MANAGER, queueManager);
+            cf.setStringProperty(WMQConstants.USERID, user);
+            cf.setStringProperty(WMQConstants.PASSWORD, password);
+
+            // Create context (auto closes connection/session)
+            context = cf.createContext();
+
+            Queue queue = context.createQueue("queue:///" + queueName);
+
+            // Send message
+            String messageText = "Hello IBM MQ!";
+            context.createProducer().send(queue, messageText);
+            System.out.println("Sent message: " + messageText);
+
+            // Receive message
+            String received = context.createConsumer(queue).receiveBody(String.class, 5000);
+            System.out.println("Received message: " + received);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (context != null) context.close();
+        }
+    }
+}
